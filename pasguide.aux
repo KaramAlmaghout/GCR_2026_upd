@@ -1,0 +1,519 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\providecommand\BKM@entry[2]{}
+\BKM@entry{id=1,open,dest={73656374696F6E2E302E31},srcline={65}}{5C3337365C3337375C303030495C3030306E5C303030745C303030725C3030306F5C303030645C303030755C303030635C303030745C303030695C3030306F5C3030306E}
+\citation{Sanchez2018Survey,Yin2021Survey,Zhu2022ChallengesOutlook,Caporali2026Survey}
+\citation{AlmaghoutKlimchik2022VFP}
+\citation{AlmaghoutKlimchik2024CableShapeControl,AlmaghoutCherubiniKlimchik2024LargeDeformation}
+\citation{KuffnerLaValle2000RRTConnect,KaramanFrazzoli2011SamplingOptimal}
+\citation{MollKavraki2006DLOPlanning}
+\citation{BretlMcCarthy2014ElasticRod}
+\citation{RousselFernbachTaix2020ElasticRodContacts}
+\noaffnum
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.0.1}\protected@file@percent }
+\newlabel{sec:introduction}{{1}{1}{Introduction}{section.0.1}{}}
+\newlabel{sec:introduction@cref}{{[section][1][]1}{[1][1][]1}}
+\BKM@entry{id=2,open,dest={73656374696F6E2E302E32},srcline={380}}{5C3337365C3337375C303030525C303030655C3030306C5C303030615C303030745C303030655C303030645C3030305C3034305C303030575C3030306F5C303030725C3030306B}
+\citation{Sanchez2018Survey,Yin2021Survey,Zhu2022ChallengesOutlook,Caporali2026Survey}
+\citation{navarro2013model,JinTomizuka2019CableManipulation,Lagneau2020ModelFreeWireServoing,Lv2021CoordinatedFlexibleCables}
+\citation{AlmaghoutKlimchik2022PlanarShapeControl}
+\citation{AlmaghoutKlimchik2022VFP}
+\citation{AlmaghoutCherubiniKlimchik2024LargeDeformation}
+\citation{MollKavraki2006DLOPlanning}
+\citation{BretlMcCarthy2014ElasticRod}
+\citation{RousselFernbachTaix2020ElasticRodContacts}
+\citation{sintov2020motion}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.0.2}\protected@file@percent }
+\newlabel{sec:related}{{2}{2}{Related Work}{section.0.2}{}}
+\newlabel{sec:related@cref}{{[section][2][]2}{[1][2][]2}}
+\citation{yu2023coarse}
+\citation{yu2025generalizable}
+\citation{AksoyWen2025DLOPlanningControl}
+\citation{tang2026hierarchical}
+\citation{jin2022robotic,waltersson2022planning,keipour2022deformable}
+\BKM@entry{id=3,open,dest={73656374696F6E2E302E33},srcline={512}}{5C3337365C3337375C303030505C303030725C3030306F5C303030625C3030306C5C303030655C3030306D5C3030305C3034305C303030465C3030306F5C303030725C3030306D5C303030755C3030306C5C303030615C303030745C303030695C3030306F5C3030306E}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Problem Formulation}{3}{section.0.3}\protected@file@percent }
+\newlabel{sec:formulation}{{3}{3}{Problem Formulation}{section.0.3}{}}
+\newlabel{sec:formulation@cref}{{[section][3][]3}{[1][3][]3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Workspace and Obstacles}{3}{subsection.0.3.1}\protected@file@percent }
+\newlabel{subsec:workspace_obstacles}{{3.1}{3}{Workspace and Obstacles}{subsection.0.3.1}{}}
+\newlabel{subsec:workspace_obstacles@cref}{{[subsection][1][3]3.1}{[1][3][]3}}
+\newlabel{eq:workspace_rectangle}{{1}{3}{Workspace and Obstacles}{equation.0.3.1}{}}
+\newlabel{eq:workspace_rectangle@cref}{{[equation][1][0]1}{[1][3][]3}}
+\newlabel{eq:obstacle_set}{{2}{3}{Workspace and Obstacles}{equation.0.3.2}{}}
+\newlabel{eq:obstacle_set@cref}{{[equation][2][0]2}{[1][3][]3}}
+\newlabel{eq:obstacle_union}{{3}{3}{Workspace and Obstacles}{equation.0.3.3}{}}
+\newlabel{eq:obstacle_union@cref}{{[equation][3][0]3}{[1][3][]3}}
+\newlabel{eq:workspace_free_region}{{4}{3}{Workspace and Obstacles}{equation.0.3.4}{}}
+\newlabel{eq:workspace_free_region@cref}{{[equation][4][0]4}{[1][3][]3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Discrete Cable Representation}{4}{subsection.0.3.2}\protected@file@percent }
+\newlabel{subsec:dlo_representation}{{3.2}{4}{Discrete Cable Representation}{subsection.0.3.2}{}}
+\newlabel{subsec:dlo_representation@cref}{{[subsection][2][3]3.2}{[1][4][]4}}
+\newlabel{eq:cable_configuration_definition}{{5}{4}{Discrete Cable Representation}{equation.0.3.5}{}}
+\newlabel{eq:cable_configuration_definition@cref}{{[equation][5][0]5}{[1][4][]4}}
+\newlabel{eq:cable_segment_definition}{{6}{4}{Discrete Cable Representation}{equation.0.3.6}{}}
+\newlabel{eq:cable_segment_definition@cref}{{[equation][6][0]6}{[1][4][]4}}
+\newlabel{eq:ambient_configuration_space}{{7}{4}{Discrete Cable Representation}{equation.0.3.7}{}}
+\newlabel{eq:ambient_configuration_space@cref}{{[equation][7][0]7}{[1][4][]4}}
+\newlabel{eq:start_goal_configurations}{{8}{4}{Discrete Cable Representation}{equation.0.3.8}{}}
+\newlabel{eq:start_goal_configurations@cref}{{[equation][8][0]8}{[1][4][]4}}
+\newlabel{eq:nominal_segment_length_from_start}{{9}{4}{Discrete Cable Representation}{equation.0.3.9}{}}
+\newlabel{eq:nominal_segment_length_from_start@cref}{{[equation][9][0]9}{[1][4][]4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Problem formulation for global cable routing in a planar workspace with static obstacles.}}{4}{figure.caption.2}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:dlo_workspace_problem_formulation}{{1}{4}{Problem formulation for global cable routing in a planar workspace with static obstacles}{figure.caption.2}{}}
+\newlabel{fig:dlo_workspace_problem_formulation@cref}{{[figure][1][0]1}{[1][4][]4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Local Deformation Measures}{4}{subsection.0.3.3}\protected@file@percent }
+\newlabel{subsec:gcr_elastic_deformation_measures}{{3.3}{4}{Local Deformation Measures}{subsection.0.3.3}{}}
+\newlabel{subsec:gcr_elastic_deformation_measures@cref}{{[subsection][3][3]3.3}{[1][4][]4}}
+\newlabel{eq:gcr_segment_vector}{{11}{4}{Local Deformation Measures}{equation.0.3.11}{}}
+\newlabel{eq:gcr_segment_vector@cref}{{[equation][11][0]11}{[1][4][]4}}
+\newlabel{eq:gcr_discrete_curvature}{{12}{4}{Local Deformation Measures}{equation.0.3.12}{}}
+\newlabel{eq:gcr_discrete_curvature@cref}{{[equation][12][0]12}{[1][4][]4}}
+\newlabel{eq:gcr_segment_vector_change}{{14}{4}{Local Deformation Measures}{equation.0.3.14}{}}
+\newlabel{eq:gcr_segment_vector_change@cref}{{[equation][14][0]14}{[1][4][]4}}
+\newlabel{eq:gcr_curvature_change}{{15}{4}{Local Deformation Measures}{equation.0.3.15}{}}
+\newlabel{eq:gcr_curvature_change@cref}{{[equation][15][0]15}{[1][4][]4}}
+\newlabel{eq:gcr_transition_deformation_energy}{{16}{4}{Local Deformation Measures}{equation.0.3.16}{}}
+\newlabel{eq:gcr_transition_deformation_energy@cref}{{[equation][16][0]16}{[1][4][]4}}
+\newlabel{fig:local-deformation-segment-vector}{{2a}{5}{Subfigure 0 2a}{subfigure.2.1}{}}
+\newlabel{fig:local-deformation-segment-vector@cref}{{[subfigure][1][0,2]2a}{[1][4][]5}}
+\newlabel{sub@fig:local-deformation-segment-vector}{{(a)}{a}{Subfigure 0 2a\relax }{subfigure.2.1}{}}
+\newlabel{fig:local-deformation-segment-change}{{2b}{5}{Subfigure 0 2b}{subfigure.2.2}{}}
+\newlabel{fig:local-deformation-segment-change@cref}{{[subfigure][2][0,2]2b}{[1][4][]5}}
+\newlabel{sub@fig:local-deformation-segment-change}{{(b)}{b}{Subfigure 0 2b\relax }{subfigure.2.2}{}}
+\newlabel{fig:local-deformation-bending-change}{{2c}{5}{Subfigure 0 2c}{subfigure.2.3}{}}
+\newlabel{fig:local-deformation-bending-change@cref}{{[subfigure][3][0,2]2c}{[1][4][]5}}
+\newlabel{sub@fig:local-deformation-bending-change}{{(c)}{c}{Subfigure 0 2c\relax }{subfigure.2.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Local deformation measures between two neighboring cable configurations. Blue solid curves denote \(C^a\), orange dashed curves denote \(C^b\), and the difference arrows indicate the local vector and bending terms that enter the deformation penalty.}}{5}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:local-deformation-measures}{{2}{5}{Local deformation measures between two neighboring cable configurations. Blue solid curves denote \(C^a\), orange dashed curves denote \(C^b\), and the difference arrows indicate the local vector and bending terms that enter the deformation penalty}{figure.caption.3}{}}
+\newlabel{fig:local-deformation-measures@cref}{{[figure][2][0]2}{[1][4][]5}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Corresponding segment vectors in \(C^a\) and \(C^b\).}}}{5}{subfigure.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Segment-vector change \(\Delta v_k\).}}}{5}{subfigure.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Local bending change \(\Delta b_k\).}}}{5}{subfigure.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Admissible and Collision-Free Configurations}{5}{subsection.0.3.4}\protected@file@percent }
+\newlabel{subsec:configuration_space}{{3.4}{5}{Admissible and Collision-Free Configurations}{subsection.0.3.4}{}}
+\newlabel{subsec:configuration_space@cref}{{[subsection][4][3]3.4}{[1][5][]5}}
+\newlabel{eq:segment_vector_displacement_bound}{{17}{5}{Admissible and Collision-Free Configurations}{equation.0.3.17}{}}
+\newlabel{eq:segment_vector_displacement_bound@cref}{{[equation][17][0]17}{[1][5][]5}}
+\newlabel{eq:collision_free_configuration_space}{{18}{5}{Admissible and Collision-Free Configurations}{equation.0.3.18}{}}
+\newlabel{eq:collision_free_configuration_space@cref}{{[equation][18][0]18}{[1][5][]5}}
+\newlabel{fig:admissible-accepted}{{3a}{5}{Subfigure 0 3a}{subfigure.3.1}{}}
+\newlabel{fig:admissible-accepted@cref}{{[subfigure][1][0,3]3a}{[1][5][]5}}
+\newlabel{sub@fig:admissible-accepted}{{(a)}{a}{Subfigure 0 3a\relax }{subfigure.3.1}{}}
+\newlabel{fig:admissible-deformation-bound-fails}{{3b}{5}{Subfigure 0 3b}{subfigure.3.2}{}}
+\newlabel{fig:admissible-deformation-bound-fails@cref}{{[subfigure][2][0,3]3b}{[1][5][]5}}
+\newlabel{sub@fig:admissible-deformation-bound-fails}{{(b)}{b}{Subfigure 0 3b\relax }{subfigure.3.2}{}}
+\newlabel{fig:admissible-collision-fails}{{3c}{5}{Subfigure 0 3c}{subfigure.3.3}{}}
+\newlabel{fig:admissible-collision-fails@cref}{{[subfigure][3][0,3]3c}{[1][5][]5}}
+\newlabel{sub@fig:admissible-collision-fails}{{(c)}{c}{Subfigure 0 3c\relax }{subfigure.3.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Schematic examples of static configuration validity. Blue curves denote the candidate configuration, orange dashed curves denote the reference configuration where applicable, and red regions denote obstacles. The rejected cases violate either the local bound \(\|\Delta v_k\|\leq \delta _\ell \) or the collision-free segment condition \(s_k(C)\cap \mathcal  {O}=\emptyset \).}}{5}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:admissible-collision-free}{{3}{5}{Schematic examples of static configuration validity. Blue curves denote the candidate configuration, orange dashed curves denote the reference configuration where applicable, and red regions denote obstacles. The rejected cases violate either the local bound \(\|\Delta v_k\|\leq \delta _\ell \) or the collision-free segment condition \(s_k(C)\cap \mathcal {O}=\emptyset \)}{figure.caption.4}{}}
+\newlabel{fig:admissible-collision-free@cref}{{[figure][3][0]3}{[1][5][]5}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Accepted admissible configuration.}}}{5}{subfigure.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Local-bound violation.}}}{5}{subfigure.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Rejected by cable-obstacle intersection.}}}{5}{subfigure.3.3}\protected@file@percent }
+\newlabel{eq:signed_obstacle_distance}{{19}{5}{Admissible and Collision-Free Configurations}{equation.0.3.19}{}}
+\newlabel{eq:signed_obstacle_distance@cref}{{[equation][19][0]19}{[1][5][]5}}
+\newlabel{eq:configuration_clearance}{{20}{5}{Admissible and Collision-Free Configurations}{equation.0.3.20}{}}
+\newlabel{eq:configuration_clearance@cref}{{[equation][20][0]20}{[1][5][]5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Configuration Distance and Path Cost}{6}{subsection.0.3.5}\protected@file@percent }
+\newlabel{subsec:distance_path_cost}{{3.5}{6}{Configuration Distance and Path Cost}{subsection.0.3.5}{}}
+\newlabel{subsec:distance_path_cost@cref}{{[subsection][5][3]3.5}{[1][5][]6}}
+\newlabel{eq:configuration_distance_metric}{{21}{6}{Configuration Distance and Path Cost}{equation.0.3.21}{}}
+\newlabel{eq:configuration_distance_metric@cref}{{[equation][21][0]21}{[1][5][]6}}
+\newlabel{eq:discrete_cable_path}{{22}{6}{Configuration Distance and Path Cost}{equation.0.3.22}{}}
+\newlabel{eq:discrete_cable_path@cref}{{[equation][22][0]22}{[1][6][]6}}
+\newlabel{eq:path_geometric_cost}{{23}{6}{Configuration Distance and Path Cost}{equation.0.3.23}{}}
+\newlabel{eq:path_geometric_cost@cref}{{[equation][23][0]23}{[1][6][]6}}
+\newlabel{eq:path_deformation_cost}{{24}{6}{Configuration Distance and Path Cost}{equation.0.3.24}{}}
+\newlabel{eq:path_deformation_cost@cref}{{[equation][24][0]24}{[1][6][]6}}
+\newlabel{eq:complete_path_cost_objective}{{25}{6}{Configuration Distance and Path Cost}{equation.0.3.25}{}}
+\newlabel{eq:complete_path_cost_objective@cref}{{[equation][25][0]25}{[1][6][]6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Transition Feasibility}{6}{subsection.0.3.6}\protected@file@percent }
+\newlabel{subsec:continuous_motion}{{3.6}{6}{Transition Feasibility}{subsection.0.3.6}{}}
+\newlabel{subsec:continuous_motion@cref}{{[subsection][6][3]3.6}{[1][6][]6}}
+\newlabel{eq:segment_swept_envelope}{{26}{6}{Transition Feasibility}{equation.0.3.26}{}}
+\newlabel{eq:segment_swept_envelope@cref}{{[equation][26][0]26}{[1][6][]6}}
+\newlabel{fig:configuration-edge-distance}{{4a}{6}{Subfigure 0 4a}{subfigure.4.1}{}}
+\newlabel{fig:configuration-edge-distance@cref}{{[subfigure][1][0,4]4a}{[1][6][]6}}
+\newlabel{sub@fig:configuration-edge-distance}{{(a)}{a}{Subfigure 0 4a\relax }{subfigure.4.1}{}}
+\newlabel{fig:configuration-accumulated-path-cost}{{4b}{6}{Subfigure 0 4b}{subfigure.4.2}{}}
+\newlabel{fig:configuration-accumulated-path-cost@cref}{{[subfigure][2][0,4]4b}{[1][6][]6}}
+\newlabel{sub@fig:configuration-accumulated-path-cost}{{(b)}{b}{Subfigure 0 4b\relax }{subfigure.4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Configuration distance and accumulated path cost. The edge-distance panel depicts the max-norm metric \(d(C_i,C_{i+1})=\max _n\|p_n^i-p_n^{i+1}\|\), for which the edge length is induced by the largest displacement among corresponding cable nodes. The path-cost panel shows the accumulation \(J(\mathcal  {P})=\sum _i c_i\), where \(c_i=d(C_i,C_{i+1})+\alpha _{\mathrm  {def}}E_{\mathrm  {def}}(C_{i+1},C_i)\).}}{6}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:configuration-distance-cost}{{4}{6}{Configuration distance and accumulated path cost. The edge-distance panel depicts the max-norm metric \(d(C_i,C_{i+1})=\max _n\|p_n^i-p_n^{i+1}\|\), for which the edge length is induced by the largest displacement among corresponding cable nodes. The path-cost panel shows the accumulation \(J(\mathcal {P})=\sum _i c_i\), where \(c_i=d(C_i,C_{i+1})+\alpha _{\mathrm {def}}E_{\mathrm {def}}(C_{i+1},C_i)\)}{figure.caption.5}{}}
+\newlabel{fig:configuration-distance-cost@cref}{{[figure][4][0]4}{[1][6][]6}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Edge-distance metric.}}}{6}{subfigure.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Accumulated path cost.}}}{6}{subfigure.4.2}\protected@file@percent }
+\newlabel{eq:swept_polygon_formulation}{{27}{6}{Transition Feasibility}{equation.0.3.27}{}}
+\newlabel{eq:swept_polygon_formulation@cref}{{[equation][27][0]27}{[1][6][]6}}
+\newlabel{eq:swept_envelope_free_condition}{{28}{6}{Transition Feasibility}{equation.0.3.28}{}}
+\newlabel{eq:swept_envelope_free_condition@cref}{{[equation][28][0]28}{[1][6][]6}}
+\newlabel{eq:swept_clear_indicator_definition}{{29}{6}{Transition Feasibility}{equation.0.3.29}{}}
+\newlabel{eq:swept_clear_indicator_definition@cref}{{[equation][29][0]29}{[1][6][]6}}
+\newlabel{fig:transition-swept-clear}{{5a}{7}{Subfigure 0 5a}{subfigure.5.1}{}}
+\newlabel{fig:transition-swept-clear@cref}{{[subfigure][1][0,5]5a}{[1][6][]7}}
+\newlabel{sub@fig:transition-swept-clear}{{(a)}{a}{Subfigure 0 5a\relax }{subfigure.5.1}{}}
+\newlabel{fig:transition-swept-blocked}{{5b}{7}{Subfigure 0 5b}{subfigure.5.2}{}}
+\newlabel{fig:transition-swept-blocked@cref}{{[subfigure][2][0,5]5b}{[1][6][]7}}
+\newlabel{sub@fig:transition-swept-blocked}{{(b)}{b}{Subfigure 0 5b\relax }{subfigure.5.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Transition feasibility between two ordered configurations. Blue and orange curves denote the two neighboring cable shapes, the shaded band is the swept envelope, and red regions denote obstacles. The complete edge is accepted only when the swept region is obstacle-free and the remaining conditions in \(\Gamma (\cdot ,\cdot )\) are also satisfied.}}{7}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:transition-feasibility}{{5}{7}{Transition feasibility between two ordered configurations. Blue and orange curves denote the two neighboring cable shapes, the shaded band is the swept envelope, and red regions denote obstacles. The complete edge is accepted only when the swept region is obstacle-free and the remaining conditions in \(\Gamma (\cdot ,\cdot )\) are also satisfied}{figure.caption.6}{}}
+\newlabel{fig:transition-feasibility@cref}{{[figure][5][0]5}{[1][6][]7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Clear swept envelope.}}}{7}{subfigure.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Blocked swept envelope.}}}{7}{subfigure.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Ordered Transition Feasibility and Endpoint Correspondence}{7}{subsection.0.3.7}\protected@file@percent }
+\newlabel{subsec:ordered_transition_feasibility}{{3.7}{7}{Ordered Transition Feasibility and Endpoint Correspondence}{subsection.0.3.7}{}}
+\newlabel{subsec:ordered_transition_feasibility@cref}{{[subsection][7][3]3.7}{[1][6][]7}}
+\newlabel{eq:reversal_operator}{{31}{7}{Ordered Transition Feasibility and Endpoint Correspondence}{equation.0.3.31}{}}
+\newlabel{eq:reversal_operator@cref}{{[equation][31][0]31}{[1][7][]7}}
+\BKM@entry{id=4,open,dest={73656374696F6E2E302E34},srcline={1235}}{5C3337365C3337375C303030475C3030306C5C3030306F5C303030625C303030615C3030306C5C3030305C3034305C303030435C303030615C303030625C3030306C5C303030655C3030305C3034305C303030525C3030306F5C303030755C303030745C303030695C3030306E5C303030675C3030305C3034305C303030415C3030306C5C303030675C3030306F5C303030725C303030695C303030745C303030685C3030306D}
+\newlabel{fig:order-transition-swapped-endpoints}{{6a}{8}{Subfigure 0 6a}{subfigure.6.1}{}}
+\newlabel{fig:order-transition-swapped-endpoints@cref}{{[subfigure][1][0,6]6a}{[1][7][]8}}
+\newlabel{sub@fig:order-transition-swapped-endpoints}{{(a)}{a}{Subfigure 0 6a\relax }{subfigure.6.1}{}}
+\newlabel{fig:order-transition-preserved-endpoints}{{6b}{8}{Subfigure 0 6b}{subfigure.6.2}{}}
+\newlabel{fig:order-transition-preserved-endpoints@cref}{{[subfigure][2][0,6]6b}{[1][7][]8}}
+\newlabel{sub@fig:order-transition-preserved-endpoints}{{(b)}{b}{Subfigure 0 6b\relax }{subfigure.6.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Endpoint correspondence for ordered cable transitions. The same two cable shapes can produce different swept regions under different endpoint correspondences. In this schematic example, the swapped correspondence produces an X-shaped sweep away from the obstacle, whereas the preserved correspondence intersects the obstacle; therefore, \(\chi _{\mathrm  {sw}}\) and \(\Gamma \) must be evaluated using the ordered representatives actually used by the planner.}}{8}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:order-transition-endpoint-correspondence}{{6}{8}{Endpoint correspondence for ordered cable transitions. The same two cable shapes can produce different swept regions under different endpoint correspondences. In this schematic example, the swapped correspondence produces an X-shaped sweep away from the obstacle, whereas the preserved correspondence intersects the obstacle; therefore, \(\chi _{\mathrm {sw}}\) and \(\Gamma \) must be evaluated using the ordered representatives actually used by the planner}{figure.caption.7}{}}
+\newlabel{fig:order-transition-endpoint-correspondence@cref}{{[figure][6][0]6}{[1][7][]8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Swapped endpoint correspondence.}}}{8}{subfigure.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Preserved endpoint correspondence.}}}{8}{subfigure.6.2}\protected@file@percent }
+\newlabel{eq:ordered_edge_feasibility_predicate}{{44}{8}{Ordered Transition Feasibility and Endpoint Correspondence}{equation.0.3.44}{}}
+\newlabel{eq:ordered_edge_feasibility_predicate@cref}{{[equation][44][0]44}{[1][8][]8}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Global Cable Routing Algorithm}{8}{section.0.4}\protected@file@percent }
+\newlabel{sec:gcr_algorithm}{{4}{8}{Global Cable Routing Algorithm}{section.0.4}{}}
+\newlabel{sec:gcr_algorithm@cref}{{[section][4][]4}{[1][8][]8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Search Trees and Bidirectional Expansion}{8}{subsection.0.4.1}\protected@file@percent }
+\newlabel{subsec:gcr_search_trees}{{4.1}{8}{Search Trees and Bidirectional Expansion}{subsection.0.4.1}{}}
+\newlabel{subsec:gcr_search_trees@cref}{{[subsection][1][4]4.1}{[1][8][]8}}
+\newlabel{eq:gcr_two_trees}{{45}{8}{Search Trees and Bidirectional Expansion}{equation.0.4.45}{}}
+\newlabel{eq:gcr_two_trees@cref}{{[equation][45][0]45}{[1][8][]8}}
+\newlabel{eq:gcr_tree_initialization}{{46}{8}{Search Trees and Bidirectional Expansion}{equation.0.4.46}{}}
+\newlabel{eq:gcr_tree_initialization@cref}{{[equation][46][0]46}{[1][8][]8}}
+\newlabel{eq:tree_cost_to_come}{{47}{8}{Search Trees and Bidirectional Expansion}{equation.0.4.47}{}}
+\newlabel{eq:tree_cost_to_come@cref}{{[equation][47][0]47}{[1][8][]8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Bidirectional search-tree structure used by GCR. The blue start tree \(T_s\) is rooted at \(C_{\mathrm  {start}}\), and the orange goal tree \(T_g\) is rooted at \(C_{\mathrm  {goal}}\). Red regions are obstacles, and the dashed purple bridge denotes the candidate inter-tree connection \(C_{\mathrm  {conn}}\). The displayed vertices and edges are collision-free; a bridge is accepted only if the ordered edge-feasibility predicate \(\Gamma \) validates the connection.}}{8}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:bidirectional-search-trees}{{7}{8}{Bidirectional search-tree structure used by GCR. The blue start tree \(T_s\) is rooted at \(C_{\mathrm {start}}\), and the orange goal tree \(T_g\) is rooted at \(C_{\mathrm {goal}}\). Red regions are obstacles, and the dashed purple bridge denotes the candidate inter-tree connection \(C_{\mathrm {conn}}\). The displayed vertices and edges are collision-free; a bridge is accepted only if the ordered edge-feasibility predicate \(\Gamma \) validates the connection}{figure.caption.8}{}}
+\newlabel{fig:bidirectional-search-trees@cref}{{[figure][7][0]7}{[1][8][]8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Guided Configuration Sampling}{8}{subsection.0.4.2}\protected@file@percent }
+\newlabel{subsec:gcr_guided_sampling}{{4.2}{8}{Guided Configuration Sampling}{subsection.0.4.2}{}}
+\newlabel{subsec:gcr_guided_sampling@cref}{{[subsection][2][4]4.2}{[1][8][]8}}
+\newlabel{eq:guided_mixture_sampler}{{48}{8}{Guided Configuration Sampling}{equation.0.4.48}{}}
+\newlabel{eq:guided_mixture_sampler@cref}{{[equation][48][0]48}{[1][8][]8}}
+\newlabel{eq:guided_sampler_probabilities}{{49}{8}{Guided Configuration Sampling}{equation.0.4.49}{}}
+\newlabel{eq:guided_sampler_probabilities@cref}{{[equation][49][0]49}{[1][8][]8}}
+\newlabel{eq:tree_biased_base}{{50}{9}{Guided Configuration Sampling}{equation.0.4.50}{}}
+\newlabel{eq:tree_biased_base@cref}{{[equation][50][0]50}{[1][9][]9}}
+\newlabel{eq:tree_biased_alpha}{{51}{9}{Guided Configuration Sampling}{equation.0.4.51}{}}
+\newlabel{eq:tree_biased_alpha@cref}{{[equation][51][0]51}{[1][9][]9}}
+\newlabel{eq:raw_sample_noise}{{52}{9}{Guided Configuration Sampling}{equation.0.4.52}{}}
+\newlabel{eq:raw_sample_noise@cref}{{[equation][52][0]52}{[1][9][]9}}
+\newlabel{eq:broad_random_walk_position}{{53}{9}{Guided Configuration Sampling}{equation.0.4.53}{}}
+\newlabel{eq:broad_random_walk_position@cref}{{[equation][53][0]53}{[1][9][]9}}
+\newlabel{eq:broad_random_walk_angle}{{54}{9}{Guided Configuration Sampling}{equation.0.4.54}{}}
+\newlabel{eq:broad_random_walk_angle@cref}{{[equation][54][0]54}{[1][9][]9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Configuration-Level Artificial Potential Field Biasing}{9}{subsection.0.4.3}\protected@file@percent }
+\newlabel{subsec:gcr_config_apf_sampling}{{4.3}{9}{Configuration-Level Artificial Potential Field Biasing}{subsection.0.4.3}{}}
+\newlabel{subsec:gcr_config_apf_sampling@cref}{{[subsection][3][4]4.3}{[1][9][]9}}
+\newlabel{eq:gcr_configuration_for_apf}{{55}{9}{Configuration-Level Artificial Potential Field Biasing}{equation.0.4.55}{}}
+\newlabel{eq:gcr_configuration_for_apf@cref}{{[equation][55][0]55}{[1][9][]9}}
+\newlabel{eq:gcr_apf_mapping}{{56}{9}{Configuration-Level Artificial Potential Field Biasing}{equation.0.4.56}{}}
+\newlabel{eq:gcr_apf_mapping@cref}{{[equation][56][0]56}{[1][9][]9}}
+\newlabel{eq:gcr_apf_gradient_definition}{{57}{9}{Configuration-Level Artificial Potential Field Biasing}{equation.0.4.57}{}}
+\newlabel{eq:gcr_apf_gradient_definition@cref}{{[equation][57][0]57}{[1][9][]9}}
+\newlabel{eq:gcr_pointwise_apf_force}{{58}{9}{Configuration-Level Artificial Potential Field Biasing}{equation.0.4.58}{}}
+\newlabel{eq:gcr_pointwise_apf_force@cref}{{[equation][58][0]58}{[1][9][]9}}
+\newlabel{eq:gcr_total_configuration_potential}{{59}{9}{Configuration-Level Artificial Potential Field Biasing}{equation.0.4.59}{}}
+\newlabel{eq:gcr_total_configuration_potential@cref}{{[equation][59][0]59}{[1][9][]9}}
+\newlabel{eq:gcr_attractive_potential}{{60}{9}{Configuration-Level Artificial Potential Field Biasing}{equation.0.4.60}{}}
+\newlabel{eq:gcr_attractive_potential@cref}{{[equation][60][0]60}{[1][9][]9}}
+\newlabel{eq:gcr_target_configuration_points}{{61}{9}{Configuration-Level Artificial Potential Field Biasing}{equation.0.4.61}{}}
+\newlabel{eq:gcr_target_configuration_points@cref}{{[equation][61][0]61}{[1][9][]9}}
+\newlabel{eq:gcr_segment_sample_points}{{62}{9}{Configuration-Level Artificial Potential Field Biasing}{equation.0.4.62}{}}
+\newlabel{eq:gcr_segment_sample_points@cref}{{[equation][62][0]62}{[1][9][]9}}
+\newlabel{eq:gcr_segment_obstacle_distance}{{63}{9}{Configuration-Level Artificial Potential Field Biasing}{equation.0.4.63}{}}
+\newlabel{eq:gcr_segment_obstacle_distance@cref}{{[equation][63][0]63}{[1][9][]9}}
+\newlabel{eq:gcr_repulsive_potential}{{64}{9}{Configuration-Level Artificial Potential Field Biasing}{equation.0.4.64}{}}
+\newlabel{eq:gcr_repulsive_potential@cref}{{[equation][64][0]64}{[1][9][]9}}
+\newlabel{fig:apf_start_tree_field}{{8a}{10}{Subfigure 0 8a}{subfigure.8.1}{}}
+\newlabel{fig:apf_start_tree_field@cref}{{[subfigure][1][0,8]8a}{[1][9][]10}}
+\newlabel{sub@fig:apf_start_tree_field}{{(a)}{a}{Subfigure 0 8a\relax }{subfigure.8.1}{}}
+\newlabel{fig:apf_goal_tree_field}{{8b}{10}{Subfigure 0 8b}{subfigure.8.2}{}}
+\newlabel{fig:apf_goal_tree_field@cref}{{[subfigure][2][0,8]8b}{[1][9][]10}}
+\newlabel{sub@fig:apf_goal_tree_field}{{(b)}{b}{Subfigure 0 8b\relax }{subfigure.8.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Bidirectional configuration-level APF used during tree expansion. The color map represents the normalized potential intensity. Obstacle regions and their neighborhoods correspond to high potential values, while the attractive component biases the expansion toward the opposite tree.}}{10}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:apf_bidirectional_sampling}{{8}{10}{Bidirectional configuration-level APF used during tree expansion. The color map represents the normalized potential intensity. Obstacle regions and their neighborhoods correspond to high potential values, while the attractive component biases the expansion toward the opposite tree}{figure.caption.9}{}}
+\newlabel{fig:apf_bidirectional_sampling@cref}{{[figure][8][0]8}{[1][9][]10}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Start-tree APF with attraction toward the goal configuration. }}}{10}{subfigure.8.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Goal-tree APF with attraction toward the start configuration. }}}{10}{subfigure.8.2}\protected@file@percent }
+\newlabel{eq:gcr_apf_gradient_descent}{{65}{10}{Configuration-Level Artificial Potential Field Biasing}{equation.0.4.65}{}}
+\newlabel{eq:gcr_apf_gradient_descent@cref}{{[equation][65][0]65}{[1][10][]10}}
+\newlabel{eq:gcr_apf_biased_sample_definition}{{66}{10}{Configuration-Level Artificial Potential Field Biasing}{equation.0.4.66}{}}
+\newlabel{eq:gcr_apf_biased_sample_definition@cref}{{[equation][66][0]66}{[1][10][]10}}
+\newlabel{eq:gcr_pointwise_apf_update}{{67}{10}{Configuration-Level Artificial Potential Field Biasing}{equation.0.4.67}{}}
+\newlabel{eq:gcr_pointwise_apf_update@cref}{{[equation][67][0]67}{[1][10][]10}}
+\newlabel{fig:apf_pipeline_raw}{{9a}{10}{Subfigure 0 9a}{subfigure.9.1}{}}
+\newlabel{fig:apf_pipeline_raw@cref}{{[subfigure][1][0,9]9a}{[1][10][]10}}
+\newlabel{sub@fig:apf_pipeline_raw}{{(a)}{a}{Subfigure 0 9a\relax }{subfigure.9.1}{}}
+\newlabel{fig:apf_pipeline_forces}{{9b}{10}{Subfigure 0 9b}{subfigure.9.2}{}}
+\newlabel{fig:apf_pipeline_forces@cref}{{[subfigure][2][0,9]9b}{[1][10][]10}}
+\newlabel{sub@fig:apf_pipeline_forces}{{(b)}{b}{Subfigure 0 9b\relax }{subfigure.9.2}{}}
+\newlabel{fig:apf_pipeline_descent}{{9c}{10}{Subfigure 0 9c}{subfigure.9.3}{}}
+\newlabel{fig:apf_pipeline_descent@cref}{{[subfigure][3][0,9]9c}{[1][10][]10}}
+\newlabel{sub@fig:apf_pipeline_descent}{{(c)}{c}{Subfigure 0 9c\relax }{subfigure.9.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Pipeline of configuration-level APF sampling. A raw random configuration is first generated, then the total APF force is computed for each cable node, and finally the configuration is shifted by gradient descent toward a more promising expansion target.}}{10}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:apf_pipeline}{{9}{10}{Pipeline of configuration-level APF sampling. A raw random configuration is first generated, then the total APF force is computed for each cable node, and finally the configuration is shifted by gradient descent toward a more promising expansion target}{figure.caption.10}{}}
+\newlabel{fig:apf_pipeline@cref}{{[figure][9][0]9}{[1][10][]10}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Sampled raw configuration $C^{\mathrm {raw}}$. }}}{10}{subfigure.9.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Pointwise artificial forces $F_n(C)$ acting on cable nodes. }}}{10}{subfigure.9.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {APF-biased configuration $\setbox \z@ \hbox {\mathsurround \z@ $\textstyle C$}\mathaccent "0362{C}$ after gradient descent. }}}{10}{subfigure.9.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Cable Elastic Relaxation}{10}{subsection.0.4.4}\protected@file@percent }
+\newlabel{subsec:gcr_constrained_relaxation}{{4.4}{10}{Cable Elastic Relaxation}{subsection.0.4.4}{}}
+\newlabel{subsec:gcr_constrained_relaxation@cref}{{[subsection][4][4]4.4}{[1][10][]10}}
+\newlabel{eq:relaxation_objective}{{68}{11}{Cable Elastic Relaxation}{equation.0.4.68}{}}
+\newlabel{eq:relaxation_objective@cref}{{[equation][68][0]68}{[1][11][]11}}
+\newlabel{eq:relaxation_initial_condition}{{69}{11}{Cable Elastic Relaxation}{equation.0.4.69}{}}
+\newlabel{eq:relaxation_initial_condition@cref}{{[equation][69][0]69}{[1][11][]11}}
+\newlabel{eq:relaxation_gradient_step}{{70}{11}{Cable Elastic Relaxation}{equation.0.4.70}{}}
+\newlabel{eq:relaxation_gradient_step@cref}{{[equation][70][0]70}{[1][11][]11}}
+\newlabel{eq:relaxation_projection_step}{{71}{11}{Cable Elastic Relaxation}{equation.0.4.71}{}}
+\newlabel{eq:relaxation_projection_step@cref}{{[equation][71][0]71}{[1][11][]11}}
+\newlabel{eq:relaxation_sampled_points}{{72}{11}{Cable Elastic Relaxation}{equation.0.4.72}{}}
+\newlabel{eq:relaxation_sampled_points@cref}{{[equation][72][0]72}{[1][11][]11}}
+\newlabel{eq:relaxation_clearance_constraint}{{73}{11}{Cable Elastic Relaxation}{equation.0.4.73}{}}
+\newlabel{eq:relaxation_clearance_constraint@cref}{{[equation][73][0]73}{[1][11][]11}}
+\newlabel{eq:relaxation_segment_constraint}{{74}{11}{Cable Elastic Relaxation}{equation.0.4.74}{}}
+\newlabel{eq:relaxation_segment_constraint@cref}{{[equation][74][0]74}{[1][11][]11}}
+\newlabel{eq:relaxation_workspace_projection}{{75}{11}{Cable Elastic Relaxation}{equation.0.4.75}{}}
+\newlabel{eq:relaxation_workspace_projection@cref}{{[equation][75][0]75}{[1][11][]11}}
+\newlabel{eq:relaxation_clip_operator}{{76}{11}{Cable Elastic Relaxation}{equation.0.4.76}{}}
+\newlabel{eq:relaxation_clip_operator@cref}{{[equation][76][0]76}{[1][11][]11}}
+\newlabel{eq:relaxation_endpoint_constraint}{{77}{11}{Cable Elastic Relaxation}{equation.0.4.77}{}}
+\newlabel{eq:relaxation_endpoint_constraint@cref}{{[equation][77][0]77}{[1][11][]11}}
+\newlabel{eq:relaxed_configuration_result}{{78}{11}{Cable Elastic Relaxation}{equation.0.4.78}{}}
+\newlabel{eq:relaxed_configuration_result@cref}{{[equation][78][0]78}{[1][11][]11}}
+\newlabel{eq:relaxed_static_validation}{{79}{11}{Cable Elastic Relaxation}{equation.0.4.79}{}}
+\newlabel{eq:relaxed_static_validation@cref}{{[equation][79][0]79}{[1][11][]11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Projected elastic relaxation of an APF-biased cable configuration. The relaxed configuration remains close to the APF-biased sample while improving obstacle clearance and satisfying local segment-deviation constraints.}}{11}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:relaxation}{{10}{11}{Projected elastic relaxation of an APF-biased cable configuration. The relaxed configuration remains close to the APF-biased sample while improving obstacle clearance and satisfying local segment-deviation constraints}{figure.caption.11}{}}
+\newlabel{fig:relaxation@cref}{{[figure][10][0]10}{[1][11][]11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Feasible Parent Selection and Node Insertion}{11}{subsection.0.4.5}\protected@file@percent }
+\newlabel{subsec:gcr_parent_selection}{{4.5}{11}{Feasible Parent Selection and Node Insertion}{subsection.0.4.5}{}}
+\newlabel{subsec:gcr_parent_selection@cref}{{[subsection][5][4]4.5}{[1][11][]11}}
+\newlabel{eq:relaxed_ordered_representatives}{{80}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.80}{}}
+\newlabel{eq:relaxed_ordered_representatives@cref}{{[equation][80][0]80}{[1][12][]12}}
+\newlabel{eq:relaxed_order_variable}{{81}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.81}{}}
+\newlabel{eq:relaxed_order_variable@cref}{{[equation][81][0]81}{[1][12][]12}}
+\newlabel{eq:parent_distance_filter}{{82}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.82}{}}
+\newlabel{eq:parent_distance_filter@cref}{{[equation][82][0]82}{[1][12][]12}}
+\newlabel{eq:nearby_parent_set}{{83}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.83}{}}
+\newlabel{eq:nearby_parent_set@cref}{{[equation][83][0]83}{[1][12][]12}}
+\newlabel{eq:parent_swept_envelope}{{84}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.84}{}}
+\newlabel{eq:parent_swept_envelope@cref}{{[equation][84][0]84}{[1][12][]12}}
+\newlabel{eq:parent_swept_envelope_free}{{85}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.85}{}}
+\newlabel{eq:parent_swept_envelope_free@cref}{{[equation][85][0]85}{[1][12][]12}}
+\newlabel{eq:parent_swept_clear_check}{{86}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.86}{}}
+\newlabel{eq:parent_swept_clear_check@cref}{{[equation][86][0]86}{[1][12][]12}}
+\newlabel{eq:feasible_parent_set}{{87}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.87}{}}
+\newlabel{eq:feasible_parent_set@cref}{{[equation][87][0]87}{[1][12][]12}}
+\newlabel{eq:gamma_implies_swept_clear_parent}{{88}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.88}{}}
+\newlabel{eq:gamma_implies_swept_clear_parent@cref}{{[equation][88][0]88}{[1][12][]12}}
+\newlabel{eq:selected_parent_cost}{{89}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.89}{}}
+\newlabel{eq:selected_parent_cost@cref}{{[equation][89][0]89}{[1][12][]12}}
+\newlabel{eq:new_node_is_relaxed}{{90}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.90}{}}
+\newlabel{eq:new_node_is_relaxed@cref}{{[equation][90][0]90}{[1][12][]12}}
+\newlabel{eq:new_tree_edge}{{91}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.91}{}}
+\newlabel{eq:new_tree_edge@cref}{{[equation][91][0]91}{[1][12][]12}}
+\newlabel{eq:inserted_edge_gamma_valid}{{92}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.92}{}}
+\newlabel{eq:inserted_edge_gamma_valid@cref}{{[equation][92][0]92}{[1][12][]12}}
+\newlabel{eq:inserted_edge_swept_clear_valid}{{93}{12}{Feasible Parent Selection and Node Insertion}{equation.0.4.93}{}}
+\newlabel{eq:inserted_edge_swept_clear_valid@cref}{{[equation][93][0]93}{[1][12][]12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Tree Connection and Path Extraction}{12}{subsection.0.4.6}\protected@file@percent }
+\newlabel{subsec:gcr_tree_connection}{{4.6}{12}{Tree Connection and Path Extraction}{subsection.0.4.6}{}}
+\newlabel{subsec:gcr_tree_connection@cref}{{[subsection][6][4]4.6}{[1][12][]12}}
+\newlabel{eq:gcr_connection_candidate}{{94}{12}{Tree Connection and Path Extraction}{equation.0.4.94}{}}
+\newlabel{eq:gcr_connection_candidate@cref}{{[equation][94][0]94}{[1][12][]12}}
+\newlabel{fig:polygon_free}{{11a}{13}{Subfigure 0 11a}{subfigure.11.1}{}}
+\newlabel{fig:polygon_free@cref}{{[subfigure][1][0,11]11a}{[1][12][]13}}
+\newlabel{sub@fig:polygon_free}{{(a)}{a}{Subfigure 0 11a\relax }{subfigure.11.1}{}}
+\newlabel{fig:polygon_blocked}{{11b}{13}{Subfigure 0 11b}{subfigure.11.2}{}}
+\newlabel{fig:polygon_blocked@cref}{{[subfigure][2][0,11]11b}{[1][12][]13}}
+\newlabel{sub@fig:polygon_blocked}{{(b)}{b}{Subfigure 0 11b\relax }{subfigure.11.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Feasible parent selection using the swept envelope between a candidate parent configuration and the ordered relaxed configuration. The relaxed configuration can be inserted into the active tree only if at least one nearby parent produces an obstacle-free and endpoint-consistent swept corridor.}}{13}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:polygon}{{11}{13}{Feasible parent selection using the swept envelope between a candidate parent configuration and the ordered relaxed configuration. The relaxed configuration can be inserted into the active tree only if at least one nearby parent produces an obstacle-free and endpoint-consistent swept corridor}{figure.caption.12}{}}
+\newlabel{fig:polygon@cref}{{[figure][11][0]11}{[1][12][]13}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Feasible parent connection. The swept corridor between the candidate parent \(C^{\mathrm {cand.parent}}\) and the ordered relaxed configuration \(C^{\mathrm {new}}\) is obstacle-free. }}}{13}{subfigure.11.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Rejected parent connection. The swept corridor intersects an obstacle, so the transition from the candidate parent to the ordered relaxed configuration is not swept-clear. }}}{13}{subfigure.11.2}\protected@file@percent }
+\newlabel{eq:gcr_connection_distance_condition}{{95}{13}{Tree Connection and Path Extraction}{equation.0.4.95}{}}
+\newlabel{eq:gcr_connection_distance_condition@cref}{{[equation][95][0]95}{[1][13][]13}}
+\newlabel{eq:gcr_connection_gamma_condition_start_active}{{96}{13}{Tree Connection and Path Extraction}{equation.0.4.96}{}}
+\newlabel{eq:gcr_connection_gamma_condition_start_active@cref}{{[equation][96][0]96}{[1][13][]13}}
+\newlabel{eq:gcr_connection_swept_clear_condition}{{97}{13}{Tree Connection and Path Extraction}{equation.0.4.97}{}}
+\newlabel{eq:gcr_connection_swept_clear_condition@cref}{{[equation][97][0]97}{[1][13][]13}}
+\newlabel{eq:gcr_connection_distance_condition_goal_active}{{98}{13}{Tree Connection and Path Extraction}{equation.0.4.98}{}}
+\newlabel{eq:gcr_connection_distance_condition_goal_active@cref}{{[equation][98][0]98}{[1][13][]13}}
+\newlabel{eq:gcr_connection_gamma_condition_goal_active}{{99}{13}{Tree Connection and Path Extraction}{equation.0.4.99}{}}
+\newlabel{eq:gcr_connection_gamma_condition_goal_active@cref}{{[equation][99][0]99}{[1][13][]13}}
+\newlabel{eq:gcr_connection_candidate_set}{{100}{13}{Tree Connection and Path Extraction}{equation.0.4.100}{}}
+\newlabel{eq:gcr_connection_candidate_set@cref}{{[equation][100][0]100}{[1][13][]13}}
+\newlabel{eq:gcr_feasible_connection_set_start_active}{{101}{13}{Tree Connection and Path Extraction}{equation.0.4.101}{}}
+\newlabel{eq:gcr_feasible_connection_set_start_active@cref}{{[equation][101][0]101}{[1][13][]13}}
+\newlabel{eq:gcr_feasible_connection_set_goal_active}{{102}{13}{Tree Connection and Path Extraction}{equation.0.4.102}{}}
+\newlabel{eq:gcr_feasible_connection_set_goal_active@cref}{{[equation][102][0]102}{[1][13][]13}}
+\newlabel{eq:gcr_selected_feasible_connection}{{104}{13}{Tree Connection and Path Extraction}{equation.0.4.104}{}}
+\newlabel{eq:gcr_selected_feasible_connection@cref}{{[equation][104][0]104}{[1][13][]13}}
+\newlabel{eq:gcr_meeting_nodes_start_active}{{105}{13}{Tree Connection and Path Extraction}{equation.0.4.105}{}}
+\newlabel{eq:gcr_meeting_nodes_start_active@cref}{{[equation][105][0]105}{[1][13][]13}}
+\newlabel{eq:gcr_meeting_nodes_goal_active}{{106}{13}{Tree Connection and Path Extraction}{equation.0.4.106}{}}
+\newlabel{eq:gcr_meeting_nodes_goal_active@cref}{{[equation][106][0]106}{[1][13][]13}}
+\newlabel{eq:gcr_start_side_path}{{107}{13}{Tree Connection and Path Extraction}{equation.0.4.107}{}}
+\newlabel{eq:gcr_start_side_path@cref}{{[equation][107][0]107}{[1][13][]13}}
+\newlabel{eq:gcr_goal_side_path}{{108}{13}{Tree Connection and Path Extraction}{equation.0.4.108}{}}
+\newlabel{eq:gcr_goal_side_path@cref}{{[equation][108][0]108}{[1][13][]13}}
+\newlabel{eq:gcr_complete_path_concatenation}{{109}{13}{Tree Connection and Path Extraction}{equation.0.4.109}{}}
+\newlabel{eq:gcr_complete_path_concatenation@cref}{{[equation][109][0]109}{[1][13][]13}}
+\newlabel{eq:gcr_complete_path_ordered_feasibility}{{110}{13}{Tree Connection and Path Extraction}{equation.0.4.110}{}}
+\newlabel{eq:gcr_complete_path_ordered_feasibility@cref}{{[equation][110][0]110}{[1][13][]13}}
+\newlabel{eq:gcr_complete_path_swept_clear_feasibility}{{111}{13}{Tree Connection and Path Extraction}{equation.0.4.111}{}}
+\newlabel{eq:gcr_complete_path_swept_clear_feasibility@cref}{{[equation][111][0]111}{[1][13][]13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Rewiring: Post-Connection Shortcut Refinement}{13}{subsection.0.4.7}\protected@file@percent }
+\newlabel{subsec:gcr_shortcut_refinement}{{4.7}{13}{Rewiring: Post-Connection Shortcut Refinement}{subsection.0.4.7}{}}
+\newlabel{subsec:gcr_shortcut_refinement@cref}{{[subsection][7][4]4.7}{[1][13][]13}}
+\BKM@entry{id=5,open,dest={73656374696F6E2E302E35},srcline={3667}}{5C3337365C3337375C303030535C303030695C3030306D5C303030755C3030306C5C303030615C303030745C303030695C3030306F5C3030306E5C3030305C3034305C303030615C3030306E5C303030645C3030305C3034305C303030565C303030615C3030306C5C303030695C303030645C303030615C303030745C303030695C3030306F5C3030306E}
+\newlabel{eq:gcr_initial_solution_path}{{112}{14}{Rewiring: Post-Connection Shortcut Refinement}{equation.0.4.112}{}}
+\newlabel{eq:gcr_initial_solution_path@cref}{{[equation][112][0]112}{[1][13][]14}}
+\newlabel{eq:gcr_shortcut_subsequence}{{113}{14}{Rewiring: Post-Connection Shortcut Refinement}{equation.0.4.113}{}}
+\newlabel{eq:gcr_shortcut_subsequence@cref}{{[equation][113][0]113}{[1][14][]14}}
+\newlabel{eq:gcr_shortcut_cost_condition}{{114}{14}{Rewiring: Post-Connection Shortcut Refinement}{equation.0.4.114}{}}
+\newlabel{eq:gcr_shortcut_cost_condition@cref}{{[equation][114][0]114}{[1][14][]14}}
+\newlabel{eq:gcr_shortcut_feasibility_condition}{{115}{14}{Rewiring: Post-Connection Shortcut Refinement}{equation.0.4.115}{}}
+\newlabel{eq:gcr_shortcut_feasibility_condition@cref}{{[equation][115][0]115}{[1][14][]14}}
+\newlabel{eq:refinedpath}{{116}{14}{Rewiring: Post-Connection Shortcut Refinement}{equation.0.4.116}{}}
+\newlabel{eq:refinedpath@cref}{{[equation][116][0]116}{[1][14][]14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Summary of the GCR Planner}{14}{subsection.0.4.8}\protected@file@percent }
+\newlabel{subsec:gcr_summary}{{4.8}{14}{Summary of the GCR Planner}{subsection.0.4.8}{}}
+\newlabel{subsec:gcr_summary@cref}{{[subsection][8][4]4.8}{[1][14][]14}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Global Cable Routing Planner}}{14}{algorithm.1}\protected@file@percent }
+\newlabel{alg:gcr_main}{{1}{14}{Global Cable Routing Planner}{algorithm.1}{}}
+\newlabel{alg:gcr_main@cref}{{[algorithm][1][]1}{[1][14][]14}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Tree Expansion}}{15}{algorithm.2}\protected@file@percent }
+\newlabel{alg:gcr_expand}{{2}{15}{Tree Expansion}{algorithm.2}{}}
+\newlabel{alg:gcr_expand@cref}{{[algorithm][2][]2}{[1][14][]15}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Shortcut Refinement}}{15}{algorithm.3}\protected@file@percent }
+\newlabel{alg:gcr_refine}{{3}{15}{Shortcut Refinement}{algorithm.3}{}}
+\newlabel{alg:gcr_refine@cref}{{[algorithm][3][]3}{[1][14][]15}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Simulation and Validation}{15}{section.0.5}\protected@file@percent }
+\newlabel{sec:simulation_validation}{{5}{15}{Simulation and Validation}{section.0.5}{}}
+\newlabel{sec:simulation_validation@cref}{{[section][5][]5}{[1][14][]15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Benchmark Evaluation}{15}{subsection.0.5.1}\protected@file@percent }
+\newlabel{subsec:benchmark_evaluation}{{5.1}{15}{Benchmark Evaluation}{subsection.0.5.1}{}}
+\newlabel{subsec:benchmark_evaluation@cref}{{[subsection][1][5]5.1}{[1][15][]15}}
+\newlabel{fig:sc01}{{12a}{16}{Subfigure 0 12a}{subfigure.12.1}{}}
+\newlabel{fig:sc01@cref}{{[subfigure][1][0,12]12a}{[1][15][]16}}
+\newlabel{sub@fig:sc01}{{(a)}{a}{Subfigure 0 12a\relax }{subfigure.12.1}{}}
+\newlabel{fig:sc02}{{12b}{16}{Subfigure 0 12b}{subfigure.12.2}{}}
+\newlabel{fig:sc02@cref}{{[subfigure][2][0,12]12b}{[1][15][]16}}
+\newlabel{sub@fig:sc02}{{(b)}{b}{Subfigure 0 12b\relax }{subfigure.12.2}{}}
+\newlabel{fig:sc03}{{12c}{16}{Subfigure 0 12c}{subfigure.12.3}{}}
+\newlabel{fig:sc03@cref}{{[subfigure][3][0,12]12c}{[1][15][]16}}
+\newlabel{sub@fig:sc03}{{(c)}{c}{Subfigure 0 12c\relax }{subfigure.12.3}{}}
+\newlabel{fig:sc04}{{12d}{16}{Subfigure 0 12d}{subfigure.12.4}{}}
+\newlabel{fig:sc04@cref}{{[subfigure][4][0,12]12d}{[1][15][]16}}
+\newlabel{sub@fig:sc04}{{(d)}{d}{Subfigure 0 12d\relax }{subfigure.12.4}{}}
+\newlabel{fig:sc05}{{12e}{16}{Subfigure 0 12e}{subfigure.12.5}{}}
+\newlabel{fig:sc05@cref}{{[subfigure][5][0,12]12e}{[1][15][]16}}
+\newlabel{sub@fig:sc05}{{(e)}{e}{Subfigure 0 12e\relax }{subfigure.12.5}{}}
+\newlabel{fig:sc06}{{12f}{16}{Subfigure 0 12f}{subfigure.12.6}{}}
+\newlabel{fig:sc06@cref}{{[subfigure][6][0,12]12f}{[1][15][]16}}
+\newlabel{sub@fig:sc06}{{(f)}{f}{Subfigure 0 12f\relax }{subfigure.12.6}{}}
+\newlabel{fig:sc07}{{12g}{16}{Subfigure 0 12g}{subfigure.12.7}{}}
+\newlabel{fig:sc07@cref}{{[subfigure][7][0,12]12g}{[1][15][]16}}
+\newlabel{sub@fig:sc07}{{(g)}{g}{Subfigure 0 12g\relax }{subfigure.12.7}{}}
+\newlabel{fig:sc08}{{12h}{16}{Subfigure 0 12h}{subfigure.12.8}{}}
+\newlabel{fig:sc08@cref}{{[subfigure][8][0,12]12h}{[1][15][]16}}
+\newlabel{sub@fig:sc08}{{(h)}{h}{Subfigure 0 12h\relax }{subfigure.12.8}{}}
+\newlabel{fig:sc09}{{12i}{16}{Subfigure 0 12i}{subfigure.12.9}{}}
+\newlabel{fig:sc09@cref}{{[subfigure][9][0,12]12i}{[1][15][]16}}
+\newlabel{sub@fig:sc09}{{(i)}{i}{Subfigure 0 12i\relax }{subfigure.12.9}{}}
+\newlabel{fig:sc10}{{12j}{16}{Subfigure 0 12j}{subfigure.12.10}{}}
+\newlabel{fig:sc10@cref}{{[subfigure][10][0,12]12j}{[1][15][]16}}
+\newlabel{sub@fig:sc10}{{(j)}{j}{Subfigure 0 12j\relax }{subfigure.12.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Representative GCR solutions for the ten benchmark scenarios. Each subfigure shows the initial cable configuration, the target cable configuration, the static obstacles, and the resulting deformation sequence.}}{16}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:benchmark_solutions}{{12}{16}{Representative GCR solutions for the ten benchmark scenarios. Each subfigure shows the initial cable configuration, the target cable configuration, the static obstacles, and the resulting deformation sequence}{figure.caption.13}{}}
+\newlabel{fig:benchmark_solutions@cref}{{[figure][12][0]12}{[1][15][]16}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Scenario 1}}}{16}{subfigure.12.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Scenario 2}}}{16}{subfigure.12.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Scenario 3}}}{16}{subfigure.12.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Scenario 4}}}{16}{subfigure.12.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {Scenario 5}}}{16}{subfigure.12.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {Scenario 6}}}{16}{subfigure.12.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(g)}{\ignorespaces {Scenario 7}}}{16}{subfigure.12.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(h)}{\ignorespaces {Scenario 8}}}{16}{subfigure.12.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(i)}{\ignorespaces {Scenario 9}}}{16}{subfigure.12.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(j)}{\ignorespaces {Scenario 10}}}{16}{subfigure.12.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Benchmark Results}{16}{subsection.0.5.2}\protected@file@percent }
+\newlabel{subsec:benchmark_results}{{5.2}{16}{Benchmark Results}{subsection.0.5.2}{}}
+\newlabel{subsec:benchmark_results@cref}{{[subsection][2][5]5.2}{[1][15][]16}}
+\citation{todorov2012mujoco}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Benchmark performance for the selected GCR scenarios.}}{17}{table.caption.14}\protected@file@percent }
+\newlabel{tab:paper_benchmark_results}{{1}{17}{Benchmark performance for the selected GCR scenarios}{table.caption.14}{}}
+\newlabel{tab:paper_benchmark_results@cref}{{[table][1][]1}{[1][16][]17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Robotic Manipulation Validation}{17}{subsection.0.5.3}\protected@file@percent }
+\newlabel{subsec:manipulation_validation}{{5.3}{17}{Robotic Manipulation Validation}{subsection.0.5.3}{}}
+\newlabel{subsec:manipulation_validation@cref}{{[subsection][3][5]5.3}{[1][17][]17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Dual-arm MuJoCo setup used for simulation-based manipulation validation.}}{17}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:mujoco_setup}{{13}{17}{Dual-arm MuJoCo setup used for simulation-based manipulation validation}{figure.caption.15}{}}
+\newlabel{fig:mujoco_setup@cref}{{[figure][13][0]13}{[1][17][]17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Robotic Execution Results}{17}{subsection.0.5.4}\protected@file@percent }
+\newlabel{subsec:robotic_results}{{5.4}{17}{Robotic Execution Results}{subsection.0.5.4}{}}
+\newlabel{subsec:robotic_results@cref}{{[subsection][4][5]5.4}{[1][17][]17}}
+\BKM@entry{id=6,open,dest={73656374696F6E2E302E36},srcline={3964}}{5C3337365C3337375C303030445C303030695C303030735C303030635C303030755C303030735C303030735C303030695C3030306F5C3030306E}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Robotic manipulation validation results.}}{18}{table.caption.16}\protected@file@percent }
+\newlabel{tab:robotic_validation}{{2}{18}{Robotic manipulation validation results}{table.caption.16}{}}
+\newlabel{tab:robotic_validation@cref}{{[table][2][]2}{[1][17][]18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Summary of Findings}{18}{subsection.0.5.5}\protected@file@percent }
+\newlabel{subsec:simulation_summary}{{5.5}{18}{Summary of Findings}{subsection.0.5.5}{}}
+\newlabel{subsec:simulation_summary@cref}{{[subsection][5][5]5.5}{[1][18][]18}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{18}{section.0.6}\protected@file@percent }
+\newlabel{sec:discussion}{{6}{18}{Discussion}{section.0.6}{}}
+\newlabel{sec:discussion@cref}{{[section][6][]6}{[1][18][]18}}
+\BKM@entry{id=7,open,dest={73656374696F6E2E302E37},srcline={4044}}{5C3337365C3337375C303030435C3030306F5C3030306E5C303030635C3030306C5C303030755C303030735C303030695C3030306F5C3030306E}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Execution snapshots for the validation scenarios. Each row shows the simulated cable manipulation at the start, two intermediate, and the end configurations.}}{19}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:robot_sc}{{14}{19}{Execution snapshots for the validation scenarios. Each row shows the simulated cable manipulation at the start, two intermediate, and the end configurations}{figure.caption.17}{}}
+\newlabel{fig:robot_sc@cref}{{[figure][14][0]14}{[1][18][]19}}
+\bibstyle{apalike}
+\bibdata{ref}
+\bibcite{AksoyWen2025DLOPlanningControl}{{1}{2025}{{Aksoy and Wen}}{{}}}
+\bibcite{AlmaghoutCherubiniKlimchik2024LargeDeformation}{{2}{2024}{{Almaghout et~al.}}{{}}}
+\bibcite{AlmaghoutKlimchik2022PlanarShapeControl}{{3}{2022a}{{Almaghout and Klimchik}}{{}}}
+\bibcite{AlmaghoutKlimchik2022VFP}{{4}{2022b}{{Almaghout and Klimchik}}{{}}}
+\bibcite{AlmaghoutKlimchik2024CableShapeControl}{{5}{2024}{{Almaghout and Klimchik}}{{}}}
+\bibcite{BretlMcCarthy2014ElasticRod}{{6}{2014}{{Bretl and McCarthy}}{{}}}
+\bibcite{Caporali2026Survey}{{7}{2026}{{Caporali and Palli}}{{}}}
+\bibcite{jin2022robotic}{{8}{2022}{{Jin et~al.}}{{}}}
+\bibcite{JinTomizuka2019CableManipulation}{{9}{2019}{{Jin et~al.}}{{}}}
+\bibcite{KaramanFrazzoli2011SamplingOptimal}{{10}{2011}{{Karaman and Frazzoli}}{{}}}
+\bibcite{keipour2022deformable}{{11}{2022}{{Keipour et~al.}}{{}}}
+\bibcite{KuffnerLaValle2000RRTConnect}{{12}{2000}{{Kuffner and LaValle}}{{}}}
+\bibcite{Lagneau2020ModelFreeWireServoing}{{13}{2020}{{Lagneau et~al.}}{{}}}
+\bibcite{Lv2021CoordinatedFlexibleCables}{{14}{2021}{{Lv et~al.}}{{}}}
+\bibcite{MollKavraki2006DLOPlanning}{{15}{2006}{{Moll and Kavraki}}{{}}}
+\bibcite{navarro2013model}{{16}{2013}{{Navarro-Alarcon et~al.}}{{}}}
+\bibcite{RousselFernbachTaix2020ElasticRodContacts}{{17}{2020}{{Roussel et~al.}}{{}}}
+\bibcite{Sanchez2018Survey}{{18}{2018}{{Sanchez et~al.}}{{}}}
+\bibcite{sintov2020motion}{{19}{2020}{{Sintov et~al.}}{{}}}
+\bibcite{tang2026hierarchical}{{20}{2026}{{Tang et~al.}}{{}}}
+\bibcite{todorov2012mujoco}{{21}{2012}{{Todorov et~al.}}{{}}}
+\bibcite{waltersson2022planning}{{22}{2022}{{Waltersson et~al.}}{{}}}
+\bibcite{Yin2021Survey}{{23}{2021}{{Yin et~al.}}{{}}}
+\bibcite{yu2025generalizable}{{24}{2025}{{Yu et~al.}}{{}}}
+\bibcite{yu2023coarse}{{25}{2023}{{Yu et~al.}}{{}}}
+\bibcite{Zhu2022ChallengesOutlook}{{26}{2022}{{Zhu et~al.}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{20}{section.0.7}\protected@file@percent }
+\newlabel{sec:conclusion}{{7}{20}{Conclusion}{section.0.7}{}}
+\newlabel{sec:conclusion@cref}{{[section][7][]7}{[1][19][]20}}
+\gdef \@abspage@last{20}

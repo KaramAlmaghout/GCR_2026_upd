@@ -1,0 +1,156 @@
+\begin{thebibliography}{}
+
+\bibitem[Aksoy and Wen, 2025]{AksoyWen2025DLOPlanningControl}
+Aksoy, B. and Wen, J. (2025).
+\newblock Planning and control for deformable linear object manipulation.
+
+\bibitem[Almaghout et~al.,
+  2024]{AlmaghoutCherubiniKlimchik2024LargeDeformation}
+Almaghout, K., Cherubini, A., and Klimchik, A. (2024).
+\newblock Robotic co-manipulation of deformable linear objects for large
+  deformation tasks.
+\newblock Preprint.
+
+\bibitem[Almaghout and Klimchik,
+  2022a]{AlmaghoutKlimchik2022PlanarShapeControl}
+Almaghout, K. and Klimchik, A. (2022a).
+\newblock Planar shape control of deformable linear objects.
+\newblock {\em IFAC-PapersOnLine}, 55:2469--2474.
+
+\bibitem[Almaghout and Klimchik, 2022b]{AlmaghoutKlimchik2022VFP}
+Almaghout, K. and Klimchik, A. (2022b).
+\newblock Vision-based robotic comanipulation for deforming cables.
+\newblock {\em Russian Journal of Nonlinear Dynamics}, 18(5):843--858.
+
+\bibitem[Almaghout and Klimchik, 2024]{AlmaghoutKlimchik2024CableShapeControl}
+Almaghout, K. and Klimchik, A. (2024).
+\newblock Manipulation planning for cable shape control.
+\newblock {\em Robotics}, 13(1):18.
+
+\bibitem[Bretl and McCarthy, 2014]{BretlMcCarthy2014ElasticRod}
+Bretl, T. and McCarthy, Z. (2014).
+\newblock Quasi-static manipulation of a kirchhoff elastic rod based on a
+  geometric analysis of equilibrium configurations.
+\newblock {\em The International Journal of Robotics Research}, 33(1):48--68.
+
+\bibitem[Caporali and Palli, 2026]{Caporali2026Survey}
+Caporali, A. and Palli, G. (2026).
+\newblock Robotic perception and manipulation of deformable linear objects: A
+  survey.
+\newblock {\em The International Journal of Robotics Research}.
+
+\bibitem[Jin et~al., 2022]{jin2022robotic}
+Jin, S., Lian, W., Wang, C., Tomizuka, M., and Schaal, S. (2022).
+\newblock Robotic cable routing with spatial representation.
+\newblock {\em IEEE Robotics and Automation Letters}, 7(2):5687--5694.
+
+\bibitem[Jin et~al., 2019]{JinTomizuka2019CableManipulation}
+Jin, S., Wang, C., and Tomizuka, M. (2019).
+\newblock Robust deformation model approximation for robotic cable
+  manipulation.
+\newblock In {\em Proceedings of the IEEE/RSJ International Conference on
+  Intelligent Robots and Systems}, pages 6586--6593.
+
+\bibitem[Karaman and Frazzoli, 2011]{KaramanFrazzoli2011SamplingOptimal}
+Karaman, S. and Frazzoli, E. (2011).
+\newblock Sampling-based algorithms for optimal motion planning.
+\newblock {\em The International Journal of Robotics Research}, 30(7):846--894.
+
+\bibitem[Keipour et~al., 2022]{keipour2022deformable}
+Keipour, A., Bandari, M., and Schaal, S. (2022).
+\newblock Deformable one-dimensional object detection for routing and
+  manipulation.
+\newblock {\em IEEE Robotics and Automation Letters}, 7(2):4329--4336.
+
+\bibitem[Kuffner and LaValle, 2000]{KuffnerLaValle2000RRTConnect}
+Kuffner, J.~J. and LaValle, S.~M. (2000).
+\newblock {RRT-Connect}: An efficient approach to single-query path planning.
+\newblock In {\em Proceedings of the IEEE International Conference on Robotics
+  and Automation}, pages 995--1001.
+
+\bibitem[Lagneau et~al., 2020]{Lagneau2020ModelFreeWireServoing}
+Lagneau, R., Krupa, A., and Marchal, M. (2020).
+\newblock Automatic shape control of deformable wires based on model-free
+  visual servoing.
+\newblock {\em IEEE Robotics and Automation Letters}, 5(4):5252--5259.
+
+\bibitem[Lv et~al., 2021]{Lv2021CoordinatedFlexibleCables}
+Lv, N., Liu, J., and Jia, Y.-B. (2021).
+\newblock Coordinated control of flexible cables with human-like dual
+  manipulators.
+\newblock {\em Journal of Dynamic Systems, Measurement, and Control},
+  143(8):081006.
+
+\bibitem[Moll and Kavraki, 2006]{MollKavraki2006DLOPlanning}
+Moll, M. and Kavraki, L.~E. (2006).
+\newblock Path planning for deformable linear objects.
+\newblock {\em IEEE Transactions on Robotics}, 22(4):625--636.
+
+\bibitem[Navarro-Alarcon et~al., 2013]{navarro2013model}
+Navarro-Alarcon, D., Liu, Y.-H., Romero, J.~G., and Li, P. (2013).
+\newblock Model-free visually servoed deformation control of elastic objects by
+  robot manipulators.
+\newblock {\em IEEE Transactions on Robotics}, 29(6):1457--1468.
+
+\bibitem[Roussel et~al., 2020]{RousselFernbachTaix2020ElasticRodContacts}
+Roussel, O., Fernbach, P., and Ta{\"i}x, M. (2020).
+\newblock Motion planning for an elastic rod using contacts.
+\newblock {\em IEEE Transactions on Automation Science and Engineering},
+  17(2):670--683.
+
+\bibitem[Sanchez et~al., 2018]{Sanchez2018Survey}
+Sanchez, J., Corrales, J.~A., Bouzgarrou, B.-C., and Mezouar, Y. (2018).
+\newblock Robotic manipulation and sensing of deformable objects in domestic
+  and industrial applications: A survey.
+\newblock {\em The International Journal of Robotics Research}, 37(7):688--716.
+
+\bibitem[Sintov et~al., 2020]{sintov2020motion}
+Sintov, A., Macenski, S., Borum, A., and Bretl, T. (2020).
+\newblock Motion planning for dual-arm manipulation of elastic rods.
+\newblock {\em IEEE Robotics and Automation Letters}, 5(4):6065--6072.
+
+\bibitem[Tang et~al., 2026]{tang2026hierarchical}
+Tang, Y., Yang, T., Huang, J., Chu, X., and Au, K. W.~S. (2026).
+\newblock Hierarchical deformation planning and neural tracking for dlos in
+  constrained environments.
+\newblock {\em IEEE/ASME Transactions on Mechatronics}.
+
+\bibitem[Todorov et~al., 2012]{todorov2012mujoco}
+Todorov, E., Erez, T., and Tassa, Y. (2012).
+\newblock Mujoco: A physics engine for model-based control.
+\newblock In {\em 2012 IEEE/RSJ International Conference on Intelligent Robots
+  and Systems}, pages 5026--5033. IEEE.
+
+\bibitem[Waltersson et~al., 2022]{waltersson2022planning}
+Waltersson, G.~A., Laezza, R., and Karayiannidis, Y. (2022).
+\newblock Planning and control for cable-routing with dual-arm robot.
+\newblock In {\em 2022 International Conference on Robotics and Automation
+  (ICRA)}, pages 1046--1052. IEEE.
+
+\bibitem[Yin et~al., 2021]{Yin2021Survey}
+Yin, H., Varava, A., and Kragic, D. (2021).
+\newblock Modeling, learning, perception, and control methods for deformable
+  object manipulation.
+\newblock {\em Science Robotics}, 6(54):eabd8803.
+
+\bibitem[Yu et~al., 2025]{yu2025generalizable}
+Yu, M., Lv, K., Wang, C., Jiang, Y., Tomizuka, M., and Li, X. (2025).
+\newblock Generalizable whole-body global manipulation of deformable linear
+  objects by dual-arm robot in 3-d constrained environments.
+\newblock {\em The International Journal of Robotics Research}, 44(4):607--639.
+
+\bibitem[Yu et~al., 2023]{yu2023coarse}
+Yu, M., Lv, K., Wang, C., Tomizuka, M., and Li, X. (2023).
+\newblock A coarse-to-fine framework for dual-arm manipulation of deformable
+  linear objects with whole-body obstacle avoidance.
+\newblock In {\em 2023 IEEE International Conference on Robotics and Automation
+  (ICRA)}, pages 10153--10159. IEEE.
+
+\bibitem[Zhu et~al., 2022]{Zhu2022ChallengesOutlook}
+Zhu, J., Cherubini, A., Dune, C., Navarro-Alarcon, D., Alambeigi, F., Berenson,
+  D., Ficuciello, F., Harada, K., Kober, J., Li, X., Pan, J., Yuan, W., and
+  Gienger, M. (2022).
+\newblock Challenges and outlook in robotic manipulation of deformable objects.
+\newblock {\em IEEE Robotics \& Automation Magazine}, 29(3):67--77.
+
+\end{thebibliography}
