@@ -65,23 +65,23 @@ sampling-based planning, artificial potential fields, dual-arm manipulation.
 \section{Introduction}
 \label{sec:introduction}
 
-Deformable linear objects (DLOs), such as cables, ropes, wires, hoses, and sutures, appear in many robotic applications, including wire-harness assembly, cable routing, medical suturing, and domestic manipulation. Despite their practical importance, robotic manipulation of DLOs remains difficult because the object shape is not described by a small set of rigid-body coordinates. Instead, the object may bend, stretch slightly, slide around obstacles, and form many admissible geometries under the same endpoint positions. As a result, DLO manipulation requires simultaneous reasoning about geometry, deformation, collision avoidance, and mechanical feasibility \cite{Sanchez2018Survey,Yin2021Survey,Zhu2022ChallengesOutlook,Caporali2026Survey}.
+Deformable linear objects (DLOs), such as cables, ropes, wires, hoses, and sutures, appear in many robotic applications, including wire-harness assembly, cable routing, medical suturing, and domestic manipulation. Despite their practical importance, robotic manipulation of DLOs remains difficult because the object shape is not described by a small set of rigid-body coordinates. Instead, the object may bend, stretch slightly, slide around obstacles, and form many admissible geometries under the same endpoint positions. As a result, DLO manipulation requires simultaneous reasoning about geometry, deformation, collision avoidance, and mechanical feasibility \citep{Sanchez2018Survey,Yin2021Survey,Zhu2022ChallengesOutlook,Caporali2026Survey}.
 
-A large part of previous research on DLO manipulation has focused on local shape control. In this setting, the robot deforms the object from an observed shape toward a desired one, often using visual feedback, model-based prediction, or an estimated deformation Jacobian. In our previous work, a featureless cable was represented by virtual feature points, and a Jacobian-based manipulation strategy was developed to relate dual-arm end-effector motion to the motion of sampled cable points \cite{AlmaghoutKlimchik2022VFP}. This idea was later extended through intermediate cable profiles and optimization-based dual-arm planning for cable shape control \cite{AlmaghoutKlimchik2024CableShapeControl,AlmaghoutCherubiniKlimchik2024LargeDeformation}. These works show that point-based cable representations and optimization-based manipulation are useful for planar shaping tasks. However, they mainly address deformation toward a desired profile and do not solve the global routing problem in cluttered environments, where the cable must move through obstacle-constrained regions while maintaining collision-free transitions.
+A large part of previous research on DLO manipulation, including our own earlier work on dual-arm cable shape control \citep{AlmaghoutKlimchik2022VFP,AlmaghoutKlimchik2024CableShapeControl,AlmaghoutCherubiniKlimchik2024LargeDeformation}, has focused on local shape control: the robot deforms the object from an observed shape toward a desired one using visual feedback, model-based prediction, or an estimated deformation Jacobian. Such methods, reviewed in Section~\ref{sec:related}, deform the cable toward a given target profile but do not decide how the cable should travel through a cluttered workspace while every intermediate deformation remains collision-free.
 
 Global cable routing requires a different planning formulation. A planner must not only find collision-free cable configurations, but also ensure that the deformation between consecutive configurations is feasible. Two cable shapes may be individually collision-free, while the swept region between them intersects an obstacle. Therefore, the planning problem must be defined in the configuration space of the complete cable, and tree edges must be validated as local deformations rather than treated only as connections between nearby states.
 
-Classical sampling-based motion planning methods, such as RRT, RRT-Connect, and RRT*, are attractive for high-dimensional problems because they avoid explicit construction of the complete configuration-space obstacle region \cite{KuffnerLaValle2000RRTConnect,KaramanFrazzoli2011SamplingOptimal}. However, direct application of these methods to DLOs is inefficient because random polygonal chains are usually mechanically invalid, excessively stretched, or collision-prone. Earlier DLO planners addressed this problem by sampling stable or minimum-energy shapes \cite{MollKavraki2006DLOPlanning}, by characterizing equilibrium manifolds of elastic rods \cite{BretlMcCarthy2014ElasticRod}, or by planning elastic-rod motion with contacts \cite{RousselFernbachTaix2020ElasticRodContacts}. These approaches provide important theoretical foundations, but high-fidelity rod models and contact-rich planning can be computationally expensive for online routing in cluttered workspaces.
+Classical sampling-based motion planning methods, such as RRT, RRT-Connect, and RRT*, are attractive for high-dimensional problems because they avoid explicit construction of the complete configuration-space obstacle region \citep{KuffnerLaValle2000RRTConnect,KaramanFrazzoli2011SamplingOptimal}. However, direct application of these methods to DLOs is inefficient because random polygonal chains are usually mechanically invalid, excessively stretched, or collision-prone. Earlier DLO planners addressed this problem by sampling stable or minimum-energy shapes \citep{MollKavraki2006DLOPlanning}, by characterizing equilibrium manifolds of elastic rods \citep{BretlMcCarthy2014ElasticRod}, or by planning elastic-rod motion with contacts \citep{RousselFernbachTaix2020ElasticRodContacts}. These approaches describe rod mechanics rigorously, but high-fidelity rod models and contact-rich planning can be computationally expensive for online routing in cluttered workspaces.
 
 This paper proposes the Global Cable Routing (GCR) planner for a cable-like DLO in a two-dimensional cluttered workspace. The cable is represented as an ordered sequence of points connected by fixed-length segments. The planner searches directly in the discretized cable configuration space and evaluates both static configuration feasibility and ordered transition feasibility. Local deformation is measured through segment-vector and discrete-curvature changes, allowing the planner to penalize unnecessary stretching, compression, rotation, and bending between neighboring configurations.
 
-The proposed method combines bidirectional tree search, guided configuration sampling, configuration-level artificial potential field (APF) biasing, projected elastic relaxation, ordered parent selection, ordered tree connection, and shortcut refinement. The APF component biases raw samples toward the opposite tree and away from obstacles, while the tree structure preserves global exploration. The relaxation step locally corrects APF-biased samples by keeping them close to the sampled direction while preserving segment vectors and discrete curvature relative to a reference configuration. This reference-based regularization avoids driving the cable only toward a low-energy shape and instead keeps the deformation local with respect to the previously feasible configuration. A central part of the formulation is the ordered transition predicate. Since the cable is represented as an ordered sequence of points, reversing only one of two neighboring configurations changes the point-to-point correspondence used during deformation. This may change the swept region and therefore the collision result. For this reason, GCR validates each accepted edge using the ordered edge-feasibility predicate, which combines swept-envelope collision checking, endpoint-axis consistency, and optional robot-dependent endpoint feasibility. Thus, endpoint ordering is considered during parent selection, tree connection, and shortcut refinement, not only after a path has already been generated. The main contributions of this paper are as follows:
+The proposed planner couples global tree search with local shape correction. A bidirectional pair of trees preserves global exploration, while a guided sampler and a configuration-level artificial potential field (APF) steer new samples toward the opposite tree and away from obstacles. Each biased sample is then adjusted by a projected elastic relaxation step that keeps it close to the sampled direction while preserving segment vectors and discrete curvature relative to a reference configuration; this reference-based regularization keeps the deformation local with respect to the previously feasible configuration instead of driving the cable toward a globally low-energy shape. A central part of the formulation is the ordered transition predicate. Since the cable is represented as an ordered sequence of points, reversing only one of two neighboring configurations changes the point-to-point correspondence used during deformation, and hence the swept region and the collision result. GCR therefore validates each accepted edge with an ordered edge-feasibility predicate that combines swept-envelope collision checking, endpoint-axis consistency, and optional robot-dependent endpoint feasibility, and it applies this predicate during parent selection, tree connection, and shortcut refinement rather than only after a path has been generated. The main contributions of this paper are as follows:
 \begin{enumerate}
     \item A global cable-routing formulation in the discretized configuration space of an ordered planar cable, including static admissibility, reference-based local deformation measures, transition feasibility, and endpoint correspondence.
     \item A bidirectional sampling-based planner that combines guided sampling and configuration-level APF biasing to generate candidate cable configurations in cluttered workspaces.
     \item A projected elastic relaxation step that regularizes APF-biased samples by preserving segment vectors and discrete curvature with respect to a reference configuration, reducing unnecessary local deformation during planning.
     \item An ordered edge-validation strategy for parent selection, tree connection, and shortcut refinement. The strategy checks swept collision, endpoint-axis consistency, and robot-dependent endpoint feasibility through a unified ordered transition predicate.
-    \item A benchmark study and simulation-based dual-arm manipulation validation showing that the proposed planner produces compact, collision-free, and transition-feasible cable-routing paths under the tested conditions.
+    \item A benchmark study over ten planar routing scenarios and a simulation-based dual-arm manipulation validation of the resulting paths.
 \end{enumerate}
 The remainder of the paper is organized as follows. Section~\ref{sec:related} discusses related work on DLO modeling, manipulation, and obstacle-aware planning. Section~\ref{sec:formulation} formulates the cable-routing problem. Section~\ref{sec:gcr_algorithm} presents the proposed GCR algorithm. Section~\ref{sec:simulation_validation} reports the benchmark and robotic validation results. Section~\ref{sec:discussion} discusses the results, limitations, and future directions. Section~\ref{sec:conclusion} concludes the paper.
 
@@ -380,131 +380,107 @@ The remainder of the paper is organized as follows. Section~\ref{sec:related} di
 \section{Related Work}
 \label{sec:related}
 
-Robotic manipulation of deformable linear objects (DLOs), such as cables,
-wires, ropes, rods, and sutures, has been studied in several contexts, including
-shape control, routing, insertion, transport, and manipulation in constrained
-environments \cite{Sanchez2018Survey,Yin2021Survey,Zhu2022ChallengesOutlook,
-Caporali2026Survey}. Although the general field has grown rapidly, global
-planning for cable-like objects in cluttered environments remains less explored
-than local shape control or task-specific manipulation. The main difficulty is
-that a DLO is not sufficiently described by the positions of its endpoints. Its
-complete shape must be considered, and in obstacle-rich environments the
-transition between two shapes can be invalid even when both shapes are
-individually collision-free.
+Research on robotic manipulation of deformable linear objects spans shape
+control, routing, insertion, transport, and manipulation in constrained
+environments \citep{Sanchez2018Survey,Yin2021Survey,Zhu2022ChallengesOutlook,
+Caporali2026Survey}. Within this field, global planning for cable-like objects
+in cluttered environments remains less explored than local shape control or
+task-specific manipulation. This section reviews the four directions most
+relevant to the present work: local shape control, physics-based DLO planning,
+combined planning--control frameworks, and task-specific cable routing.
 
-
-A large group of DLO manipulation methods focuses on local shape control.
-These methods usually assume that a desired shape or a sequence of desired
-shapes is already given, and the controller computes robot motions to reduce the
-shape error. Jacobian-based methods estimate a local relation between robot
-motion and DLO deformation, while learning-based methods approximate this
-relation from data \cite{navarro2013model,
+Local shape-control methods assume that a desired shape or a sequence of
+desired shapes is already given, and the controller computes robot motions to
+reduce the shape error. Jacobian-based methods estimate a local relation between
+robot motion and DLO deformation, while learning-based methods approximate this
+relation from data \citep{navarro2013model,
 JinTomizuka2019CableManipulation,Lagneau2020ModelFreeWireServoing,
 Lv2021CoordinatedFlexibleCables}.
 
 Our earlier work followed this local shape-control direction. In
-\cite{AlmaghoutKlimchik2022PlanarShapeControl}, a planar cable was represented as a
+\citet{AlmaghoutKlimchik2022PlanarShapeControl}, a planar cable was represented as a
 set of points, and an analytical Jacobian was derived to map the motion of two
 robot end-effectors to the displacement of the cable points while preserving the
 length constraint. This formulation was extended in
-\cite{AlmaghoutKlimchik2022VFP}, where a featureless cable was
+\citet{AlmaghoutKlimchik2022VFP}, where a featureless cable was
 detected and sampled using virtual feature points, and intermediate profiles were
 generated to guide the cable toward the desired shape in real experiments. A
 later extension addressed large and complex planar deformations by introducing
 an intermediary-shape generation strategy and an optimization-based
-co-manipulation controller \cite{AlmaghoutCherubiniKlimchik2024LargeDeformation}. These works
+co-manipulation controller \citep{AlmaghoutCherubiniKlimchik2024LargeDeformation}. These works
 showed that point-based DLO representations and intermediate shape generation
-are effective for planar shape control. However, they assume that the target
-shape or intermediate profiles are provided or generated for local deformation,
-and they do not solve the global routing problem in cluttered environments.
-
-Thus, although local shape-control methods can deform and track DLO shapes,
-they are not sufficient when the cable must be routed through obstacle-constrained
-regions. In such cases, a planner must decide not only the final shape, but also
-the sequence of intermediate cable configurations and the feasibility of the
-deformation between consecutive configurations.
+are effective for planar shape control. Their scope, however, is limited to
+tracking target shapes or profiles that are already given: none of these methods
+decides how the whole cable should move through an obstacle-filled workspace,
+which requires planning over full sequences of cable configurations.
 
 Several works address path planning for DLOs using physically motivated
 models. Early studies formulated DLO planning by sampling stable or
-minimum-energy configurations \cite{MollKavraki2006DLOPlanning}. Bretl and
-McCarthy analyzed quasi-static manipulation of Kirchhoff elastic rods and
-showed that equilibrium configurations can be represented on a finite-dimensional
-manifold \cite{BretlMcCarthy2014ElasticRod}. Roussel et al. extended this line
-of work to elastic rods with contacts \cite{RousselFernbachTaix2020ElasticRodContacts}.
-Sintov et al. reduced online planning time by precomputing a roadmap of stable
-elastic-rod configurations for dual-arm manipulation \cite{sintov2020motion}.
-These methods provide important theoretical foundations and physically
-meaningful representations. However, they often require equilibrium computation,
-accurate mechanical parameters, contact-rich simulation, or precomputed
-roadmaps. These requirements can limit their use as lightweight global routing
-planners, especially when many candidate cable configurations must be generated
-and checked.
+minimum-energy configurations \citep{MollKavraki2006DLOPlanning}.
+\citet{BretlMcCarthy2014ElasticRod} analyzed quasi-static manipulation of
+Kirchhoff elastic rods and showed that equilibrium configurations can be
+represented on a finite-dimensional manifold, and
+\citet{RousselFernbachTaix2020ElasticRodContacts} extended this line of work to
+elastic rods with contacts. \citet{sintov2020motion} reduced online planning
+time by precomputing a roadmap of stable elastic-rod configurations for
+dual-arm manipulation. Such rod-based planners represent cable mechanics
+faithfully, but they depend on equilibrium computation, accurate mechanical
+parameters, contact-rich simulation, or precomputed roadmaps, which becomes
+costly when many candidate cable configurations must be generated and checked
+during a global search.
 
 Recent works have attempted to make DLO planning more deployable in
-constrained and cluttered environments. Yu et al. proposed a coarse-to-fine framework for dual-arm manipulation of DLOs with whole-body obstacle avoidance, where a simplified elastic model is used for global planning and a local controller compensates for model errors during execution \cite{yu2023coarse}. Their later work extended this idea to three-dimensional constrained environments by considering the DLO, the robot arms, stable deformation, closed-chain constraints, overstretch prevention, and collision avoidance within a whole-body planning-control framework \cite{yu2025generalizable}. This line of work is important because it demonstrates that global DLO manipulation in cluttered environments can be achieved when planning is supported by closed-loop feedback. However, the global plan is still used mainly as a guidance path, and execution robustness depends on the controller compensating for modeling errors and simplifications in the planning
+constrained and cluttered environments. \citet{yu2023coarse} proposed a coarse-to-fine framework for dual-arm manipulation of DLOs with whole-body obstacle avoidance, where a simplified elastic model is used for global planning and a local controller compensates for model errors during execution. Their later work extended this idea to three-dimensional constrained environments by considering the DLO, the robot arms, stable deformation, closed-chain constraints, overstretch prevention, and collision avoidance within a whole-body planning--control framework \citep{yu2025generalizable}. These studies demonstrate that global DLO manipulation in cluttered environments can be achieved when planning is supported by closed-loop feedback, but the global plan serves mainly as a guidance path, and execution robustness depends on the controller compensating for modeling errors and simplifications in the planning
 model.
 
-A similar planning-control direction was proposed by Aksoy and Wen
-\cite{AksoyWen2025DLOPlanningControl}. Their framework uses an off-the-shelf
-global planner by approximating the DLO as a chain of rigid links connected by
+A similar planning--control direction was proposed by
+\citet{AksoyWen2025DLOPlanningControl}, whose framework applies an off-the-shelf
+global planner to the DLO approximated as a chain of rigid links connected by
 spherical joints. A real-time controller based on control barrier functions and
 position-based dynamics then enforces obstacle avoidance, stress limits, and DLO
-integrity. This approach is practical and attractive because it avoids designing a
-specialized DLO planner and can be deployed with standard planning tools.
-However, the global planner produces a coarse path for the approximated object,
-while fine deformation behavior, stress constraints, and modeling errors are
-handled mainly by the local controller. In contrast, the objective of GCR is to
+integrity. Because no specialized DLO planner has to be designed, the approach
+can be deployed with standard planning tools; the price is that the global
+planner produces a coarse path for the approximated object, while fine
+deformation behavior, stress constraints, and modeling errors are handled mainly
+by the local controller. In contrast, the objective of GCR is to
 reason directly about the full planar cable configuration during planning and to
 validate each accepted planning edge as a local cable deformation.
 
 Other recent approaches reduce the difficulty of constrained DLO planning by
-using hierarchical representations. Tang et al. proposed a framework that first
-generates a spatial path set satisfying homotopic constraints for DLO keypoints,
-then optimizes a temporal deformation sequence and tracks it using a neural
-model-predictive controller \cite{tang2026hierarchical}. This formulation is effective for
-constrained manipulation because it reduces the search space before deformation
-optimization. At the same time, it introduces a multi-stage pipeline combining
-path-set generation, deformation optimization, and learned tracking. Such
-hierarchical approaches are powerful, but they do not directly address the
-specific problem considered here: constructing a compact sequence of full cable
-configurations in a planar cluttered workspace while explicitly validating each
-local swept deformation between consecutive configurations.
+using hierarchical representations. \citet{tang2026hierarchical} first generate
+a spatial path set satisfying homotopic constraints for DLO keypoints, then
+optimize a temporal deformation sequence and track it using a neural
+model-predictive controller. Reducing the search space before deformation
+optimization makes such pipelines effective for constrained manipulation, but
+they do not directly address the specific problem considered here: constructing
+a compact sequence of full cable configurations in a planar cluttered workspace
+while explicitly validating each local swept deformation between consecutive
+configurations.
 
 Cable routing has also been studied in task-specific settings. For example,
 fixture-based or assembly-oriented methods represent the task through cable
 features, fixtures, grasp actions, or local routing operations
-\cite{jin2022robotic,waltersson2022planning,keipour2022deformable}.
-These methods are relevant to practical cable assembly and can be efficient when
-the task structure is known. However, they often rely on specific fixtures,
-predefined action primitives, or simplified representations of the cable state.
-Consequently, they do not generally solve the full-shape planning problem where
-the planner must decide how the entire cable centerline should move through a
-cluttered environment.
+\citep{jin2022robotic,waltersson2022planning,keipour2022deformable}.
+These methods are efficient when the task structure is known, but they rely on
+specific fixtures, predefined action primitives, or simplified representations
+of the cable state, and therefore do not solve the full-shape planning problem
+where the planner must decide how the entire cable centerline should move
+through a cluttered environment.
 
-The literature shows a clear gap. Local controllers can deform and
-track DLO shapes but do not solve global routing. High-fidelity rod planners can
-represent deformation accurately but are often computationally demanding.
-Planning-control frameworks can handle complex environments, but the global
-planner usually provides a coarse guide while the local controller compensates
-for deformation errors. Task-specific cable-routing systems are effective for
-structured assembly problems but do not provide a general full-shape routing
-planner. Moreover, most existing approaches validate static configurations or
-track planned references, while less attention is given to explicit validation of
-the swept region generated by the local deformation between two neighboring
-cable configurations.
+Across these four directions, one requirement remains unmet: a planner that
+reasons about the complete cable shape at planning time. Most existing
+approaches validate static configurations or track planned references, and
+little attention is given to explicit validation of the swept region generated
+by the local deformation between two neighboring cable configurations.
 
-The proposed GCR planner addresses this gap for the planar case. It searches
-directly in the discretized cable configuration space, where each state is the full
-ordered cable centerline. Candidate configurations are guided by a
-configuration-level artificial potential field and corrected using local deformation
-regularization. More importantly, accepted edges are validated as ordered
-transitions: the swept envelope between consecutive configurations is checked,
-and endpoint correspondence is preserved during parent selection, tree
-connection, and shortcut refinement. Thus, GCR is positioned between
-lightweight geometric planners and high-fidelity physical DLO planners. It does
-not aim to replace full physical simulation or closed-loop execution control, but
-it provides a compact global routing layer that explicitly reasons about both
-static cable feasibility and transition-level deformation feasibility.
+The proposed GCR planner addresses this gap for the planar case: every accepted
+edge is validated as an ordered transition whose swept envelope is
+collision-free and whose endpoint correspondence is preserved throughout the
+search. GCR is therefore positioned between lightweight geometric planners and
+high-fidelity physical DLO planners. It does not aim to replace full physical
+simulation or closed-loop execution control, but it provides a compact global
+routing layer that reasons about both static cable feasibility and
+transition-level deformation feasibility.
 
 
 
@@ -568,7 +544,7 @@ p_n=(x_n,y_n)\in\mathbb{R}^{2},
 n=1,\ldots,N .
 \label{eq:cable_configuration_definition}
 \end{equation}
-The cable shape is approximated by the polygonal chain connecting consecutive nodes. The node ordering is part of the configuration used for transition validation; it is not only a drawing convention for an unlabelled curve. The \(k\)-th segment is
+The cable shape is approximated by the polygonal chain connecting consecutive nodes. The node ordering is part of the configuration: it fixes the endpoint correspondence used for transition validation (Section~\ref{subsec:ordered_transition_feasibility}). The \(k\)-th segment is
 \begin{equation}
 s_k(C)
 =
@@ -740,14 +716,13 @@ other is a reference configuration \(C^{\mathrm{ref}}\).
 % \label{eq:gcr_reference_deformation_energy}
 % \end{equation}
 This reference-based form reflects the local nature of the planning problem.
-The objective is not only to obtain a smooth or equilibrium-like cable shape.
-Minimizing only an absolute stretching--bending energy may produce a low-energy
-configuration that is far from the previous feasible configuration. Such a
-change can introduce an unnecessarily large deformation along a single planning
-edge. In GCR, each edge represents a local manipulation step. Therefore,
-deformation is evaluated relative to a nearby feasible configuration, so that the
-planner preserves local cable structure while still allowing the shape to change
-when required for obstacle avoidance and tree expansion.
+Minimizing an absolute stretching--bending energy alone could return a smooth,
+low-energy shape that lies far from the previous feasible configuration and
+therefore requires an unnecessarily large deformation along a single planning
+edge. Since each edge in GCR represents a local manipulation step, deformation
+is instead evaluated relative to a nearby feasible configuration: the planner
+preserves local cable structure while still allowing the shape to change when
+obstacle avoidance or tree expansion requires it.
 
 
 
@@ -755,7 +730,7 @@ when required for obstacle avoidance and tree expansion.
 \subsection{Admissible and Collision-Free Configurations}
 \label{subsec:configuration_space}
 
-A cable configuration is considered statically admissible with respect to a reference configuration when it satisfies three conditions. First, all cable nodes must lie inside the workspace. Second, the deformation of each cable segment must remain bounded with respect to that reference. Third, no cable segment may intersect the obstacle region. The reference is normally a nearby feasible configuration selected during tree expansion, so the admissibility test is local to the proposed planning edge.
+A cable configuration is considered statically admissible with respect to a reference configuration when it satisfies three conditions. First, all cable nodes must lie inside the workspace. Second, the deformation of each cable segment must remain bounded with respect to that reference. Third, no cable segment may intersect the obstacle region. As in Section~\ref{subsec:gcr_elastic_deformation_measures}, the reference is a nearby feasible configuration selected during tree expansion, so the admissibility test is local to the proposed planning edge.
 
 % Let
 % \[
@@ -779,11 +754,9 @@ A cable configuration is considered statically admissible with respect to a refe
 % v_k(C)-v_k(C^{\mathrm{ref}})
 % \]
 Let \(C^{\mathrm{ref}}\) denote the feasible reference configuration used to
-evaluate local deformation. Using the segment-vector deviation
-\(\Delta v_k(C,C^{\mathrm{ref}})\) defined in
-\eqref{eq:gcr_segment_vector_change}, the local change of a cable segment is
-measured in both length and direction. To prevent excessive stretching,
-compression, or local rotation, this segment-vector deviation is bounded as
+evaluate local deformation. To prevent excessive stretching, compression, or
+local rotation, the segment-vector deviation \(\Delta v_k(C,C^{\mathrm{ref}})\)
+defined in \eqref{eq:gcr_segment_vector_change} is bounded as
 \begin{equation}
 \|\Delta v_k(C, C^{\mathrm{ref}})\|
 \leq
@@ -874,7 +847,7 @@ d_{\mathcal{O}}\!\left(x_{kq}(C)\right).
 \label{eq:configuration_clearance}
 \end{equation}
 
-A positive clearance means that the sampled cable is separated from the obstacles. A zero clearance means that the cable touches an obstacle boundary. A negative clearance means that at least one sampled point lies inside an obstacle, and therefore the configuration is in collision.
+In particular, a negative clearance indicates that at least one sampled point lies inside an obstacle and the configuration is in collision.
 
 % ------------------------------------------------------------
 \subsection{Configuration Distance and Path Cost}
@@ -926,8 +899,7 @@ E_{\mathrm{def}}(C_{i+1},C_i),
 \label{eq:path_deformation_cost}
 \end{equation}
 where \(E_{\mathrm{def}}\) is the local deformation energy defined in
-\eqref{eq:gcr_transition_deformation_energy}. This term penalizes abrupt changes in
-segment vectors and discrete curvature along the path.
+\eqref{eq:gcr_transition_deformation_energy}.
 
 The complete path objective combines the geometric motion cost and the
 deformation cost:
@@ -957,10 +929,7 @@ where \(\alpha_{\mathrm{def}}\geq 0\) is a weighting coefficient that controls
 the relative importance of deformation minimization.
 
 The first term favors short transitions in configuration space, while the second
-term favors smooth and mechanically plausible cable deformation. Therefore, a
-low-cost path is not only short in terms of node displacement, but also avoids
-unnecessary stretching, compression, and bending between consecutive
-configurations.
+term favors smooth and mechanically plausible cable deformation.
 Figure~\ref{fig:configuration-distance-cost} summarizes the max-norm edge
 metric and the accumulation of accepted local transition costs along a discrete
 cable path.
@@ -1041,13 +1010,9 @@ Accordingly, we define the binary swept-clear indicator
 \label{eq:swept_clear_indicator_definition}
 \end{equation}
 
-Thus, an accepted edge represents a collision-free local deformation between
-two cable configurations, not only two individually admissible configurations.
-The swept-envelope test ensures that the cable does not pass through an
-obstacle during the transition.
 Figure~\ref{fig:transition-feasibility} contrasts a clear swept envelope with a
-blocked one, emphasizing that obstacle avoidance is checked for the continuous
-local deformation, not only at the two endpoint configurations.
+blocked one: obstacle avoidance is checked for the continuous local
+deformation, not only at the two endpoint configurations.
 
 \begin{figure}[ht]
     \centering
@@ -1064,13 +1029,12 @@ local deformation, not only at the two endpoint configurations.
 \subsection{Ordered Transition Feasibility and Endpoint Correspondence}
 \label{subsec:ordered_transition_feasibility}
 
-The transition feasibility condition introduced in
-Section~\ref{subsec:continuous_motion} depends not only
-on the geometric shape occupied by two cable configurations, but also on the
-point-to-point correspondence assumed during the transition. This distinction is
-important because the cable is represented as an ordered sequence of nodes. The
-ordering determines which cable endpoint is associated with the first robot
-end-effector and which endpoint is associated with the second robot end-effector.
+The swept envelope in \eqref{eq:swept_polygon_formulation} is built from the
+point-to-point correspondence \(p_n^a\leftrightarrow p_n^b\), so transition
+feasibility depends on the assumed node ordering and not only on the geometric
+shapes of the two configurations. The ordering also determines which cable
+endpoint is associated with which robot end-effector. This subsection makes the
+role of the ordering explicit.
 
 For a cable configuration
 \begin{equation}
@@ -1129,8 +1093,8 @@ unchanged. Hence
 \chi_{\mathrm{sw}}(R(C),R(D)).
 \end{equation}
 
-In contrast, the same invariance does not hold when only one configuration is
-reversed. In general,
+In contrast, the invariance does not extend to the case where only one
+configuration is reversed. In general,
 \begin{equation}
 \chi_{\mathrm{sw}}(C,D)
 \neq
@@ -1142,11 +1106,9 @@ and
 \neq
 \chi_{\mathrm{sw}}(C,R(D)).
 \end{equation}
-Reversing only one configuration changes the endpoint correspondence during
-the local deformation. Consequently, the swept envelope may become larger,
-may become self-intersecting, or may cover a different part of the workspace.
-Therefore, a transition that is collision-free under one ordering may become
-invalid under another ordering.
+In such cases, the swept envelope may become larger, self-intersecting, or
+cover a different part of the workspace, so a transition that is collision-free
+under one ordering may be invalid under another.
 Figure~\ref{fig:order-transition-endpoint-correspondence} illustrates this
 dependence on endpoint correspondence: the same two geometric cable shapes can
 produce different swept regions when one ordering is changed.
@@ -1409,11 +1371,8 @@ the smoothness of the generated shape. After generation, the cable is shifted
 into the workspace, clipped to the workspace boundaries if necessary, and
 projected toward the nominal segment length.
 
-The guided mixture sampler therefore balances exploitation and exploration. The
-goal-guided component improves convergence toward the target, the tree-guided
-component supports controlled local growth from existing feasible
-configurations, and the broad component helps the planner escape local
-geometric restrictions by introducing more diverse cable shapes.
+The raw sample drawn from this mixture is generally not yet a useful tree
+candidate; it is first refined by the APF biasing step described next.
 % ------------------------------------------------------------
 \subsection{Configuration-Level Artificial Potential Field Biasing}
 \label{subsec:gcr_config_apf_sampling}
@@ -1430,8 +1389,8 @@ C^{\mathrm{raw}}
 =
 (p_1^{\mathrm{raw}},p_2^{\mathrm{raw}},\ldots,p_N^{\mathrm{raw}})
 \]
-be the raw configuration obtained from the guided mixture sampler introduced in
-\eqref{eq:guided_mixture_sampler}. It is not inserted directly into the search tree. Instead, it is first transformed into an APF-biased configuration
+be the raw configuration obtained from the guided mixture sampler in
+\eqref{eq:guided_mixture_sampler}. Rather than being inserted directly into the search tree, it is first transformed into an APF-biased configuration
 \[
 \widehat{C}
 =
@@ -1482,7 +1441,7 @@ U_{\mathrm{att}}(C,C_{\mathrm{target}})
 U_{\mathrm{rep}}(C,\mathcal{O})
 \label{eq:gcr_total_configuration_potential}
 \end{equation}
-Here, $C_{\mathrm{target}}$ is chosen according to the direction of the bidirectional expansion. When the start tree is expanded, the target configuration is the goal-side configuration. Conversely, when the goal tree is expanded, the target configuration is the start-side configuration. This bidirectional use of the APF is illustrated in Fig.~\ref{fig:apf_bidirectional_sampling}. Figure~\ref{fig:apf_start_tree_field} shows the APF used for the start-tree expansion, where the attractive component pulls the sampled configuration toward $C_{\mathrm{goal}}$. Figure~\ref{fig:apf_goal_tree_field} shows the opposite case, where the goal tree is biased toward $C_{\mathrm{start}}$. In both cases, obstacle regions generate high potential values, forming repulsive zones around occupied areas.
+Here, $C_{\mathrm{target}}$ is the root of the opposite tree. This bidirectional use of the APF is illustrated in Fig.~\ref{fig:apf_bidirectional_sampling}: during start-tree expansion the attractive component pulls the sampled configuration toward $C_{\mathrm{goal}}$ (Fig.~\ref{fig:apf_start_tree_field}), during goal-tree expansion it pulls toward $C_{\mathrm{start}}$ (Fig.~\ref{fig:apf_goal_tree_field}), and in both cases obstacle regions generate high potential values that form repulsive zones around occupied areas.
 
 The attractive term guides the cable toward the target configuration:
 \begin{equation}
@@ -1600,11 +1559,11 @@ p_n^{(h)}
 n=1,\ldots,N.
 \label{eq:gcr_pointwise_apf_update}
 \end{equation}
-where $\eta>0$ is the APF step size, which controls the magnitude of the displacement applied to each cable node during one gradient descent iteration. A small value of $\eta$ produces slow but stable motion in the potential field, whereas a large value may accelerate convergence but can lead to overshooting or unstable updates.
+where $\eta>0$ is the APF step size.
 
-The local effect of this update is shown in Fig.~\ref{fig:apf_pipeline}. First, a random configuration $C^{\mathrm{raw}}$ is generated in the workspace, as shown in Fig.~\ref{fig:apf_pipeline_raw}. Then, the gradient of the total potential produces pointwise artificial forces acting on the cable nodes, as shown in Fig.~\ref{fig:apf_pipeline_forces}. These forces combine attraction toward the target configuration with repulsion from obstacles. The raw sample is then transformed into an APF-biased configuration $\widehat{C}$, as shown in Fig.~\ref{fig:apf_pipeline_descent}. The biased configuration is closer to the desired expansion direction and is less likely to pass through high-potential obstacle regions.
+The local effect of this update is shown in Fig.~\ref{fig:apf_pipeline}. First, a random configuration $C^{\mathrm{raw}}$ is generated in the workspace, as shown in Fig.~\ref{fig:apf_pipeline_raw}. Then, the gradient of the total potential produces pointwise artificial forces acting on the cable nodes, as shown in Fig.~\ref{fig:apf_pipeline_forces}. The raw sample is then transformed into an APF-biased configuration $\widehat{C}$, as shown in Fig.~\ref{fig:apf_pipeline_descent}. The biased configuration is closer to the desired expansion direction and is less likely to pass through high-potential obstacle regions.
 
-The resulting configuration $\widehat{C}$ is not guaranteed to satisfy all cable constraints, such as exact segment-length preservation, admissible deformation, or complete collision avoidance. Therefore, it is used as an input for the subsequent constrained relaxation step, where deformation and collision-related violations are reduced before the final validity checks.
+The resulting configuration $\widehat{C}$ is not yet guaranteed to satisfy all cable constraints, such as exact segment-length preservation, admissible deformation, or complete collision avoidance; these violations are handled by the relaxation step described next.
 
 
 
@@ -1806,17 +1765,14 @@ The resulting configuration $\widehat{C}$ is not guaranteed to satisfy all cable
 \subsection{Cable Elastic Relaxation}
 \label{subsec:gcr_constrained_relaxation}
 
-The APF-biased configuration \(\widehat{C}\) is used as a candidate for tree
-expansion. However, this candidate may locally violate obstacle-clearance
-requirements or deformation limits. Therefore, before inserting the candidate
-into the search tree, a projected elastic relaxation step is applied. The
-purpose of this step is to obtain a corrected configuration
+The projected elastic relaxation step transforms the APF-biased configuration
+\(\widehat{C}\) into a corrected candidate
 \[
 C^{\mathrm{relax}}
 =
 (p_1^{\mathrm{relax}},p_2^{\mathrm{relax}},\ldots,p_N^{\mathrm{relax}})
 \]
-that remains close to \(\widehat{C}\), while preserving the local shape of a nearby feasible reference configuration \(C^{\mathrm{ref}}\).
+that remains close to \(\widehat{C}\) while preserving the local shape of a nearby feasible reference configuration \(C^{\mathrm{ref}}\).
 
 Let \(C=(p_1,p_2,\ldots,p_N)\) be the configuration optimized during
 relaxation. The relaxation objective is defined as
@@ -1888,9 +1844,7 @@ h_{\mathrm{relax}}
 \nabla \Phi(C^m),
 \label{eq:relaxation_gradient_step}
 \end{equation}
-where \(h_{\mathrm{relax}}>0\) is the relaxation step size. This step reduces
-the elastic objective and moves the cable toward a configuration that is closer
-to the APF-biased sample and smoother with respect to the reference shape.
+where \(h_{\mathrm{relax}}>0\) is the relaxation step size.
 
 The intermediate configuration is then corrected by a sequence of projection
 operators:
@@ -1992,11 +1946,9 @@ The endpoint projection \(\Pi_{\mathrm{end}}\) fixes the two cable endpoints:
 \begin{equation}
 p_1=\widehat{p}_1,
 \qquad
-p_N=\widehat{p}_N 
+p_N=\widehat{p}_N
 \label{eq:relaxation_endpoint_constraint}
 \end{equation}
-This preserves the endpoint displacement generated by the APF step while
-allowing the internal cable nodes to relax.
 
 After \(M_{\mathrm{relax}}\) iterations, the relaxed configuration is defined as
 \begin{equation}
@@ -2012,10 +1964,7 @@ This check verifies workspace bounds, segment-deviation limits, and collision
 freedom of all cable segments.
 
 The effect of the relaxation step is illustrated in
-Fig.~\ref{fig:relaxation}. The APF-biased configuration is locally corrected so
-that the final candidate remains close to the APF output while satisfying the
-geometric and deformation constraints required for subsequent transition
-validation.
+Fig.~\ref{fig:relaxation}.
 
 \begin{figure}[h]
     \centering
@@ -2163,42 +2112,19 @@ validation.
 \label{subsec:gcr_parent_selection}
 
 After the relaxed configuration \(C^{\mathrm{relax}}\) has passed the static
-admissibility check in \ref{eq:relaxed_static_validation}, the planner searches
+admissibility check in \eqref{eq:relaxed_static_validation}, the planner searches
 for a feasible parent in the active tree. The parent selection step determines
 whether the relaxed configuration can be connected to an existing tree vertex by
 a collision-free and endpoint-consistent local deformation.
 
 In contrast to static configuration validation, local transition validation
-depends on the ordering of the cable nodes. Therefore, the relaxed configuration
-is not inserted into the tree only as an unordered geometric curve. Instead, the
-planner considers the admissible ordered representatives of the relaxed
-configuration. Using the reversal operator \(R(\cdot)\) introduced in
-Section~\ref{subsec:ordered_transition_feasibility}, the set of possible ordered
-representatives is
-\begin{equation}
-\mathcal{R}
-\left(
-C^{\mathrm{relax}}
-\right)
-=
-\left\{
-C^{\mathrm{relax}},
-R\left(C^{\mathrm{relax}}\right)
-\right\}.
-\label{eq:relaxed_ordered_representatives}
-\end{equation}
-Equivalently, for \(\sigma\in\{+1,-1\}\), we write
-\begin{equation}
-\left(C^{\mathrm{relax}}\right)^{\sigma}
-=
-\begin{cases}
-C^{\mathrm{relax}}, & \sigma=+1,\\
-R\left(C^{\mathrm{relax}}\right), & \sigma=-1.
-\end{cases}
-\label{eq:relaxed_order_variable}
-\end{equation}
-Each vertex already stored in the active tree has a fixed endpoint ordering,
-because it was inserted through a previously validated ordered transition.
+depends on the ordering of the cable nodes. The planner therefore considers
+both ordered representatives of the relaxed configuration,
+\(\left(C^{\mathrm{relax}}\right)^{\sigma}\) with \(\sigma\in\{+1,-1\}\),
+following the endpoint-order notation of
+Section~\ref{subsec:ordered_transition_feasibility}. Each vertex already stored
+in the active tree has a fixed endpoint ordering, because it was inserted
+through a previously validated ordered transition.
 
 Let \(V_{\mathrm{act}}\) denote the set of vertices in the active tree. A pair
 \(\left(C_i,\sigma\right)\), where \(C_i\in V_{\mathrm{act}}\) and
@@ -2239,9 +2165,8 @@ C_i,
 \label{eq:nearby_parent_set}
 \end{equation}
 The candidates in \(\mathcal{V}_{\epsilon}\) are ordered according to their
-distance from the corresponding ordered relaxed configuration. Only a bounded
-number of nearest candidates is evaluated. This keeps the parent-selection step
-local and computationally bounded.
+distance from the corresponding ordered relaxed configuration, and only a
+bounded number of nearest candidates is evaluated.
 
 Distance proximity alone is not sufficient for parent selection. A candidate
 parent must also produce a deformation-feasible edge under the selected endpoint
@@ -2293,35 +2218,14 @@ C_i,
 \label{eq:parent_swept_clear_check}
 \end{equation}
 
-Since reversing only one configuration can change the point-to-point
-correspondence during the transition, the conditions
-\[
-\chi_{\mathrm{sw}}
-\left(
-C_i,
-C^{\mathrm{relax}}
-\right)
-=
-1
-\]
-and
-\[
-\chi_{\mathrm{sw}}
-\left(
-C_i,
-R\left(C^{\mathrm{relax}}\right)
-\right)
-=
-1
-\]
-are not generally equivalent. Therefore, the parent selection step evaluates the
-swept-envelope condition for the actual ordered representative that would be
-inserted into the tree.
-
-To include ordered edge-feasibility consistency in the same edge-validation step, the
-ordered transition predicate \(\Gamma(\cdot,\cdot)\) introduced in
-Section~\ref{subsec:ordered_transition_feasibility} is used. Thus, the feasible
-parent set is defined as
+As established in Section~\ref{subsec:ordered_transition_feasibility},
+\(\chi_{\mathrm{sw}}\) is not invariant under reversal of a single
+configuration, so the parent-selection step evaluates the swept-envelope
+condition for the actual ordered representative that would be inserted into the
+tree. To include ordered edge-feasibility consistency in the same
+edge-validation step, the full ordered transition predicate
+\(\Gamma(\cdot,\cdot)\) of \eqref{eq:ordered_edge_feasibility_predicate} is
+used. Thus, the feasible parent set is defined as
 \begin{equation}
 \mathcal{V}_{\mathrm{par}}
 =
@@ -2338,9 +2242,7 @@ C_i,
 \right\}.
 \label{eq:feasible_parent_set}
 \end{equation}
-Here, the predicate \(\Gamma\) includes the ordered swept-envelope condition,
-the endpoint-axis continuity condition, and, when required, the robot-dependent
-endpoint feasibility condition. In particular,
+In particular,
 \begin{equation}
 \Gamma
 \left(
@@ -2416,31 +2318,11 @@ is added to the active tree, and the parent pointer of \(C^{\mathrm{new}}\) is
 set to \(C^{\mathrm{par}}\).
 
 By construction, every inserted edge satisfies
-\begin{equation}
-\Gamma
-\left(
-C^{\mathrm{par}},
-C^{\mathrm{new}}
-\right)
-=
-1 ,
-\label{eq:inserted_edge_gamma_valid}
-\end{equation}
-and therefore also satisfies
-\begin{equation}
-\chi_{\mathrm{sw}}
-\left(
-C^{\mathrm{par}},
-C^{\mathrm{new}}
-\right)
-=
-1 .
-\label{eq:inserted_edge_swept_clear_valid}
-\end{equation}
-Thus, each accepted edge represents an obstacle-free swept deformation under the
-selected endpoint correspondence. This prevents a configuration from being
-accepted under one endpoint ordering and later reinterpreted using another
-ordering that was not validated during planning.
+\(\Gamma(C^{\mathrm{par}},C^{\mathrm{new}})=1\) and hence, by
+\eqref{eq:gamma_implies_swept_clear_parent}, represents an obstacle-free swept
+deformation under the selected endpoint correspondence. This prevents a
+configuration from being accepted under one endpoint ordering and later
+reinterpreted using another ordering that was not validated during planning.
 
 The two possible outcomes of the parent-selection test are illustrated in
 Fig.~\ref{fig:polygon}. In Fig.~\ref{fig:polygon_free}, the swept corridor
@@ -2587,57 +2469,20 @@ d(C,C^{\mathrm{new}}).
 \label{eq:gcr_connection_candidate}
 \end{equation}
 This nearest-neighbor query provides a candidate connection between the two
-trees. However, distance proximity alone is not sufficient, because the
-transition from one tree to the other must preserve both swept-collision
-validity and ordered edge-feasibility consistency.
+trees. However, distance proximity alone is not sufficient: the connection edge
+is traversed in the direction of the final path, from \(C^{\mathrm{new}}\) to
+\(C_{\mathrm{conn}}\) when the active tree is \(T_{\mathrm{s}}\), and from
+\(C_{\mathrm{conn}}\) to \(C^{\mathrm{new}}\) when the active tree is
+\(T_{\mathrm{g}}\). The ordered transition in this direction must lie within
+the connection radius \(\epsilon\) and satisfy the ordered edge-feasibility
+predicate \(\Gamma(\cdot,\cdot)\); otherwise, an invalid endpoint
+correspondence could generate a swept envelope that collides during the
+connection transition even though both meeting configurations are individually
+collision-free.
 
-If the active tree is \(T_{\mathrm{s}}\), then the final path direction across
-the connection edge is from \(C^{\mathrm{new}}\) to \(C_{\mathrm{conn}}\).
-Therefore, a valid connection must satisfy
-\begin{equation}
-d(C^{\mathrm{new}},C_{\mathrm{conn}})
-\leq
-\epsilon,
-\label{eq:gcr_connection_distance_condition}
-\end{equation}
-and
-\begin{equation}
-\Gamma(C^{\mathrm{new}},C_{\mathrm{conn}})=1.
-\label{eq:gcr_connection_gamma_condition_start_active}
-\end{equation}
-Equivalently, this implies
-\begin{equation}
-\chi_{\mathrm{sw}}(C^{\mathrm{new}},C_{\mathrm{conn}})=1.
-\label{eq:gcr_connection_swept_clear_condition}
-\end{equation}
-
-If the active tree is \(T_{\mathrm{g}}\), then \(C^{\mathrm{new}}\) belongs to
-the goal-side tree, while \(C_{\mathrm{conn}}\) belongs to the start-side tree.
-In the final extracted path, the connection edge is traversed from
-\(C_{\mathrm{conn}}\) to \(C^{\mathrm{new}}\). Therefore, the ordered
-connection condition is written as
-\begin{equation}
-d(C_{\mathrm{conn}},C^{\mathrm{new}})
-\leq
-\epsilon,
-\label{eq:gcr_connection_distance_condition_goal_active}
-\end{equation}
-and
-\begin{equation}
-\Gamma(C_{\mathrm{conn}},C^{\mathrm{new}})=1.
-\label{eq:gcr_connection_gamma_condition_goal_active}
-\end{equation}
-
-The use of \(\Gamma(\cdot,\cdot)\) is necessary because the two meeting
-configurations are ordered configurations, not only geometric cable configurations.
-Although two configurations may be individually collision-free, an invalid
-endpoint correspondence may generate a different swept envelope and may
-therefore create a collision during the connection transition. Thus, the
-connection edge is accepted only if the actual ordered transition used in the
-final path is feasible.
-For implementation, if the nearest candidate \(C_{\mathrm{conn}}\) does not
-satisfy the ordered connection condition, the planner may evaluate a bounded
-set of nearby vertices from \(V_{\mathrm{opp}}\). This set is defined as
+If the nearest candidate \(C_{\mathrm{conn}}\) does not satisfy the ordered
+connection condition, the planner may evaluate a bounded set of nearby vertices
+from \(V_{\mathrm{opp}}\). This set is defined as
 \begin{equation}
 \mathcal{V}_{\mathrm{conn}}
 =
@@ -2764,15 +2609,12 @@ Consequently,
 k=0,\ldots,|\mathcal{P}|-2.
 \label{eq:gcr_complete_path_swept_clear_feasibility}
 \end{equation}
-Therefore, the extracted solution path is not only a sequence of statically
-admissible cable configurations, but also a sequence of ordered, endpoint-
-consistent, swept-collision-free cable transitions.
 
 % CHECK 5.7
-\subsection{Rewiring: Post-Connection Shortcut Refinement}
+\subsection{Post-Connection Shortcut Refinement}
 \label{subsec:gcr_shortcut_refinement}
 
-The first path obtained by connecting the two trees may contain unnecessary intermediate configurations. Therefore, after a feasible solution has been found, a shortcut-based refinement step is applied. This step reduces the number of cable configurations while preserving collision and deformation feasibility.
+The first path obtained by connecting the two trees may contain unnecessary intermediate configurations. Therefore, after a feasible solution has been found, a shortcut-based refinement step is applied to reduce the number of cable configurations in the path.
 % The assignment between ordered cable endpoints and robot end-effectors is handled afterward in the endpoint-ordering and execution-validation stage described in Section~\ref{subsec:gcr_path_refinement}.
 
 Let the initial connected path be
@@ -2832,32 +2674,11 @@ Since every accepted shortcut must satisfy \eqref{eq:gcr_shortcut_feasibility_co
 \label{subsec:gcr_summary} 
 The proposed GCR planner is a validity-preserving bidirectional search in the discretized cable configuration space. It grows one tree from the start configuration and one tree from the goal configuration. At each iteration, one tree is selected as the active tree and expanded toward the opposite side. A raw cable configuration is generated by the guided sampler, biased by the configuration-level APF, and corrected by projected elastic relaxation. The relaxed candidate is inserted only if it satisfies static admissibility and if there exists a feasible ordered parent connection.
 
-The main difference between GCR and a standard bidirectional RRT is that node insertion is not based only on distance and static collision checking. In GCR, each accepted vertex must belong to \(\mathcal{C}_{\mathrm{free}}\), and each accepted edge must satisfy the ordered edge-feasibility predicate \(\Gamma(\cdot,\cdot)\). This predicate includes swept-envelope collision checking, endpoint-axis consistency, and optional robot-dependent endpoint feasibility. Therefore, the extracted path is a sequence of collision-free cable shapes connected by ordered, deformation-feasible transitions.
+The main difference between GCR and a standard bidirectional RRT is that node insertion is not based only on distance and static collision checking. In GCR, each accepted vertex must belong to \(\mathcal{C}_{\mathrm{free}}\), and each accepted edge must satisfy the ordered edge-feasibility predicate \(\Gamma(\cdot,\cdot)\) of \eqref{eq:ordered_edge_feasibility_predicate}. Therefore, the extracted path is a sequence of collision-free cable shapes connected by ordered, deformation-feasible transitions.
 
-Algorithm~\ref{alg:gcr_main} gives the global bidirectional structure of the planner. Algorithm~\ref{alg:gcr_expand} describes the expansion step, including sampling, APF biasing, relaxation, static validation, ordered parent selection, and node insertion. Algorithm~\ref{alg:gcr_refine} summarizes shortcut refinement, where redundant intermediate configurations are removed only when the replacement edge remains ordered-feasible and does not increase the edge cost.
+Algorithm~\ref{alg:gcr_main} gives the global bidirectional structure of the planner, Algorithm~\ref{alg:gcr_expand} details the expansion step, and Algorithm~\ref{alg:gcr_refine} summarizes shortcut refinement, where redundant intermediate configurations are removed only when the replacement edge remains ordered-feasible and does not increase the edge cost.
 
-The planner terminates successfully when it finds a finite path
-\begin{equation}
-\mathcal{P}=\{C_0,C_1,\ldots,C_K\}
-\end{equation}
-such that
-\begin{equation}
-C_0=C_{\mathrm{start}},
-\qquad
-C_K=C_{\mathrm{goal}},
-\end{equation}
-\begin{equation}
-C_k\in \mathcal{C}_{\mathrm{free}},
-\qquad
-k=0,\ldots,K,
-\end{equation}
-and
-\begin{equation}
-\Gamma(C_k,C_{k+1})=1,
-\qquad
-k=0,\ldots,K-1.
-\end{equation}
-If no valid connection between the two trees is found within the maximum number of iterations \(I_{\max}\), the planner reports failure.
+The planner terminates successfully when it extracts a finite path from \(C_{\mathrm{start}}\) to \(C_{\mathrm{goal}}\) whose configurations and edges satisfy \eqref{eq:gcr_complete_path_ordered_feasibility}. If no valid connection between the two trees is found within the maximum number of iterations \(I_{\max}\), the planner reports failure.
 
 \begin{algorithm}[t]
 \small
@@ -2946,12 +2767,11 @@ C_{\mathrm{goal}}\notin \mathcal{C}_{\mathrm{free}}$}
 \end{algorithm}
 
 The procedure \Call{Near}{} returns all vertices of the opposite tree located
-within the connection radius \(\epsilon\) from \(C^{\mathrm{new}}\). The
-procedure \Call{FeasibleConnections}{} evaluates the ordered edge predicate
-\(\Gamma(\cdot,\cdot)\). If \(\mathrm{dir}=1\), it accepts vertices satisfying
-\(\Gamma(C^{\mathrm{new}},C_j)=1\). If \(\mathrm{dir}=-1\), it accepts vertices
-satisfying \(\Gamma(C_j,C^{\mathrm{new}})=1\). This distinction preserves the
-direction of the transition in the final extracted path.
+within the connection radius \(\epsilon\) from \(C^{\mathrm{new}}\), and
+\Call{FeasibleConnections}{} applies the direction-dependent ordered
+edge-feasibility condition of
+\eqref{eq:gcr_feasible_connection_set_start_active}--\eqref{eq:gcr_feasible_connection_set_goal_active}
+according to \(\mathrm{dir}\).
 
 \begin{algorithm}[t]
 \small
@@ -3003,13 +2823,29 @@ d\left(C_i,\left(C^{\mathrm{relax}}\right)^{\sigma}\right)\leq\epsilon
     \State \Return \((\mathrm{false},\emptyset)\)
 \EndIf
 
-\State \((C^{\mathrm{par}},\sigma^{\ast})\gets
-\underset{(C_i,\sigma)\in V_{\mathrm{par}}}{\arg\min}\;
-\left[
-g(C_i)+d\left(C_i,\left(C^{\mathrm{relax}}\right)^{\sigma}\right)
-+\alpha_{\mathrm{def}}
-E_{\mathrm{def}}\left(\left(C^{\mathrm{relax}}\right)^{\sigma},C_i\right)
-\right]\)
+\State \(
+(C^{\mathrm{par}},\sigma^{\ast}) \gets
+\underset{(C_i,\sigma)\in V_{\mathrm{par}}}{\arg\min}
+\begin{aligned}[t]
+&\left[
+g(C_i)
++d\left(C_i,\left(C^{\mathrm{relax}}\right)^{\sigma}\right)
+\right. \\
+&\left.
+\quad+\alpha_{\mathrm{def}}\,
+E_{\mathrm{def}}\left(
+\left(C^{\mathrm{relax}}\right)^{\sigma},C_i
+\right)
+\right]
+\end{aligned}
+\)
+% \State \((C^{\mathrm{par}},\sigma^{\ast})\gets
+% \underset{(C_i,\sigma)\in V_{\mathrm{par}}}{\arg\min}\;
+% \left[
+% g(C_i)+d\left(C_i,\left(C^{\mathrm{relax}}\right)^{\sigma}\right) \right. 
+% \left. +\alpha_{\mathrm{def}}
+% E_{\mathrm{def}}\left(\left(C^{\mathrm{relax}}\right)^{\sigma},C_i\right)
+% \right] \)
 
 \State \(C^{\mathrm{new}}\gets
 \left(C^{\mathrm{relax}}\right)^{\sigma^{\ast}}\)
@@ -3689,7 +3525,7 @@ The scenarios differ in obstacle arrangement, free-space connectivity, passage w
 Some scenarios provide a relatively direct route between the two configurations.
 Others require the cable to pass through narrow passages, rotate around obstacle boundaries, or follow a less direct deformation sequence.
 Figure~\ref{fig:benchmark_solutions} shows one representative solution for each scenario.
-These visual results are important for interpreting the numerical results because the difficulty of a routing problem depends not only on the number of obstacles, but also on how the obstacles restrict feasible cable transitions.
+The difficulty of a routing problem depends less on the number of obstacles than on how the obstacles restrict feasible cable transitions, which these solution plots make visible.
 
 \begin{figure*}[t]
 % \centering
@@ -3754,15 +3590,15 @@ We report the following metrics for each benchmark scenario:
 \begin{itemize}
     \item \textbf{Success rate}: the percentage of trials in which GCR finds an accepted path before reaching the maximum number of iterations.
     
-    \item \textbf{Average planning time}: the mean runtime of the complete planning pipeline over successful trials. This includes tree expansion, shortcut refinement, and ordered edge-feasibility validation.
+    \item \textbf{Average planning time}: the mean runtime of the complete planning pipeline over successful trials.
     
     \item \textbf{Fastest planning time}: the minimum runtime observed among the successful trials. This value indicates the best-case behavior of the stochastic search for a given scenario.
     
     \item \textbf{Average number of iterations}: the mean number of tree-expansion iterations required to obtain a valid connection between the two trees.
     
-    \item \textbf{Configurations before rewiring}: the average number of cable configurations in the raw path immediately after the two trees are connected.
-    
-    \item \textbf{Configurations after rewiring}: the average number of cable configurations remaining after shortcut refinement. This metric describes the compactness of the final path that is later used for execution.
+    \item \textbf{Configurations before refinement}: the average number of cable configurations in the raw path immediately after the two trees are connected.
+
+    \item \textbf{Configurations after refinement}: the average number of cable configurations remaining after shortcut refinement. This metric describes the compactness of the final path that is later used for execution.
 \end{itemize}
 
 % The last two metrics are particularly relevant for manipulation.
@@ -3777,8 +3613,6 @@ We report the following metrics for each benchmark scenario:
 
 
 Table~\ref{tab:paper_benchmark_results} summarizes the benchmark results.
-All ten selected scenarios were solved in all 1000 trials.
-This result should be interpreted within the tested scenario set: it shows that the implemented combination of bidirectional expansion, APF-biased sampling, elastic relaxation, swept-transition validation, and ordered edge-feasibility validation was sufficient for these planar layouts.
 
 \begin{table*}[t]
     \centering
@@ -3789,9 +3623,8 @@ This result should be interpreted within the tested scenario set: it shows that 
     \input{paper_benchmark_table_for_paper.tex}
 \end{table*}
 
-The results in Table~\ref{tab:paper_benchmark_results} show that GCR found a valid path in all tested trials for the ten benchmark scenarios.
-Each scenario was evaluated over 1000 independent runs, and the success rate remained 100\% in every case.
-This indicates that, for the selected planar environments, the combination of bidirectional search, APF-guided sampling, elastic relaxation, and swept-transition validation consistently produced feasible cable-routing paths.
+GCR found a valid path in every trial, giving a 100\% success rate in all ten scenarios.
+This result should be interpreted within the tested scenario set; it shows that the implemented combination of bidirectional expansion, APF-biased sampling, elastic relaxation, and ordered swept-transition validation was sufficient for these planar layouts.
 
 The computational cost varies with the geometric constraints of the workspace.
 \textbf{Scenario~3}, Figure~\ref{fig:sc03}, is solved with the lowest average computation time, $0.008 \pm 0.003$~s, and requires only $(0.07 \pm 0.03)\times 10^3$ iterations on average.
@@ -3802,7 +3635,6 @@ Most trials are solved quickly, as indicated by the fastest time of 0.005~s.
 The most demanding case is \textbf{Scenario~4}, Figure~\ref{fig:sc04}, where the planner requires $1.306 \pm 0.871$~s and $(6.98 \pm 4.52)\times 10^3$ iterations on average.
 This increase is consistent with the more constrained obstacle arrangement, where the cable has fewer admissible deformation routes and the planner must reject more samples because of static collisions or invalid swept transitions.
 \textbf{Scenario~10}, Figure~\ref{fig:sc10}, is the second most expensive case, with $0.339 \pm 0.139$~s and $(2.60 \pm 1.08)\times 10^3$ iterations.
-Despite this higher complexity, both scenarios still maintain a 100\% success rate across all trials.
 
 For the remaining scenarios, \textbf{Scenarios~1, 2, 6, 7, 8, and~9} shown in Figure~\ref{fig:benchmark_solutions}, the average runtime ranges from 0.072~s to 0.283~s.
 These values show that the planner handled the selected static-obstacle tasks efficiently, except when the geometry imposed narrow or highly constrained deformation routes.
@@ -3812,15 +3644,14 @@ Before refinement, the raw connected paths contain between $13 \pm 2$ and $25 \p
 After refinement, the final paths contain between $3$ and $9 \pm 1$ configurations.
 The retained configurations are those that preserve the validity of the cable transition according to the swept-envelope test and ordered edge-feasibility validation.
 
-Overall, the benchmark results show that GCR solves all selected planar routing scenarios with full success over 1000 trials per scenario.
-The average computation time is below 0.34~s in nine out of ten scenarios, while the most constrained scenario is solved in about 1.31~s on average.
-These results support the use of GCR as an efficient offline planner for generating compact, collision-free, and transition-feasible cable configuration sequences before robotic execution.
+Overall, the average computation time stays below 0.34~s in nine out of ten scenarios, and the most constrained scenario is solved in about 1.31~s on average.
+Runtimes of this order leave a comfortable margin for computing cable-routing sequences before execution.
 
 \subsection{Robotic Manipulation Validation}
 \label{subsec:manipulation_validation}
 
 The second validation stage evaluates whether the refined GCR paths can guide a simulated dual-arm robotic system to deform and translate a cable.
-The robotic setup, built in MuJoCo~\cite{todorov2012mujoco}, is shown in Fig.~\ref{fig:mujoco_setup}.
+The robotic setup, built in MuJoCo~\citep{todorov2012mujoco}, is shown in Fig.~\ref{fig:mujoco_setup}.
 It contains two UR10 manipulators attached rigidly to the two cable ends, the target cable shape, and the bounded planar workspace with obstacles. The robots track the planned endpoint trajectories, while the internal cable elements move passively according to the simulated cable dynamics, elasticity, gravity, contact response, and endpoint motion.
 
 \begin{figure}
@@ -3952,15 +3783,6 @@ These cases require stronger deformation and larger cumulative endpoint motion, 
 
 
 
-\subsection{Summary of Findings}
-\label{subsec:simulation_summary}
-
-The benchmark evaluation shows that the proposed planner solves all selected planar scenarios over 1000 trials per scenario, with runtime increasing as the routing task becomes more constrained.
-The shortcut refinement step reduces the number of retained configurations and therefore produces paths that are more compact for execution.
-The simulation-based robotic manipulation validation indicates that the GCR paths can guide the manipulators toward the target cable shape under the tested replay conditions.
-
-These results support the use of GCR as an offline or supervisory planner for planar cable-routing tasks.
-% Future validation should include three-dimensional routing, calibrated cable parameters, contact-rich manipulation cases, and experiments on physical dual-arm robotic hardware.
 \section{Discussion}
 \label{sec:discussion}
 
@@ -3972,17 +3794,13 @@ positions. This allows the planner to reason about the shape of the whole cable,
 including local segment deformation, bending, static collision avoidance, and
 transition feasibility between consecutive configurations.
 
-A central aspect of the proposed formulation is the distinction between
-configuration validity and transition validity. A cable configuration may be
-collision-free when considered alone, but the deformation from one configuration
-to another may still sweep through an obstacle. For this reason, GCR validates
-each accepted edge using a swept-envelope condition. This makes the resulting
-path more suitable for execution than a sequence of independently valid cable
-shapes, because each neighboring pair of configurations is checked as a local
-deformation.
+A central aspect of the formulation is that every accepted edge, and not only
+every vertex, is validated: because each neighboring pair of configurations is
+checked as a local deformation through the swept-envelope condition, the
+resulting path is more suitable for execution than a sequence of independently
+valid cable shapes.
 
-The ordered representation of the cable is also taken into account. Since the first and last cable points correspond to endpoint labels, changing the order of a cable configuration changes the point-to-point correspondence used during transition validation. The ordered edge-feasibility condition therefore ensures that the same endpoint correspondence used by the planner is preserved in the final path.
-This is relevant for dual-arm manipulation, where each endpoint is assigned to a specific end-effector and the endpoint correspondence affects execution feasibility.
+The ordered edge-feasibility condition additionally guarantees that the endpoint correspondence used by the planner is preserved in the final path. This matters for dual-arm manipulation, where each cable endpoint is assigned to a specific end-effector and swapping the correspondence would change the executed motion.
 
 The combination of APF-biased sampling and bidirectional tree search provides a
 practical balance between exploration and guidance. The APF component improves
@@ -3999,14 +3817,9 @@ physical cable simulator. Instead, it provides a computationally efficient
 correction step that makes sampled configurations more consistent with the
 discrete cable model before they are validated and inserted into the tree.
 
-The benchmark results indicate that the proposed pipeline is effective for the selected planar routing tasks. The planner found feasible paths in all tested scenarios, and the computation time remained suitable for offline or supervisory planning. More constrained scenarios required more iterations and longer planning time, which is expected because narrow passages and obstacle-dense regions reduce the number of admissible local transitions. The shortcut refinement step further reduced the number of retained configurations, producing compact paths that are easier to pass to an execution layer. This refinement also reduces unnecessary manipulation effort: redundant intermediate configurations are removed only when the direct transition remains feasible, and the deformation cost penalizes abrupt changes in segment vectors and discrete curvature. As a result, the final path does not merely connect the start and goal configurations; it also avoids unnecessary cable reshaping and provides a shorter sequence of deformation-feasible manipulation steps.
+In the benchmark, more constrained scenarios required more iterations and longer planning time, which is expected because narrow passages and obstacle-dense regions reduce the number of admissible local transitions. Shortcut refinement also reduces unnecessary manipulation effort: redundant intermediate configurations are removed only when the direct transition remains feasible, and the deformation cost penalizes abrupt changes in segment vectors and discrete curvature. The final path therefore avoids unnecessary cable reshaping and provides a short sequence of deformation-feasible manipulation steps.
 
-The robotic manipulation validation provides an additional indication that the planned paths
-can be used to generate endpoint trajectories for dual-arm manipulation. The
-robots in the simulation setup were able to follow the endpoint references and reproduce the
-planned target cable shapes with small final configuration errors. This result
-supports the use of GCR as a planning layer for generating deformation-feasible
-reference paths. 
+In the manipulation validation, the simulated robots followed the endpoint references and reproduced the planned target cable shapes with final errors below 5~mm RMSE, indicating that the planned sequences are executable by endpoint tracking alone under quasi-static conditions.
 
 The present formulation defines a focused scope for the first implementation of
 GCR and also indicates several directions for further development. In this work,
@@ -4058,11 +3871,9 @@ planner generated feasible paths in the tested planar scenarios, while the
 refinement stage reduced redundant intermediate configurations and avoided
 unnecessary deformation. The simulation-based manipulation validation further indicated that the resulting paths can be converted into endpoint references that reproduce the target cable shapes with small final errors under the tested conditions.
 
-Overall, the results support the use of GCR as an offline or supervisory planning
-layer for planar cable-routing tasks. Future work will focus on extending the
-formulation to three-dimensional environments, incorporating richer physical
-models of cable deformation and contact, and evaluating the planner on real
-robotic systems.
+Future work will focus on extending the formulation to three-dimensional
+environments, incorporating richer physical models of cable deformation and
+contact, and evaluating the planner on real robotic systems.
 
 
 
