@@ -2677,10 +2677,12 @@ The planner terminates successfully when it extracts a finite path from \(C_{\ma
 \caption{Global Cable Routing Planner}
 \label{alg:gcr_main}
 \begin{algorithmic}[1]
-\Require Start configuration $C_{\mathrm{start}}$, goal configuration
-$C_{\mathrm{goal}}$, obstacle region $\mathcal{O}$, maximum number of
-iterations $I_{\max}$, connection radius $\epsilon$
-\Ensure Deformation-feasible path $\mathcal{P}$ or failure
+\Statex \textbf{Input:} Start configuration $C_{\mathrm{start}}$, goal
+configuration $C_{\mathrm{goal}}$, obstacle region $\mathcal{O}$, maximum
+number of iterations $I_{\max}$, and connection radius $\epsilon$.
+\Statex \textbf{Output:} A deformation-feasible path
+$\mathcal{P}=(C_{\mathrm{start}},\ldots,C_{\mathrm{goal}})$, or
+$\mathrm{failure}$ if no valid path is found.
 \Statex \textbf{Begin:}
 
 \If{$C_{\mathrm{start}}\notin \mathcal{C}_{\mathrm{free}} \lor
