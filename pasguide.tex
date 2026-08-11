@@ -65,11 +65,11 @@ sampling-based planning, artificial potential fields, dual-arm manipulation.
 \section{Introduction}
 \label{sec:introduction}
 
-Deformable linear objects (DLOs), such as cables, ropes, wires, hoses, and sutures, appear in many robotic applications, including wire-harness assembly, cable routing, medical suturing, and domestic manipulation. Despite their practical importance, robotic manipulation of DLOs remains difficult because the object shape is not described by a small set of rigid-body coordinates. Instead, the object may bend, stretch slightly, slide around obstacles, and form many admissible geometries under the same endpoint positions. Planning and control for DLOs must therefore handle the object geometry, its deformation behavior, and collision avoidance together, while keeping the commanded shapes mechanically plausible \citep{Sanchez2018Survey,Yin2021Survey,Zhu2022ChallengesOutlook,Caporali2026Survey}.
+Deformable linear objects (DLOs), such as cables, ropes, wires, hoses, and sutures, appear in different robotic applications, including wire-harness assembly, cable routing, medical suturing, and domestic manipulation. Despite their practical importance, robotic manipulation of DLOs remains difficult because the object shape is not described by a small set of rigid-body coordinates. Instead, the object may bend, stretch slightly, slide around obstacles, and form many admissible geometries under the same endpoint positions. Planning and control for DLOs must therefore handle the object geometry, its deformation behavior, and collision avoidance together, while keeping the commanded shapes mechanically plausible \citep{Sanchez2018Survey,Yin2021Survey,Zhu2022ChallengesOutlook,Caporali2026Survey}.
 
-Much of the prior work on DLO manipulation addresses local shape control, where the robot drives the object from its current shape toward a desired one using visual feedback, model-based prediction, or an estimated deformation Jacobian; our earlier studies on dual-arm cable shape control \citep{AlmaghoutKlimchik2022PlanarShapeControl,AlmaghoutKlimchik2022VFP,AlmaghoutKlimchik2024CableShapeControl,AlmaghoutCherubiniKlimchik2024LargeDeformation} belong to this line. These methods assume that the target shape, or a sequence of intermediate profiles, is already available. The question of how the cable should travel across a cluttered workspace---through which intermediate shapes, and along which collision-free deformations---is left open.
+The majority of the prior work on DLO manipulation addresses local shape control, where the robot drives the object from its current shape toward a desired one using visual feedback, model-based prediction, or an estimated deformation Jacobian; our earlier studies on dual-arm cable shape control \citep{AlmaghoutKlimchik2022PlanarShapeControl,AlmaghoutKlimchik2022VFP,AlmaghoutKlimchik2024CableShapeControl,AlmaghoutCherubiniKlimchik2024LargeDeformation} belong to this line. These methods assume that the target shape, or a sequence of intermediate profiles, is already available. The question of how the cable should travel across a cluttered workspace---through which intermediate shapes, and along which collision-free deformations---is left open.
 
-Global cable routing requires a different planning formulation. Two cable shapes may be individually collision-free while the swept region between them intersects an obstacle, so collision checking of isolated configurations is insufficient. The planning problem must instead be defined in the configuration space of the complete cable, and tree edges must be validated as local deformations rather than treated only as connections between nearby states.
+In contrast, global cable routing requires a different planning formulation. Two cable shapes may be individually collision-free while the swept region between them intersects an obstacle, so collision checking of isolated configurations is insufficient. The planning problem must instead be defined in the configuration space of the complete cable, and tree edges must be validated as local deformations rather than treated only as connections between nearby states.
 
 Classical sampling-based motion planning methods, such as RRT, RRT-Connect, and RRT*, are attractive for high-dimensional problems because they avoid explicit construction of the complete configuration-space obstacle region \citep{KuffnerLaValle2000RRTConnect,KaramanFrazzoli2011SamplingOptimal}. However, direct application of these methods to DLOs is inefficient because random polygonal chains are usually mechanically invalid, excessively stretched, or collision-prone. Earlier DLO planners addressed this problem by sampling stable or minimum-energy shapes \citep{MollKavraki2006DLOPlanning}, by characterizing equilibrium manifolds of elastic rods \citep{BretlMcCarthy2014ElasticRod}, or by planning elastic-rod motion with contacts \citep{RousselFernbachTaix2020ElasticRodContacts}. These approaches describe rod mechanics rigorously, but high-fidelity rod models and contact-rich planning can be computationally expensive for online routing in cluttered workspaces.
 
@@ -486,7 +486,7 @@ high-fidelity physical DLO planners. It provides a compact global routing layer 
 \section{Problem Formulation}
 \label{sec:formulation}
 
-This section defines the planning model used by the Global Cable Routing (GCR) planner. The deformable linear object (DLO) is represented as an ordered planar polygonal chain, and the objective is to find a finite sequence of cable configurations that connects a prescribed start configuration to a prescribed goal configuration. In the following, we first describe the workspace and the discrete cable representation. We then introduce the local deformation measures that quantify how the cable changes between two configurations, and use them to define static admissibility, the configuration distance, and the path cost. Finally, we formalize transition feasibility through the swept envelope of a local deformation and extend it to ordered transitions, in which the endpoint correspondence of the cable is taken into account.
+Let us represent the deformable linear object (DLO) as an ordered planar polygonal chain. In this case the objective can be formulated as finding a finite sequence of cable configurations that connects a prescribed start configuration to a prescribed goal configuration. In the following, we first describe the workspace and the discrete cable representation. We then introduce the local deformation measures that quantify how the cable changes between two configurations, and use them to define static admissibility, the configuration distance, and the path cost. Finally, we formalize transition feasibility through the swept envelope of a local deformation and extend it to ordered transitions, in which the endpoint correspondence of the cable is taken into account.
 
 % ------------------------------------------------------------
 \subsection{Workspace and Cable Representation}
@@ -571,7 +571,7 @@ The nominal segment length used by the implementation is computed from the start
 \label{eq:nominal_segment_length_from_start}
 \end{equation}
 
-Figure~\ref{fig:dlo_workspace_problem_formulation} illustrates the workspace model used in the benchmark. The rectangular region defines the bounded workspace \(\mathcal{W}\), the red regions represent the static obstacles \(\mathcal{O}_{\mathrm{set}}\), and the remaining area corresponds to the collision-free space \(\mathcal{F}\).
+The workspace model ilustrated in Figure~\ref{fig:dlo_workspace_problem_formulation} is used in the benchmark. The rectangular region defines the bounded workspace \(\mathcal{W}\), the red regions represent the static obstacles \(\mathcal{O}_{\mathrm{set}}\), and the remaining area corresponds to the collision-free space \(\mathcal{F}\).
 
 The same figure also shows the start and goal cable configurations as ordered polygonal chains. The first and last nodes, \(p_1\) and \(p_N\), correspond to the robot end-effectors, while the intermediate nodes discretize the deformable cable geometry.
 
@@ -586,7 +586,7 @@ The same figure also shows the start and goal cable configurations as ordered po
 \subsection{Local Deformation Measures}
 \label{subsec:gcr_elastic_deformation_measures}
 
-The planner does not simulate the full dynamic behavior of the cable during
+The planner itself does not simulate the full dynamic behavior of the cable during
 search. Instead, it uses local geometric deformation measures to describe how
 the cable shape changes between two configurations. These measures are based on
 segment-vector variation and discrete-curvature variation. They are used both to
@@ -1152,8 +1152,7 @@ For two ordered configurations $C$ and $D$, the change in endpoint direction is
 \begin{equation}
 \theta(C,D)
 =
-\cos^{-1}
-\left(
+\arccos\!\left(
 u(C)^{\top}u(D)
 \right).
 \end{equation}
@@ -3538,7 +3537,7 @@ The difficulty of a routing problem depends less on the number of obstacles than
     \subfloat[Narrow L-Corridor]{\includegraphics[width=0.3\textwidth]{figures/paper_results/scenario_07_scenario_07_L_corridor_hard_fewest_config_no_legend.pdf}\label{fig:sc10}}\\
     {\includegraphics[width=0.8\textwidth]{figures/paper_results/paper_plot_legend.pdf}}
 
-\caption{Representative GCR solutions for the ten benchmark scenarios. Each subfigure shows the initial cable configuration, the target cable configuration, the static obstacles, and the resulting deformation sequence.}
+\caption{Representative GCR solutions for the ten benchmark scenarios. Each subfigure shows the initial cable configuration, the target cable configuration, the static obstacles, and the resulting deformation sequence. Numbered markers denote intermediate cable profiles in path order}
 \label{fig:benchmark_solutions}
 \end{figure*}
 

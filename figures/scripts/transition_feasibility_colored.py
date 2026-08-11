@@ -80,10 +80,14 @@ def panel(ax, y0, blocked=False, rect=(0.10, 5.90, 1.45), rect_yoff=-0.08):
     cable(ax, b, r"$C^b$", ORANGE, yoff=-0.10, xoff=-0.14)
 
     if blocked:
-        obstacle = Circle((2.95 + x_shift, y0 + 0.59), 0.18, facecolor=RED, edgecolor=RED_EDGE, lw=1.0)
+        center = (2.95 + x_shift, y0 + 0.59)
+        obstacle = Circle(center, 0.18, facecolor=RED, edgecolor=RED_EDGE, lw=1.0)
         ax.add_patch(obstacle)
+        ax.text(center[0], center[1] + 0.04, r"$O_1$", color="white", ha="center", va="center")
     else:
-        ax.add_patch(Circle((2.95 + x_shift, y0 + 0.15), 0.17, facecolor=RED, edgecolor=RED_EDGE, lw=1.0))
+        center = (2.95 + x_shift, y0 + 0.15)
+        ax.add_patch(Circle(center, 0.17, facecolor=RED, edgecolor=RED_EDGE, lw=1.0))
+        ax.text(center[0], center[1], r"$O_1$", color="white", ha="center", va="center")
 
 
 def compact_panel(ax, blocked=False):
@@ -115,6 +119,8 @@ def compact_panel(ax, blocked=False):
 
     center = (2.32, 1.02) if blocked else (2.32, 0.54)
     ax.add_patch(Circle(center, 0.20, facecolor=RED, edgecolor=RED_EDGE, lw=1.1))
+    label_y = center[1] + (0.05 if blocked else 0.0)
+    ax.text(center[0], label_y, r"$O_1$", color="white", ha="center", va="center")
 
 
 def save(fig, filename, tight=True):

@@ -78,9 +78,14 @@ def main():
     configure(ax)
 
     ax.add_patch(Rectangle((0.06, 0.20), 7.92, 4.02, facecolor=PANEL_FILL, edgecolor=PANEL_EDGE, lw=1.0))
-    for xy, wh in [((3.35, 3.14), (0.50, 0.34)), ((3.95, 1.32), (0.85, 0.60))]:
+    for xy, wh, label in [
+        ((3.35, 3.14), (0.50, 0.34), r"$O_1$"),
+        ((3.95, 1.32), (0.85, 0.60), r"$O_2$"),
+    ]:
         ax.add_patch(Rectangle(xy, wh[0], wh[1], facecolor=RED, edgecolor=RED_EDGE, lw=1.5, alpha=0.85))
+        ax.text(xy[0] + 0.5 * wh[0], xy[1] + 0.5 * wh[1], label, color="white", ha="center", va="center")
     ax.add_patch(Circle((5.02, 3.18), 0.23, facecolor=RED, edgecolor=RED_EDGE, lw=1.5, alpha=0.85))
+    ax.text(5.02, 3.18, r"$O_3$", color="white", ha="center", va="center")
 
     start = (0.78, 1.72)
     cnew = (4.02, 2.28)

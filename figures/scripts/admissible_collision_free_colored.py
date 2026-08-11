@@ -124,8 +124,9 @@ def draw_accepted():
     configure(ax, (0.0, 4.00), (0.0, 2.00))
 
     panel(ax, (0.15, 0.20), (3.70, 1.60))
-    for c, r in [((3.10, 0.92), 0.22), ((3.50, 1.22), 0.16)]:
+    for c, r, label in [((3.10, 0.92), 0.22, r"$O_1$"), ((3.50, 1.22), 0.16, r"$O_2$")]:
         draw_obstacle(ax, c, r)
+        ax.text(c[0], c[1], label, color="white", ha="center", va="center")
     cref = np.array([(0.62, 1.05), (1.07, 1.24), (1.52, 1.18), (1.98, 1.34), (2.44, 1.15), (2.80, 1.25)])
     cand = np.array([(0.62, 0.86), (1.07, 1.02), (1.52, 0.96), (1.98, 1.10), (2.44, 0.94), (2.80, 1.04)])
     draw_cable(ax, cref, color=ORANGE, ls="--", marker_face="white", lw=1.75)
@@ -149,6 +150,14 @@ def draw_deformation_bound_fails():
     arrow(ax, tail, tail + v_cref, r"$v_k(C^{\mathrm{ref}})$", (1.0, 1.34), color=ORANGE, lw=1.45, ms=12, shrink=0)
     delta_start = tail + v_c
     delta_end = tail + v_cref
+    ax.plot(tail[0], tail[1], marker="o", ms=7.2, mfc="white", mec=ORANGE, mew=1.4, zorder=6)
+    ax.plot(tail[0], tail[1], marker="o", ms=5.0, mfc=BLUE, mec=BLUE, zorder=7)
+    ax.plot(delta_start[0], delta_start[1], marker="o", ms=5.0, mfc=BLUE, mec=BLUE, zorder=7)
+    ax.plot(delta_end[0], delta_end[1], marker="o", ms=6.3, mfc="white", mec=ORANGE, mew=1.4, zorder=7)
+    ax.text(tail[0] - 0.05, tail[1] - 0.16, r"$p_k$", color=BLUE, ha="right", va="center")
+    ax.text(tail[0] - 0.05, tail[1] + 0.16, r"$p_k^{\mathrm{ref}}$", color=ORANGE, ha="right", va="center")
+    ax.text(delta_start[0] + 0.07, delta_start[1] - 0.08, r"$p_{k+1}$", color=BLUE, ha="left", va="center")
+    ax.text(delta_end[0] + 0.04, delta_end[1] + 0.12, r"$p_{k+1}^{\mathrm{ref}}$", color=ORANGE, ha="left", va="center")
     tip_to_tip_arrow(
         ax,
         delta_start,
@@ -173,6 +182,8 @@ def draw_collision_fails():
     draw_obstacle(ax, obs_center, 0.27)
     coll = np.array([(0.65, 0.80), (1.18, 0.92), (1.70, 1.03), (2.22, 1.18), (2.75, 1.06)])
     draw_cable(ax, coll, color=BLUE)
+    ax.text(coll[0, 0] - 0.10, coll[0, 1] - 0.12, r"$C$", color=BLUE, ha="right", va="center")
+    ax.text(obs_center[0], obs_center[1] + 0.13, r"$O_1$", color="white", ha="center", va="center")
 
     return save(fig, "C_collision_fails.pdf", tight=False)
 

@@ -81,6 +81,7 @@ def crossed_sweep(ax, a, b):
 
 def obstacle(ax, xy):
     ax.add_patch(Circle(xy, 0.16, facecolor=RED, edgecolor=RED_EDGE, lw=1.1))
+    ax.text(xy[0], xy[1], r"$O_1$", color="white", ha="center", va="center")
 
 
 def draw_swapped_panel(ax, x0=0.12, rect=(0.00, 0.55, 3.55, 2.30), text=True):

@@ -203,6 +203,10 @@ def draw_segment_vector_split():
     pb, qb = offset_segment(cb[k], cb[k + 1], -0.045)
     arrow(ax, pa, qa, r"$v_k(C^a)$", (1.90, 1.62), color=BLUE, lw=1.45, ms=12)
     arrow(ax, pb, qb, r"$v_k(C^b)$", (2.18, 0.76), color=ORANGE, lw=1.45, ms=12)
+    ax.text(ca[k, 0] - 0.03, ca[k, 1] - 0.16, r"$p_k^a$", color=BLUE, ha="right", va="center")
+    ax.text(ca[k + 1, 0] + 0.12, ca[k + 1, 1] + 0.12, r"$p_{k+1}^a$", color=BLUE, ha="left", va="center")
+    ax.text(cb[k, 0] - 0.03, cb[k, 1] - 0.14, r"$p_k^b$", color=ORANGE, ha="right", va="center")
+    ax.text(cb[k + 1, 0] + 0.06, cb[k + 1, 1] + 0.08, r"$p_{k+1}^b$", color=ORANGE, ha="left", va="center")
 
     return save(fig, "A_segment_vector.pdf", tight=False)
 
@@ -218,10 +222,20 @@ def draw_segment_vector_change_split():
     vb = np.array((0.76, 0.62))
     arrow(ax, tail, tail + va, r"$v_k(C^a)$", (1.76, 0.80), color=BLUE, lw=1.45, ms=12)
     arrow(ax, tail, tail + vb, r"$v_k(C^b)$", (1.38, 1.32), color=ORANGE, lw=1.45, ms=12)
+    tip_a = tail + va
+    tip_b = tail + vb
+    ax.plot(tail[0], tail[1], marker="o", ms=7.2, mfc="white", mec=ORANGE, mew=1.4, zorder=6)
+    ax.plot(tail[0], tail[1], marker="o", ms=5.0, mfc=BLUE, mec=BLUE, zorder=7)
+    ax.plot(tip_a[0], tip_a[1], marker="o", ms=5.0, mfc=BLUE, mec=BLUE, zorder=7)
+    ax.plot(tip_b[0], tip_b[1], marker="o", ms=6.3, mfc="white", mec=ORANGE, mew=1.4, zorder=7)
+    ax.text(tail[0] - 0.06, tail[1] - 0.14, r"$p_k^a$", color=BLUE, ha="right", va="center")
+    ax.text(tail[0] - 0.06, tail[1] + 0.14, r"$p_k^b$", color=ORANGE, ha="right", va="center")
+    ax.text(tip_a[0] + 0.06, tip_a[1] - 0.08, r"$p_{k+1}^a$", color=BLUE, ha="left", va="center")
+    ax.text(tip_b[0] - 0.05, tip_b[1] + 0.12, r"$p_{k+1}^b$", color=ORANGE, ha="right", va="center")
     arrow(
         ax,
-        tail + vb,
-        tail + va,
+        tip_b,
+        tip_a,
         r"$\Delta v_k$",
         (2.23, 1.34),
         color=PURPLE,
@@ -244,6 +258,12 @@ def draw_bending_change_split():
     draw_cable(ax, tri_a, color=BLUE, lw=2.05)
     draw_cable(ax, tri_b, color=ORANGE, ls="--", marker_face="white", lw=1.75)
     arrow(ax, (1.60, 0.98), (1.60, 1.48), r"$\Delta b_k$", (1.8, 1.20), color=PURPLE, lw=1.35, ms=12, both=True)
+    ax.text(tri_a[0, 0] - 0.04, tri_a[0, 1] + 0.12, r"$p_k^a$", color=BLUE, ha="right", va="center")
+    ax.text(tri_a[1, 0] + 0.08, tri_a[1, 1] + 0.11, r"$p_{k+1}^a$", color=BLUE, ha="left", va="center")
+    ax.text(tri_a[2, 0] + 0.05, tri_a[2, 1] + 0.12, r"$p_{k+2}^a$", color=BLUE, ha="left", va="center")
+    ax.text(tri_b[0, 0] - 0.04, tri_b[0, 1] - 0.12, r"$p_k^b$", color=ORANGE, ha="right", va="center")
+    ax.text(tri_b[1, 0], tri_b[1, 1] - 0.19, r"$p_{k+1}^b$", color=ORANGE, ha="center", va="center")
+    ax.text(tri_b[2, 0] + 0.05, tri_b[2, 1] - 0.12, r"$p_{k+2}^b$", color=ORANGE, ha="left", va="center")
 
     return save(fig, "C_bending_change.pdf", tight=False)
 
