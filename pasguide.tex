@@ -3522,7 +3522,9 @@ The benchmark contains ten representative routing scenarios, each named after it
 The scenarios differ in obstacle arrangement, free-space connectivity, passage width, and the amount of deformation required to move the cable from $C_{\mathrm{start}}$ to $C_{\mathrm{goal}}$.
 Some scenarios provide a relatively direct route between the two configurations.
 Others require the cable to pass through narrow passages, rotate around obstacle boundaries, or follow a less direct deformation sequence.
-Figure~\ref{fig:benchmark_solutions} shows one representative solution for each scenario.
+% Figure~\ref{fig:benchmark_solutions} shows one representative solution for each scenario.
+One representative solution for each scenario is shown in Figure~\ref{fig:benchmark_solutions}.
+
 The difficulty of a routing problem depends less on the number of obstacles than on how the obstacles restrict feasible cable transitions, which these solution plots make visible.
 
 \begin{figure*}[t]
@@ -3781,7 +3783,8 @@ These values indicate that the executed cable shape remains close to the planned
 The error values also reflect the geometry of the tasks.
 The \textbf{Bug Trap} scenario has the lowest \(\mathrm{RMSE}\), 1.60~mm, which is consistent with a smoother deformation and relatively simple endpoint motion.
 \textbf{Block Turn} and \textbf{Weave} have higher \(\mathrm{RMSE}\), 4.66~mm and 4.58~mm, respectively.
-These cases require stronger deformation and larger cumulative endpoint motion, so small effects from cable elasticity, contact response, and numerical settling have a larger influence on the final configuration. Figure~\ref{fig:robot_sc} shows representative executions at the start, two intermediate stages, and the final state. The manipulation-validation records are available at \url{https://github.com/KaramAlmaghout/gcr}.
+These cases require stronger deformation and larger cumulative endpoint motion, so small effects from cable elasticity, contact response, and numerical settling have a larger influence on the final configuration. Representative executions are shown in Figure~\ref{fig:robot_sc} at the start,
+two intermediate stages, and the final state. The manipulation-validation records are available at \url{https://github.com/KaramAlmaghout/gcr}.
 
 
 
