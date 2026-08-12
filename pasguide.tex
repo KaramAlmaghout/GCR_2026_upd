@@ -502,14 +502,20 @@ Let
 \subset \mathbb{R}^{2}
 \label{eq:workspace_rectangle}
 \end{equation}
-be a bounded planar workspace. The obstacle set is denoted by
+be a bounded planar workspace. 
+Where \(x_{\min}\) and \(x_{\max}\) denote the lower and upper bounds of the
+workspace along the \(x\)-axis, and \(y_{\min}\) and \(y_{\max}\) denote
+the corresponding bounds along the \(y\)-axis.
+ The obstacle set is denoted by
 \begin{equation}
 \mathcal{O}_{\mathrm{set}}
 =
 \{O_1,O_2,\ldots,O_M\},
 \label{eq:obstacle_set}
 \end{equation}
-where each obstacle is represented either as a polygon or as a circle. The total occupied region is
+Where \(M\) is the number of static obstacles, and \(O_m\) denote the
+\(m\)-th obstacle.
+Each obstacle is represented either as a polygon or as a circle. The total occupied region is
 \begin{equation}
 \mathcal{O}
 =
@@ -526,7 +532,12 @@ and the collision-free workspace is
 
 The obstacle geometry is assumed to be known and fixed during planning. The implemented benchmark checks collisions against polygonal obstacle boundaries and circular obstacles directly. Therefore, collision validity is evaluated geometrically rather than through an occupancy-grid approximation.
 
-Within this workspace, a cable configuration is represented by an ordered sequence of \(N\) planar nodes,
+% Within this workspace, a cable configuration is represented by an ordered sequence of \(N\) planar nodes,
+Within this workspace, a cable configuration is represented by an ordered
+sequence of \(N\) planar nodes, where \(N\) is the number of cable
+discretization points. The \(n\)-th node is denoted by \(p_n\), with Cartesian
+coordinates \(p_n=(x_n,y_n)\), where \(x_n\) and \(y_n\) are its coordinates
+along the \(x\)- and \(y\)-axes, respectively. Thus,
 \begin{equation}
 C
 =

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.11)  11 AUG 2026 22:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.11)  12 AUG 2026 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1110,23 +1110,950 @@ Package hyperref Warning: Height of page (\paperheight) is invalid (0.0pt),
 (hyperref)                using 11in.
 
 Package hyperref Info: Link coloring ON on input line 28.
-! I can't write on file `pasguide.pdf'.
-(Press Enter to retry, or Control-C to exit; default file extension is `.pdf')
-Please type another file name for output
-! Emergency stop.
-<to be read again> 
-                   \edef 
-l.28 \begin{document}
-                     
-*** (job aborted, file error in nonstop mode)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 5
+7.
+(C:\Users\ghade\AppData\Local\Programs\MiKTeX1\tex/latex/psnfss\ot1phv.fd
+File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 63.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
+ 63.
 
- 
+(C:\Users\ghade\AppData\Local\Programs\MiKTeX1\tex/latex/psnfss\ot1ztmcm.fd
+File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
+ 63.
+
+(C:\Users\ghade\AppData\Local\Programs\MiKTeX1\tex/latex/psnfss\omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
+ 63.
+
+(C:\Users\ghade\AppData\Local\Programs\MiKTeX1\tex/latex/psnfss\omsztmcm.fd
+File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
+ 63.
+
+(C:\Users\ghade\AppData\Local\Programs\MiKTeX1\tex/latex/psnfss\omxztmcm.fd
+File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.77005> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.30006> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 63
+.
+
+(C:\Users\ghade\AppData\Local\Programs\MiKTeX1\tex/latex/jknappen\ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 63.
+
+LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 63.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5.55003> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <4.50005> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <7.5> not available
+(Font)              size <7> substituted on input line 63.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.55003> not available
+(Font)              size <6> substituted on input line 63.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.50005> not available
+(Font)              size <5> substituted on input line 63.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
+LaTeX Font Info:    Calculating math sizes for size <9.5> on input line 68.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9.5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.03004> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5.70006> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <9.5> not available
+(Font)              size <9> substituted on input line 68.
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <7> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 77.
+<cup_logo.pdf, id=16, 76.285pt x 17.06375pt>
+File: cup_logo.pdf Graphic file (type pdf)
+<use cup_logo.pdf>
+Package pdftex.def Info: cup_logo.pdf  used on input line 77.
+(pdftex.def)             Requested size: 76.2848pt x 17.06369pt.
+
+Overfull \hbox (250.34999pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (11.51591pt too high) has occurred while \output is active []
+
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 7
+7.
+
+(C:\Users\ghade\AppData\Local\Programs\MiKTeX1\tex/latex/psnfss\ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+[1{C:/Users/ghade/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/gh
+ade/AppData/Local/Programs/MiKTeX1/fonts/enc/dvips/base/8r.enc}
+
+ <./cup_logo.pdf>]
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[2]
+LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <9.5> not available
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 492.
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 587.
+
+[3]
+<figures/dlo_workspace_problem_formulation.png, id=126, 722.7pt x 433.62pt>
+File: figures/dlo_workspace_problem_formulation.png Graphic file (type png)
+<use figures/dlo_workspace_problem_formulation.png>
+Package pdftex.def Info: figures/dlo_workspace_problem_formulation.png  used on
+ input line 592.
+(pdftex.def)             Requested size: 257.5pt x 154.50188pt.
+
+Overfull \hbox (7.15001pt too wide) in paragraph at lines 592--593
+ [][] 
+ []
+
+<figures/A_segment_vector_colored.pdf, id=129, 267.39899pt x 133.6995pt>
+File: figures/A_segment_vector_colored.pdf Graphic file (type pdf)
+<use figures/A_segment_vector_colored.pdf>
+Package pdftex.def Info: figures/A_segment_vector_colored.pdf  used on input li
+ne 696.
+(pdftex.def)             Requested size: 225.31346pt x 112.65973pt.
+<figures/B_segment_vector_change_colored.pdf, id=130, 227.6505pt x 133.6995pt>
+File: figures/B_segment_vector_change_colored.pdf Graphic file (type pdf)
+<use figures/B_segment_vector_change_colored.pdf>
+Package pdftex.def Info: figures/B_segment_vector_change_colored.pdf  used on i
+nput line 699.
+(pdftex.def)             Requested size: 125.17499pt x 73.51454pt.
+<figures/C_bending_change_colored.pdf, id=131, 227.6505pt x 133.6995pt>
+File: figures/C_bending_change_colored.pdf Graphic file (type pdf)
+<use figures/C_bending_change_colored.pdf>
+Package pdftex.def Info: figures/C_bending_change_colored.pdf  used on input li
+ne 701.
+(pdftex.def)             Requested size: 125.17499pt x 73.51454pt.
+
+Overfull \hbox (8.36003pt too wide) in paragraph at lines 699--702
+ [][]  [][] 
+ []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[4 <./figures/dlo_workspace_problem_formulation.png> <./figures/A_segment_vecto
+r_colored.pdf> <./figures/B_segment_vector_change_colored.pdf> <./figures/C_ben
+ding_change_colored.pdf>]
+<figures/A_accepted_colored.pdf, id=202, 267.39899pt x 133.6995pt>
+File: figures/A_accepted_colored.pdf Graphic file (type pdf)
+<use figures/A_accepted_colored.pdf>
+Package pdftex.def Info: figures/A_accepted_colored.pdf  used on input line 810
+.
+(pdftex.def)             Requested size: 225.31346pt x 112.65973pt.
+<figures/B_deformation_bound_fails_colored.pdf, id=203, 227.6505pt x 133.6995pt
+>
+File: figures/B_deformation_bound_fails_colored.pdf Graphic file (type pdf)
+<use figures/B_deformation_bound_fails_colored.pdf>
+Package pdftex.def Info: figures/B_deformation_bound_fails_colored.pdf  used on
+ input line 813.
+(pdftex.def)             Requested size: 125.17499pt x 73.51454pt.
+<figures/C_collision_fails_colored.pdf, id=204, 227.6505pt x 133.6995pt>
+File: figures/C_collision_fails_colored.pdf Graphic file (type pdf)
+<use figures/C_collision_fails_colored.pdf>
+Package pdftex.def Info: figures/C_collision_fails_colored.pdf  used on input l
+ine 815.
+(pdftex.def)             Requested size: 125.17499pt x 73.51454pt.
+
+Overfull \hbox (4.74998pt too wide) in paragraph at lines 813--816
+ [][][][] 
+ []
+
+<figures/A_edge_distance_colored.pdf, id=207, 267.39899pt x 133.6995pt>
+File: figures/A_edge_distance_colored.pdf Graphic file (type pdf)
+<use figures/A_edge_distance_colored.pdf>
+Package pdftex.def Info: figures/A_edge_distance_colored.pdf  used on input lin
+e 948.
+(pdftex.def)             Requested size: 225.31346pt x 112.65973pt.
+<figures/B_accumulated_path_cost_colored.pdf, id=208, 267.39899pt x 133.6995pt>
+
+File: figures/B_accumulated_path_cost_colored.pdf Graphic file (type pdf)
+<use figures/B_accumulated_path_cost_colored.pdf>
+Package pdftex.def Info: figures/B_accumulated_path_cost_colored.pdf  used on i
+nput line 951.
+(pdftex.def)             Requested size: 225.31346pt x 112.65973pt.
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[5 <./figures/A_accepted_colored.pdf> <./figures/B_deformation_bound_fails_colo
+red.pdf> <./figures/C_collision_fails_colored.pdf>]
+<figures/A_swept_region_clear_colored.pdf, id=277, 227.6505pt x 133.6995pt>
+File: figures/A_swept_region_clear_colored.pdf Graphic file (type pdf)
+<use figures/A_swept_region_clear_colored.pdf>
+Package pdftex.def Info: figures/A_swept_region_clear_colored.pdf  used on inpu
+t line 1028.
+(pdftex.def)             Requested size: 225.31346pt x 132.33229pt.
+<figures/B_swept_region_blocked_colored.pdf, id=278, 227.6505pt x 133.6995pt>
+File: figures/B_swept_region_blocked_colored.pdf Graphic file (type pdf)
+<use figures/B_swept_region_blocked_colored.pdf>
+Package pdftex.def Info: figures/B_swept_region_blocked_colored.pdf  used on in
+put line 1031.
+(pdftex.def)             Requested size: 225.31346pt x 132.33229pt.
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[6 <./figures/A_edge_distance_colored.pdf> <./figures/B_accumulated_path_cost_c
+olored.pdf> <./figures/A_swept_region_clear_colored.pdf> <./figures/B_swept_reg
+ion_blocked_colored.pdf>]
+<figures/A_swapped_endpoints_colored.pdf, id=371, 227.6505pt x 133.6995pt>
+File: figures/A_swapped_endpoints_colored.pdf Graphic file (type pdf)
+<use figures/A_swapped_endpoints_colored.pdf>
+Package pdftex.def Info: figures/A_swapped_endpoints_colored.pdf  used on input
+ line 1127.
+(pdftex.def)             Requested size: 225.31346pt x 132.33229pt.
+<figures/B_preserved_endpoints_colored.pdf, id=372, 227.6505pt x 133.6995pt>
+File: figures/B_preserved_endpoints_colored.pdf Graphic file (type pdf)
+<use figures/B_preserved_endpoints_colored.pdf>
+Package pdftex.def Info: figures/B_preserved_endpoints_colored.pdf  used on inp
+ut line 1130.
+(pdftex.def)             Requested size: 225.31346pt x 132.33229pt.
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[7 <./figures/A_swapped_endpoints_colored.pdf> <./figures/B_preserved_endpoints
+_colored.pdf>]
+<figures/bidirectional_search_trees_colored.pdf, id=431, 381.04356pt x 208.3770
+1pt>
+File: figures/bidirectional_search_trees_colored.pdf Graphic file (type pdf)
+<use figures/bidirectional_search_trees_colored.pdf>
+Package pdftex.def Info: figures/bidirectional_search_trees_colored.pdf  used o
+n input line 1248.
+(pdftex.def)             Requested size: 237.83173pt x 130.0636pt.
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[8 <./figures/bidirectional_search_trees_colored.pdf>]
+<figures/config_apf_potential_field_start_to_goal.pdf, id=486, 644.17874pt x 37
+6.8449pt>
+File: figures/config_apf_potential_field_start_to_goal.pdf Graphic file (type p
+df)
+<use figures/config_apf_potential_field_start_to_goal.pdf>
+Package pdftex.def Info: figures/config_apf_potential_field_start_to_goal.pdf  
+used on input line 1526.
+(pdftex.def)             Requested size: 187.76248pt x 109.83998pt.
+<figures/config_apf_potential_field_goal_to_start.pdf, id=487, 644.17874pt x 37
+6.8449pt>
+File: figures/config_apf_potential_field_goal_to_start.pdf Graphic file (type p
+df)
+<use figures/config_apf_potential_field_goal_to_start.pdf>
+Package pdftex.def Info: figures/config_apf_potential_field_goal_to_start.pdf  
+used on input line 1530.
+(pdftex.def)             Requested size: 187.76248pt x 109.83998pt.
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[9 <./figures/config_apf_potential_field_start_to_goal.pdf> <./figures/config_a
+pf_potential_field_goal_to_start.pdf>]
+<figures/config_apf_pipeline_step_raw_sample.pdf, id=645, 572.13701pt x 370.619
+58pt>
+File: figures/config_apf_pipeline_step_raw_sample.pdf Graphic file (type pdf)
+<use figures/config_apf_pipeline_step_raw_sample.pdf>
+Package pdftex.def Info: figures/config_apf_pipeline_step_raw_sample.pdf  used 
+on input line 1581.
+(pdftex.def)             Requested size: 200.28075pt x 129.73575pt.
+<figures/config_apf_pipeline_step_force_vectors.pdf, id=646, 572.13701pt x 370.
+61958pt>
+File: figures/config_apf_pipeline_step_force_vectors.pdf Graphic file (type pdf
+)
+<use figures/config_apf_pipeline_step_force_vectors.pdf>
+Package pdftex.def Info: figures/config_apf_pipeline_step_force_vectors.pdf  us
+ed on input line 1585.
+(pdftex.def)             Requested size: 200.28075pt x 129.73575pt.
+<figures/config_apf_pipeline_step_apf_descent.pdf, id=647, 572.13701pt x 370.61
+958pt>
+File: figures/config_apf_pipeline_step_apf_descent.pdf Graphic file (type pdf)
+<use figures/config_apf_pipeline_step_apf_descent.pdf>
+Package pdftex.def Info: figures/config_apf_pipeline_step_apf_descent.pdf  used
+ on input line 1589.
+(pdftex.def)             Requested size: 200.28075pt x 129.73575pt.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <9.5> not available
+(Font)              size <9> substituted on input line 1861.
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[10 <./figures/config_apf_pipeline_step_raw_sample.pdf> <./figures/config_apf_p
+ipeline_step_force_vectors.pdf> <./figures/config_apf_pipeline_step_apf_descent
+.pdf>]
+<figures/config_apf_pipeline_step_relaxation.pdf, id=814, 572.13701pt x 370.619
+58pt>
+File: figures/config_apf_pipeline_step_relaxation.pdf Graphic file (type pdf)
+<use figures/config_apf_pipeline_step_relaxation.pdf>
+Package pdftex.def Info: figures/config_apf_pipeline_step_relaxation.pdf  used 
+on input line 1978.
+(pdftex.def)             Requested size: 200.28075pt x 129.73575pt.
+
+Overfull \hbox (6.34236pt too wide) detected at line 2173
+[][][][]\OMS/ztmcm/m/n/9.5 V[] \OT1/ztmcm/m/n/9.5 = [] \OML/ztmcm/m/it/9.5 :
+ []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[11 <./figures/config_apf_pipeline_step_relaxation.pdf>]
+<figures/connection_polygon_case_free.pdf, id=897, 601.045pt x 388.72084pt>
+File: figures/connection_polygon_case_free.pdf Graphic file (type pdf)
+<use figures/connection_polygon_case_free.pdf>
+Package pdftex.def Info: figures/connection_polygon_case_free.pdf  used on inpu
+t line 2350.
+(pdftex.def)             Requested size: 187.76248pt x 121.43344pt.
+<figures/connection_polygon_case_blocked.pdf, id=898, 601.045pt x 388.72084pt>
+File: figures/connection_polygon_case_blocked.pdf Graphic file (type pdf)
+<use figures/connection_polygon_case_blocked.pdf>
+Package pdftex.def Info: figures/connection_polygon_case_blocked.pdf  used on i
+nput line 2356.
+(pdftex.def)             Requested size: 187.76248pt x 121.43344pt.
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[12 <./figures/connection_polygon_case_free.pdf> <./figures/connection_polygon_
+case_blocked.pdf>]
+Overfull \hbox (16.21033pt too wide) detected at line 2660
+[][][][]\OML/ztmcm/m/it/9.5 d\OT1/ztmcm/m/n/9.5 (\OML/ztmcm/m/it/9.5 C[]; C[]\O
+T1/ztmcm/m/n/9.5 ) + \OML/ztmcm/m/it/9.5 []E[]\OT1/ztmcm/m/n/9.5 (\OML/ztmcm/m
+/it/9.5 C[]; C[]\OT1/ztmcm/m/n/9.5 ) \OMS/ztmcm/m/n/9.5 ^^T [] [] \OML/ztmcm/m/
+it/9.5 ;
+ []
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 2692.
+LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 2695.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8.5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2695.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.29004> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2695.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5.10005> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2695.
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 2695.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 2695.
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[13]
+<figures/paper_results/scenario_05_scenario_05_arc_to_straight_fewest_config_no
+_legend.pdf, id=1064, 676.06697pt x 418.15622pt>
+File: figures/paper_results/scenario_05_scenario_05_arc_to_straight_fewest_conf
+ig_no_legend.pdf Graphic file (type pdf)
+<use figures/paper_results/scenario_05_scenario_05_arc_to_straight_fewest_confi
+g_no_legend.pdf>
+Package pdftex.def Info: figures/paper_results/scenario_05_scenario_05_arc_to_s
+traight_fewest_config_no_legend.pdf  used on input line 3546.
+(pdftex.def)             Requested size: 154.50157pt x 95.56137pt.
+<figures/paper_results/scenario_08_scenario_08_dlo_workspace_fewest_config_no_l
+egend.pdf, id=1065, 676.06697pt x 418.15622pt>
+File: figures/paper_results/scenario_08_scenario_08_dlo_workspace_fewest_config
+_no_legend.pdf Graphic file (type pdf)
+<use figures/paper_results/scenario_08_scenario_08_dlo_workspace_fewest_config_
+no_legend.pdf>
+Package pdftex.def Info: figures/paper_results/scenario_08_scenario_08_dlo_work
+space_fewest_config_no_legend.pdf  used on input line 3547.
+(pdftex.def)             Requested size: 154.50157pt x 95.56137pt.
+<figures/paper_results/scenario_11_scenario_2_narrow_gate_fewest_config_no_lege
+nd.pdf, id=1066, 676.06697pt x 418.15622pt>
+File: figures/paper_results/scenario_11_scenario_2_narrow_gate_fewest_config_no
+_legend.pdf Graphic file (type pdf)
+<use figures/paper_results/scenario_11_scenario_2_narrow_gate_fewest_config_no_
+legend.pdf>
+Package pdftex.def Info: figures/paper_results/scenario_11_scenario_2_narrow_ga
+te_fewest_config_no_legend.pdf  used on input line 3548.
+(pdftex.def)             Requested size: 154.50157pt x 95.56137pt.
+<figures/paper_results/scenario_12_scenario_6_u_shaped_trap_fewest_config_no_le
+gend.pdf, id=1067, 676.06697pt x 418.15622pt>
+File: figures/paper_results/scenario_12_scenario_6_u_shaped_trap_fewest_config_
+no_legend.pdf Graphic file (type pdf)
+<use figures/paper_results/scenario_12_scenario_6_u_shaped_trap_fewest_config_n
+o_legend.pdf>
+Package pdftex.def Info: figures/paper_results/scenario_12_scenario_6_u_shaped_
+trap_fewest_config_no_legend.pdf  used on input line 3549.
+(pdftex.def)             Requested size: 154.50157pt x 95.56137pt.
+<figures/paper_results/scenario_09_scenario_09_S_corridor_fewest_config_no_lege
+nd.pdf, id=1068, 676.06697pt x 418.15622pt>
+File: figures/paper_results/scenario_09_scenario_09_S_corridor_fewest_config_no
+_legend.pdf Graphic file (type pdf)
+<use figures/paper_results/scenario_09_scenario_09_S_corridor_fewest_config_no_
+legend.pdf>
+Package pdftex.def Info: figures/paper_results/scenario_09_scenario_09_S_corrid
+or_fewest_config_no_legend.pdf  used on input line 3550.
+(pdftex.def)             Requested size: 154.50157pt x 95.56137pt.
+<figures/paper_results/scenario_10_scenario_10_cluttered_bent_fewest_config_no_
+legend.pdf, id=1069, 676.06697pt x 418.15622pt>
+File: figures/paper_results/scenario_10_scenario_10_cluttered_bent_fewest_confi
+g_no_legend.pdf Graphic file (type pdf)
+<use figures/paper_results/scenario_10_scenario_10_cluttered_bent_fewest_config
+_no_legend.pdf>
+Package pdftex.def Info: figures/paper_results/scenario_10_scenario_10_cluttere
+d_bent_fewest_config_no_legend.pdf  used on input line 3551.
+(pdftex.def)             Requested size: 154.50157pt x 95.56137pt.
+<figures/paper_results/scenario_02_scenario_02_block_reorient_fewest_config_no_
+legend.pdf, id=1070, 676.06697pt x 418.15622pt>
+File: figures/paper_results/scenario_02_scenario_02_block_reorient_fewest_confi
+g_no_legend.pdf Graphic file (type pdf)
+<use figures/paper_results/scenario_02_scenario_02_block_reorient_fewest_config
+_no_legend.pdf>
+Package pdftex.def Info: figures/paper_results/scenario_02_scenario_02_block_re
+orient_fewest_config_no_legend.pdf  used on input line 3553.
+(pdftex.def)             Requested size: 154.50157pt x 95.56137pt.
+<figures/paper_results/scenario_03_scenario_03_L_narrow_corridor_fewest_config_
+no_legend.pdf, id=1071, 676.06697pt x 418.15622pt>
+File: figures/paper_results/scenario_03_scenario_03_L_narrow_corridor_fewest_co
+nfig_no_legend.pdf Graphic file (type pdf)
+<use figures/paper_results/scenario_03_scenario_03_L_narrow_corridor_fewest_con
+fig_no_legend.pdf>
+Package pdftex.def Info: figures/paper_results/scenario_03_scenario_03_L_narrow
+_corridor_fewest_config_no_legend.pdf  used on input line 3554.
+(pdftex.def)             Requested size: 154.50157pt x 95.56137pt.
+<figures/paper_results/scenario_14_scenario_4_staggered_blocks_fewest_config_no
+_legend.pdf, id=1072, 676.06697pt x 418.15622pt>
+File: figures/paper_results/scenario_14_scenario_4_staggered_blocks_fewest_conf
+ig_no_legend.pdf Graphic file (type pdf)
+<use figures/paper_results/scenario_14_scenario_4_staggered_blocks_fewest_confi
+g_no_legend.pdf>
+Package pdftex.def Info: figures/paper_results/scenario_14_scenario_4_staggered
+_blocks_fewest_config_no_legend.pdf  used on input line 3555.
+(pdftex.def)             Requested size: 154.50157pt x 95.56137pt.
+<figures/paper_results/scenario_07_scenario_07_L_corridor_hard_fewest_config_no
+_legend.pdf, id=1073, 676.06697pt x 418.15622pt>
+File: figures/paper_results/scenario_07_scenario_07_L_corridor_hard_fewest_conf
+ig_no_legend.pdf Graphic file (type pdf)
+<use figures/paper_results/scenario_07_scenario_07_L_corridor_hard_fewest_confi
+g_no_legend.pdf>
+Package pdftex.def Info: figures/paper_results/scenario_07_scenario_07_L_corrid
+or_hard_fewest_config_no_legend.pdf  used on input line 3556.
+(pdftex.def)             Requested size: 154.50157pt x 95.56137pt.
+<figures/paper_results/paper_plot_legend.pdf, id=1074, 755.6481pt x 33.96753pt>
+
+File: figures/paper_results/paper_plot_legend.pdf Graphic file (type pdf)
+<use figures/paper_results/paper_plot_legend.pdf>
+Package pdftex.def Info: figures/paper_results/paper_plot_legend.pdf  used on i
+nput line 3557.
+(pdftex.def)             Requested size: 412.00157pt x 18.52046pt.
+ (paper_benchmark_table_for_paper.tex)
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[14]
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[15 <./figures/paper_results/scenario_05_scenario_05_arc_to_straight_fewest_con
+fig_no_legend.pdf> <./figures/paper_results/scenario_08_scenario_08_dlo_workspa
+ce_fewest_config_no_legend.pdf> <./figures/paper_results/scenario_11_scenario_2
+_narrow_gate_fewest_config_no_legend.pdf> <./figures/paper_results/scenario_12_
+scenario_6_u_shaped_trap_fewest_config_no_legend.pdf> <./figures/paper_results/
+scenario_09_scenario_09_S_corridor_fewest_config_no_legend.pdf> <./figures/pape
+r_results/scenario_10_scenario_10_cluttered_bent_fewest_config_no_legend.pdf> <
+./figures/paper_results/scenario_02_scenario_02_block_reorient_fewest_config_no
+_legend.pdf> <./figures/paper_results/scenario_03_scenario_03_L_narrow_corridor
+_fewest_config_no_legend.pdf> <./figures/paper_results/scenario_14_scenario_4_s
+taggered_blocks_fewest_config_no_legend.pdf> <./figures/paper_results/scenario_
+07_scenario_07_L_corridor_hard_fewest_config_no_legend.pdf> <./figures/paper_re
+sults/paper_plot_legend.pdf>]
+<figures/simulation_setup_annotated.pdf, id=1425, 870.1308pt x 498.54214pt>
+File: figures/simulation_setup_annotated.pdf Graphic file (type pdf)
+<use figures/simulation_setup_annotated.pdf>
+Package pdftex.def Info: figures/simulation_setup_annotated.pdf  used on input 
+line 3673.
+(pdftex.def)             Requested size: 237.83173pt x 136.25893pt.
+<figures/mujoco/scenario_01/start.pdf, id=1427, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_01/start.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_01/start.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_01/start.pdf  used on input li
+ne 3755.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_01/33pct.pdf, id=1428, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_01/33pct.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_01/33pct.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_01/33pct.pdf  used on input li
+ne 3756.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_01/67pct.pdf, id=1429, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_01/67pct.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_01/67pct.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_01/67pct.pdf  used on input li
+ne 3757.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_01/end.pdf, id=1430, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_01/end.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_01/end.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_01/end.pdf  used on input line
+ 3758.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_02/start.pdf, id=1431, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_02/start.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_02/start.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_02/start.pdf  used on input li
+ne 3760.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_02/33pct.pdf, id=1432, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_02/33pct.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_02/33pct.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_02/33pct.pdf  used on input li
+ne 3761.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_02/67pct.pdf, id=1433, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_02/67pct.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_02/67pct.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_02/67pct.pdf  used on input li
+ne 3762.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_02/end.pdf, id=1434, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_02/end.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_02/end.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_02/end.pdf  used on input line
+ 3763.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_05/start.pdf, id=1435, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_05/start.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_05/start.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_05/start.pdf  used on input li
+ne 3765.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_05/33pct.pdf, id=1436, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_05/33pct.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_05/33pct.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_05/33pct.pdf  used on input li
+ne 3766.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_05/67pct.pdf, id=1437, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_05/67pct.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_05/67pct.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_05/67pct.pdf  used on input li
+ne 3767.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_05/end.pdf, id=1438, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_05/end.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_05/end.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_05/end.pdf  used on input line
+ 3768.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_07/start.pdf, id=1439, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_07/start.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_07/start.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_07/start.pdf  used on input li
+ne 3770.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_07/33pct.pdf, id=1440, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_07/33pct.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_07/33pct.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_07/33pct.pdf  used on input li
+ne 3771.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_07/67pct.pdf, id=1441, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_07/67pct.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_07/67pct.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_07/67pct.pdf  used on input li
+ne 3772.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_07/end.pdf, id=1442, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_07/end.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_07/end.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_07/end.pdf  used on input line
+ 3773.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_09/start.pdf, id=1443, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_09/start.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_09/start.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_09/start.pdf  used on input li
+ne 3775.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_09/33pct.pdf, id=1444, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_09/33pct.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_09/33pct.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_09/33pct.pdf  used on input li
+ne 3776.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_09/67pct.pdf, id=1445, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_09/67pct.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_09/67pct.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_09/67pct.pdf  used on input li
+ne 3777.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_09/end.pdf, id=1446, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_09/end.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_09/end.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_09/end.pdf  used on input line
+ 3778.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_10/start.pdf, id=1447, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_10/start.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_10/start.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_10/start.pdf  used on input li
+ne 3780.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_10/33pct.pdf, id=1448, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_10/33pct.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_10/33pct.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_10/33pct.pdf  used on input li
+ne 3781.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_10/67pct.pdf, id=1449, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_10/67pct.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_10/67pct.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_10/67pct.pdf  used on input li
+ne 3782.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+<figures/mujoco/scenario_10/end.pdf, id=1450, 462.52798pt x 260.17201pt>
+File: figures/mujoco/scenario_10/end.pdf Graphic file (type pdf)
+<use figures/mujoco/scenario_10/end.pdf>
+Package pdftex.def Info: figures/mujoco/scenario_10/end.pdf  used on input line
+ 3783.
+(pdftex.def)             Requested size: 108.15346pt x 60.83473pt.
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[16 <./figures/simulation_setup_annotated.pdf>]
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[17 <./figures/mujoco/scenario_01/start.pdf> <./figures/mujoco/scenario_01/33pc
+t.pdf> <./figures/mujoco/scenario_01/67pct.pdf> <./figures/mujoco/scenario_01/e
+nd.pdf> <./figures/mujoco/scenario_02/start.pdf> <./figures/mujoco/scenario_02/
+33pct.pdf> <./figures/mujoco/scenario_02/67pct.pdf> <./figures/mujoco/scenario_
+02/end.pdf> <./figures/mujoco/scenario_05/start.pdf> <./figures/mujoco/scenario
+_05/33pct.pdf> <./figures/mujoco/scenario_05/67pct.pdf> <./figures/mujoco/scena
+rio_05/end.pdf> <./figures/mujoco/scenario_07/start.pdf> <./figures/mujoco/scen
+ario_07/33pct.pdf> <./figures/mujoco/scenario_07/67pct.pdf> <./figures/mujoco/s
+cenario_07/end.pdf> <./figures/mujoco/scenario_09/start.pdf> <./figures/mujoco/
+scenario_09/33pct.pdf> <./figures/mujoco/scenario_09/67pct.pdf> <./figures/mujo
+co/scenario_09/end.pdf> <./figures/mujoco/scenario_10/start.pdf> <./figures/muj
+oco/scenario_10/33pct.pdf> <./figures/mujoco/scenario_10/67pct.pdf> <./figures/
+mujoco/scenario_10/end.pdf>] (pasguide.bbl
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[18])
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (796.65pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (756.70001pt too high) has occurred while \output is active []
+
+
+[19
+
+] (pasguide.aux)
+ ***********
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-06-18>
+ ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
+ ) 
 Here is how much of TeX's memory you used:
- 16256 strings out of 467510
- 259780 string characters out of 5408311
- 704500 words of memory out of 5000000
- 45293 multiletter control sequences out of 15000+600000
- 629226 words of font info for 45 fonts, out of 8000000 for 9000
+ 18627 strings out of 467510
+ 328046 string characters out of 5408311
+ 757793 words of memory out of 5000000
+ 47282 multiletter control sequences out of 15000+600000
+ 750990 words of font info for 292 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,0n,133p,2576b,154s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 85i,16n,133p,2576b,603s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/ghade/AppData/Local/Programs/MiKTeX1/fonts/type1/public/amsfonts/cm
+/cmex10.pfb><C:/Users/ghade/AppData/Local/Programs/MiKTeX1/fonts/type1/public/a
+msfonts/cm/cmmi10.pfb><C:/Users/ghade/AppData/Local/Programs/MiKTeX1/fonts/type
+1/public/amsfonts/cm/cmr10.pfb><C:/Users/ghade/AppData/Local/Programs/MiKTeX1/f
+onts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/ghade/AppData/Local/Programs/
+MiKTeX1/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ghade/AppData/Local
+/Programs/MiKTeX1/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/ghad
+e/AppData/Local/Programs/MiKTeX1/fonts/type1/public/rsfs/rsfs10.pfb><C:/Users/g
+hade/AppData/Local/Programs/MiKTeX1/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Use
+rs/ghade/AppData/Local/Programs/MiKTeX1/fonts/type1/urw/helvetic/uhvbo8a.pfb><C
+:/Users/ghade/AppData/Local/Programs/MiKTeX1/fonts/type1/urw/helvetic/uhvr8a.pf
+b><C:/Users/ghade/AppData/Local/Programs/MiKTeX1/fonts/type1/urw/helvetic/uhvro
+8a.pfb><C:/Users/ghade/AppData/Local/Programs/MiKTeX1/fonts/type1/urw/symbol/us
+yr.pfb><C:/Users/ghade/AppData/Local/Programs/MiKTeX1/fonts/type1/urw/symbol/us
+yr.pfb><C:/Users/ghade/AppData/Local/Programs/MiKTeX1/fonts/type1/urw/times/utm
+b8a.pfb><C:/Users/ghade/AppData/Local/Programs/MiKTeX1/fonts/type1/urw/times/ut
+mr8a.pfb><C:/Users/ghade/AppData/Local/Programs/MiKTeX1/fonts/type1/urw/times/u
+tmri8a.pfb>
+Output written on pasguide.pdf (19 pages, 4192226 bytes).
+PDF statistics:
+ 1698 PDF objects out of 1728 (max. 8388607)
+ 234 named destinations out of 1000 (max. 500000)
+ 352 words of extra memory for PDF output out of 10000 (max. 10000000)
+
