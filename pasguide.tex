@@ -671,9 +671,13 @@ cable. A large value indicates an abrupt local deformation, such as excessive
 stretching, compression, rotation, or bending. Therefore, \(E_{\mathrm{def}}\)
 is used as the deformation penalty in edge-cost computation and path-quality
 evaluation.
-Figure~\ref{fig:local-deformation-measures} separates these local terms into
-the segment-vector definition, the corresponding vector change between two
-neighboring configurations, and the local bending change.
+The local deformation terms are decomposed in
+Figure~\ref{fig:local-deformation-measures} into the segment-vector definition,
+the corresponding vector change between two neighboring configurations, and the local bending
+change.
+% Figure~\ref{fig:local-deformation-measures} separates these local terms into
+% the segment-vector definition, the corresponding vector change between two
+% neighboring configurations, and the local bending change.
 
 \begin{figure}[ht]
     \centering
@@ -3595,6 +3599,8 @@ We report the following metrics for each benchmark scenario:
     \item \textbf{Configurations after refinement}: the average number of cable configurations remaining after shortcut refinement. This metric describes the compactness of the final path that is later used for execution.
 \end{itemize}
 
+These metrics are used to compare the robustness, computational efficiency, and path compactness of GCR across the benchmark scenarios.
+
 % The last two metrics are particularly relevant for manipulation.
 % Each retained configuration represents an intermediate cable shape that the robots must reproduce through endpoint motion.
 % A shorter sequence is easier to execute, but the refinement step cannot remove configurations if their removal violates the swept-transition feasibility condition.
@@ -3606,7 +3612,8 @@ We report the following metrics for each benchmark scenario:
 
 
 
-Table~\ref{tab:paper_benchmark_results} summarizes the benchmark results.
+The benchmark results are summarized in
+Table~\ref{tab:paper_benchmark_results}.
 
 \begin{table*}[t]
     \centering
@@ -3621,14 +3628,14 @@ GCR found a valid path in every trial, giving a 100\% success rate in all ten sc
 This result should be interpreted within the tested scenario set; it shows that the implemented combination of bidirectional expansion, APF-biased sampling, elastic relaxation, and ordered swept-transition validation was sufficient for these planar layouts.
 
 The computational cost varies with the geometric constraints of the workspace.
-\textbf{Narrow Gate}, Figure~\ref{fig:sc03}, is solved with the lowest average computation time, $0.008 \pm 0.003$~s, and requires only $(0.07 \pm 0.03)\times 10^3$ iterations on average.
+\textbf{Narrow Gate} (Figure~\ref{fig:sc03}), is solved with the lowest average computation time, $0.008 \pm 0.003$~s, and requires only $(0.07 \pm 0.03)\times 10^3$ iterations on average.
 This scenario represents a relatively simple routing case, where the free space allows a direct deformation sequence between $C_{\mathrm{start}}$ and $C_{\mathrm{goal}}$.
-\textbf{Double Gate}, Figure~\ref{fig:sc05}, also remains computationally light, with an average time of $0.017 \pm 0.005$~s and $(0.09 \pm 0.03)\times 10^3$ iterations.
+\textbf{Double Gate} (Figure~\ref{fig:sc05}), also remains computationally light, with an average time of $0.017 \pm 0.005$~s and $(0.09 \pm 0.03)\times 10^3$ iterations.
 Most trials are solved quickly, as indicated by the fastest time of 0.005~s.
 
-The most demanding case is the \textbf{Bug Trap}, Figure~\ref{fig:sc04}, where the planner requires $1.306 \pm 0.871$~s and $(6.98 \pm 4.52)\times 10^3$ iterations on average.
+The most demanding case is the \textbf{Bug Trap} (Figure~\ref{fig:sc04}), where the planner requires $1.306 \pm 0.871$~s and $(6.98 \pm 4.52)\times 10^3$ iterations on average.
 This increase is consistent with the more constrained obstacle arrangement, where the cable has fewer admissible deformation routes and the planner must reject more samples because of static collisions or invalid swept transitions.
-The \textbf{Narrow L-Corridor}, Figure~\ref{fig:sc10}, is the second most expensive case, with $0.339 \pm 0.139$~s and $(2.60 \pm 1.08)\times 10^3$ iterations.
+The \textbf{Narrow L-Corridor} (Figure~\ref{fig:sc10}), is the second most expensive case, with $0.339 \pm 0.139$~s and $(2.60 \pm 1.08)\times 10^3$ iterations.
 
 For the remaining scenarios (\textbf{Disc Rows}, \textbf{Cluttered Field}, \textbf{Scattered Discs}, \textbf{Block Turn}, \textbf{L-Corridor}, and \textbf{Weave}), shown in Figure~\ref{fig:benchmark_solutions}, the average runtime ranges from 0.072~s to 0.283~s.
 These values show that the planner handled the selected static-obstacle tasks efficiently, except when the geometry imposed narrow or highly constrained deformation routes.
@@ -3662,7 +3669,8 @@ The settled cable configuration at the end of the execution is then compared wit
 \subsection{Robotic Execution Results}
 \label{subsec:robotic_results}
 
-Table~\ref{tab:robotic_validation} reports the execution accuracy for the scenarios. The root mean square error (\(\mathrm{RMSE}\)) and maximum point-wise error (\(e_{\max}\)) are computed over all cable nodes between the settled simulation state and the goal configuration.
+The execution accuracy for the scenarios is reported in
+Table~\ref{tab:robotic_validation}. The root mean square error (\(\mathrm{RMSE}\)) and maximum point-wise error (\(e_{\max}\)) are computed over all cable nodes between the settled simulation state and the goal configuration.
 
 \begin{equation}
     e_{\max} = \max(e_1, e_2, \dots, e_N)
