@@ -492,7 +492,7 @@ Let us represent the deformable linear object (DLO) as an ordered planar polygon
 \subsection{Workspace and Cable Representation}
 \label{subsec:workspace_obstacles}
 
-Let
+To formulate the problem, let us define the workspace as:
 \begin{equation}
 \mathcal{W}
 =
@@ -630,14 +630,17 @@ This quantity measures the local change of direction along the cable. Larger
 values correspond to sharper local curvature, while smaller values correspond to
 smoother local shapes.
 
-Let
+
+Let \(C^a\) and \(C^b\) denote two cable configurations to be compared, where
+the superscripts \(a\) and \(b\) distinguish the two configurations. Each configuration contains the same number of ordered nodes:
 \begin{equation}
 C^a=(p^a_1,p^a_2,\ldots,p^a_N),
 \qquad
-C^b=(p^b_1,p^b_2,\ldots,p^b_N)
+C^b=(p^b_1,p^b_2,\ldots,p^b_N),
 \end{equation}
-be two cable configurations with the same number of nodes. The segment-vector
-change between them is
+where \(p^a_n\) and \(p^b_n\) are the \(n\)-th nodes of configurations \(C^a\)
+and \(C^b\), respectively.
+The segment-vector change between the two configurations is
 \begin{equation}
 \Delta v_k(C^a,C^b)
 =
@@ -646,6 +649,24 @@ v_k(C^a)-v_k(C^b),
 k=1,\ldots,N-1,
 \label{eq:gcr_segment_vector_change}
 \end{equation}
+% Let
+% \begin{equation}
+% C^a=(p^a_1,p^a_2,\ldots,p^a_N),
+% \qquad
+% C^b=(p^b_1,p^b_2,\ldots,p^b_N)
+% \end{equation}
+% be two cable configurations with the same number of nodes.
+%  The segment-vector
+% change between them is
+% \begin{equation}
+% \Delta v_k(C^a,C^b)
+% =
+% v_k(C^a)-v_k(C^b),
+% \qquad
+% k=1,\ldots,N-1,
+% \label{eq:gcr_segment_vector_change}
+% \end{equation}
+
 and the curvature change is
 \begin{equation}
 \Delta b_k(C^a,C^b)
@@ -761,7 +782,9 @@ A cable configuration is considered statically admissible with respect to a refe
 % =
 % v_k(C)-v_k(C^{\mathrm{ref}})
 % \]
-Let \(C^{\mathrm{ref}}\) denote the feasible reference configuration used to
+
+Let \(C\) denote the candidate cable configuration and let
+\(C^{\mathrm{ref}}\) denote the feasible reference configuration used to
 evaluate local deformation. To prevent excessive stretching, compression, or
 local rotation, the segment-vector deviation \(\Delta v_k(C,C^{\mathrm{ref}})\)
 defined in \eqref{eq:gcr_segment_vector_change} is bounded as
@@ -823,7 +846,8 @@ s_k(C)=[p_k,p_{k+1}],
 \]
 which prevents collisions along the cable configuration between neighboring nodes.
 
-To measure the safety margin between the cable and the obstacles, we use a signed obstacle distance. For a point \(x\in\mathbb{R}^{2}\), this distance is defined as
+To measure the safety margin between the cable and the obstacles, we use a signed obstacle distance. Let \(\partial\mathcal{O}\) denote the boundary of the
+occupied obstacle region \(\mathcal{O}\). For a point \(x\in\mathbb{R}^{2}\), this distance is defined as
 \begin{equation}
 d_{\mathcal{O}}(x)
 =
@@ -861,6 +885,9 @@ In particular, a negative clearance indicates that at least one sampled point li
 \subsection{Configuration Distance and Path Cost}
 \label{subsec:distance_path_cost}
 
+Let \(C_i\) and \(C_j\) denote two cable configurations, where
+\(p_n^i\) and \(p_n^j\) are the \(n\)-th nodes of \(C_i\) and \(C_j\),
+respectively.
 The distance between two cable configurations is measured by the maximum
 point-wise displacement of corresponding cable nodes:
 \begin{equation}
@@ -887,6 +914,8 @@ C_0=C_{\mathrm{start}},
 C_K=C_{\mathrm{goal}} .
 \label{eq:discrete_cable_path}
 \end{equation}
+Where  \(C_{\mathrm{start}}\) and \(C_{\mathrm{goal}}\) denote the prescribed
+initial and target cable configurations, respectively, and \(\mathcal{P}\) is the discrete path.
 Each consecutive pair \((C_i,C_{i+1})\) defines one local deformation of the
 cable. The geometric length of the path is computed as
 \begin{equation}
